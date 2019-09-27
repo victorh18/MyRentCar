@@ -51,5 +51,23 @@ namespace MyRentCar.UI
             dgvMarcas.DataSource = bsMarcas;
             //dgvMarcas.DataSource = controller.TraerMarcas();
         }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Modelo prueba = bsMarcas.Current as Modelo;
+            prueba.Descripcion = textBox1.Text;
+
+        }
+
+        private void DgvMarcas_DataSourceChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hola");
+
+        }
+
+        private void DgvMarcas_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            MessageBox.Show("Hola");
+        }
     }
 }

@@ -13,3 +13,6 @@ D:\projects\MyRentCar\MyRentCar\MyRentCar\bin\Debug\EntityFramework.xml
 D:\projects\MyRentCar\MyRentCar\MyRentCar\bin\Debug\EntityFramework.SqlServer.xml
 D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.csproj.CopyComplete
 D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.frmMarcas.resources
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.Form1.resources
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmClientes.resources
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.frmVehiculos.resources

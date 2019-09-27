@@ -34,6 +34,7 @@ namespace MyRentCar.Logica.Controladores
         public void Guardar()
         {
             db.SaveChanges();
+            
         }
 
         public void Eliminar(Marca marca)
