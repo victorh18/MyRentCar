@@ -22,10 +22,7 @@ D:\personal\MyRentCar\MyRentCar\MyRentCar\bin\Debug\EntityFramework.xml
 D:\personal\MyRentCar\MyRentCar\MyRentCar\bin\Debug\EntityFramework.SqlServer.xml
 D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.csprojAssemblyReference.cache
 D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.Properties.Resources.resources
-D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.Form1.resources
 D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmClientes.resources
-D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.frmMarcas.resources
-D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.frmVehiculos.resources
 D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.csproj.GenerateResource.cache
 D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.csproj.CoreCompileInputs.cache
 D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.csproj.CopyComplete
@@ -41,3 +38,13 @@ D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frm
 D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmCombustibles.resources
 D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmBusquedaModelo.resources
 D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmVehiculos.resources
+D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmBusquedaMarca.resources
+D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmBusquedaModelo.resources
+D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmCombustibles.resources
+D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmEmpleados.resources
+D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmInspecciones.resources
+D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmMain.resources
+D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmMarcas.resources
+D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmRentas.resources
+D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmTiposVehiculos.resources
+D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmVehiculos.resources

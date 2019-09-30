@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyRentCar.Logica.Controladores;
 using MyRentCar.Data.Modelos;
+using MyRentCar.Utilitarios.DTOs;
 using MyRentCar.Utilitarios.Validaciones;
 
 namespace MyRentCar.UI.Formularios
@@ -26,6 +27,8 @@ namespace MyRentCar.UI.Formularios
             cbxCombustible.ValueMember = "Id";
             LimpiarCampos();
             HabilitarControles(false);
+
+            CargarVehiculosConsultas();
         }
         
         private void LlenarVehiculo(Vehiculo _vehiculo)
@@ -40,8 +43,10 @@ namespace MyRentCar.UI.Formularios
 
         private void MostrarVehiculo(Vehiculo _vehiculo)
         {
+            HabilitarControles(true);
             cbxCombustible.SelectedItem = _vehiculo.TipoCombustible;
             txtMarca.Text = _vehiculo?.Modelo?.Marca?.Descripcion ?? "";
+            txtModelo.Text = _vehiculo?.Modelo?.Descripcion ?? "";
             txtNumeroChasis.Text = _vehiculo?.NumeroChasis ?? "";
             txtNumeroMotor.Text = _vehiculo?.NumeroMotor ?? "";
             txtNumeroPlaca.Text = _vehiculo?.NumeroPlaca ?? "";
@@ -75,7 +80,7 @@ namespace MyRentCar.UI.Formularios
             txtNumeroPlaca.Enabled = valor;
             txtNumeroMotor.Enabled = valor;
             txtDescripcion.Enabled = valor;
-            dgvVehiculos.Enabled = valor;
+            //dgvVehiculos.Enabled = valor;
             
         }
 
@@ -87,6 +92,8 @@ namespace MyRentCar.UI.Formularios
         private void Guardar(Vehiculo _vehiculo)
         {
             controller.Guardar(_vehiculo);
+            MessageBox.Show("El vehículo ha sido guardado correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            CargarVehiculosConsultas();
         }
 
         private void TsbNuevo_Click(object sender, EventArgs e)
@@ -137,6 +144,23 @@ namespace MyRentCar.UI.Formularios
         private void TxtModelo_DoubleClick(object sender, EventArgs e)
         {
             BuscarModelo();
+        }
+
+        private void CargarVehiculosConsultas()
+        {
+            List<VehiculoDTO> vehiculosConsulta = new List<VehiculoDTO>();
+            foreach (Vehiculo v in controller.TraerVehiculos())
+            {
+                vehiculosConsulta.Add(new VehiculoDTO(v));
+            }
+            vehiculoDTOBindingSource.DataSource = vehiculosConsulta;
+        }
+
+        private void dgvVehiculos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            VehiculoDTO vehiculoDTO = vehiculoDTOBindingSource.Current as VehiculoDTO;
+            vehiculo = vehiculoDTO.Vehiculo;
+            MostrarVehiculo(vehiculo);
         }
     }
 }

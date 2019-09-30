@@ -158,6 +158,7 @@
     </Compile>
     <Compile Include="Utilitarios\DTOs\MarcaDTO.cs" />
     <Compile Include="Utilitarios\DTOs\ModeloDTO.cs" />
+    <Compile Include="Utilitarios\DTOs\VehiculoDTO.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesCombustibles.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesMarca.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesModelos.cs" />
@@ -211,7 +212,9 @@
     <None Include="Properties\DataSources\MyRentCar.Data.Modelos.Modelo.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Data.Modelos.TipoCombustible.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Data.Modelos.TipoVehiculo.datasource" />
+    <None Include="Properties\DataSources\MyRentCar.Data.Modelos.Vehiculo.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Utilitarios.DTOs.ModeloDTO.datasource" />
+    <None Include="Properties\DataSources\MyRentCar.Utilitarios.DTOs.VehiculoDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
