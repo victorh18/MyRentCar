@@ -117,7 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="modeloBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="tsMarcas.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tsbNuevo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJKSURBVFhH7Ze9TsNADID7CMw8ASMvwc4jdOlcXoClEjMT
+        c2cWhs6VkJDKBiwsnZC6wAZIVBn6c9h3dnBcX5NeE4RQPsm63p/9NUquaedf4LZAS34XqNtdLpdP0B5Q
+        P4rfAKxWqyEGdZsDanZDaedYMvScuzs/zIPBPShGXdeoJOTP5RbZp2+h4K3/AFiCUk7sqV8S8uZyb4/X
+        7v7iyH29PtNIwBJkpjdn7uHqpBlJyFeQYwktGRNEOR5vRBISXfqMgCyGISXlOKPXS0G8h6nE/sh7KSYp
+        x6x1Wg4afwrURpmk7KOM7jci5zNG0JKxkHJVqfwlwnKbj5f7jSulA69sKlmWvUNzTCo2YWnxAYiFxJrX
+        wfR6vUL0+303m838XKmkXwVYBXRIrHkdjBZkyel06udJ8pSUivgVgFVAh8Sa12GhRSeTCc14uqT1A01E
+        KXtQ9GFehhbEGI/HNOvcer0+I7UAjZtUfYp3kbQEMYbD/ISL/wJtOwetc0/2q0pachxSkpR+KJPDc06O
+        WeuqSFpiMhjSCoBc9LdYHsJynLEks/dwhFhYUjIYUgtA33ybkXKIFJFISfycwlZBBMYKkloOsQTn87lv
+        USxVDikVRGA8l2TkvWkJDgaDXHIfKgkiMJdL8uNOXVMQk6LkvlQWRGC+y3JI2GKjE6eyk6CG9pj8CUEL
+        ytMKJkN5WsFkKE8rmAzlaQWToTx54rqCoTLpLBaLF0yEb8FWoZQYjUZeDnNTmXQgz8abT43Yf0F3BRPx
+        lawDyrX517MlmU7nG8msKyeSJs98AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="TipoVehiculo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tipoVehiculoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>294, 17</value>
+  </metadata>
+  <metadata name="modeloBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>122, 17</value>
   </metadata>
 </root>

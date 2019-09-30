@@ -12,10 +12,7 @@ D:\projects\MyRentCar\MyRentCar\MyRentCar\bin\Debug\EntityFramework.SqlServer.dl
 D:\projects\MyRentCar\MyRentCar\MyRentCar\bin\Debug\EntityFramework.xml
 D:\projects\MyRentCar\MyRentCar\MyRentCar\bin\Debug\EntityFramework.SqlServer.xml
 D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.csproj.CopyComplete
-D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.frmMarcas.resources
-D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.Form1.resources
 D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmClientes.resources
-D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.frmVehiculos.resources
 D:\personal\MyRentCar\MyRentCar\MyRentCar\bin\Debug\MyRentCar.exe.config
 D:\personal\MyRentCar\MyRentCar\MyRentCar\bin\Debug\MyRentCar.exe
 D:\personal\MyRentCar\MyRentCar\MyRentCar\bin\Debug\MyRentCar.pdb
@@ -34,3 +31,13 @@ D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.csproj.CoreCompile
 D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.csproj.CopyComplete
 D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.exe
 D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.pdb
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmEmpleados.resources
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmInspecciones.resources
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmMarcas.resources
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmRentas.resources
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmTiposVehiculos.resources
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmBusquedaMarca.resources
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmMain.resources
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmCombustibles.resources
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmBusquedaModelo.resources
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmVehiculos.resources

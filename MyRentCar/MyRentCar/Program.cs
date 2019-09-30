@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MyRentCar.UI;
+using MyRentCar.UI.Formularios;
 
 namespace MyRentCar
 {
@@ -17,7 +17,7 @@ namespace MyRentCar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMarcas());
+            Application.Run(new frmMain());
         }
     }
 }

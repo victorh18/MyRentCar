@@ -19,6 +19,8 @@ namespace MyRentCar.Data.Modelos
         [Required]
         public string Descripcion { get; set; }
 
+        public bool? Estado { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vehiculo> Vehiculos { get; set; }
     }

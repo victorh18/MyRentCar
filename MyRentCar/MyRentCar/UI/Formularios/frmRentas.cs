@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MyRentCar
+namespace MyRentCar.UI.Formularios
 {
-    public partial class Form1 : Form
+    public partial class frmRentas : Form
     {
-        public Form1()
+        public frmRentas()
         {
             InitializeComponent();
         }

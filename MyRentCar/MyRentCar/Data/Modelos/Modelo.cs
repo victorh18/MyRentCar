@@ -30,6 +30,6 @@ namespace MyRentCar.Data.Modelos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vehiculo> Vehiculos { get; set; }
 
-        public virtual TipoVehiculo TiposVehiculos { get; set; }
+        public virtual TipoVehiculo TipoVehiculo { get; set; }
     }
 }

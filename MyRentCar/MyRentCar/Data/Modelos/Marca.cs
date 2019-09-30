@@ -11,7 +11,7 @@ namespace MyRentCar.Data.Modelos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Marca()
         {
-            Modelos = new HashSet<Modelo>();
+            Modelos = new List<Modelo>();
         }
 
         public int Id { get; set; }

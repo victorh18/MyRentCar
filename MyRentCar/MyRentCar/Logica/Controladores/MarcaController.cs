@@ -25,14 +25,28 @@ namespace MyRentCar.Logica.Controladores
             db.SaveChanges();
         }
 
-        public void Editar(Marca marca)
+        public void Guardar(Marca _marca)
         {
-            db.Entry<Marca>(marca).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
-        }
+            Marca marcaDB = db.Marcas.Include(m => m.Modelos).SingleOrDefault(m => m.Id == _marca.Id);
 
-        public void Guardar()
-        {
+            if (marcaDB != null)
+            {
+                db.Entry(_marca).State = EntityState.Modified;
+                List<Modelo> modelos = db.Modelos.Where(m => m.IdMarca == _marca.Id).ToList();
+                foreach (Modelo mod in modelos)
+                {
+                    if (!_marca.Modelos.Any(m => m.Id == mod.Id))
+                    {
+                        db.Modelos.Remove(mod);
+                    }
+                }
+
+            }
+            else
+            {
+                db.Entry(_marca).State = EntityState.Added;
+            }
+
             db.SaveChanges();
             
         }
@@ -59,11 +73,15 @@ namespace MyRentCar.Logica.Controladores
             return db.Marcas.Local.ToBindingList();
         }
 
-        public Marca devolverMarca()
+        public bool ExisteMarca(Marca _marca)
         {
-            db.Marcas.Load();
-            //db.Modelos.Load();
-            return db.Marcas.FirstOrDefault();
+            return db.Marcas.Any(m => m.Id == _marca.Id);
         }
+
+        public List<TipoVehiculo> TraerTiposVehiculos()
+        {
+            return db.TiposVehiculos.ToList();
+        }
+        
     }
 }

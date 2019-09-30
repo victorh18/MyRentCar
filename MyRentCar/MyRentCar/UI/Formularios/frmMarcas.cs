@@ -7,67 +7,144 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MyRentCar.Logica.Controladores;
 using MyRentCar.Data.Modelos;
-using System.ComponentModel;
+using MyRentCar.Logica.Controladores;
+using MyRentCar.Utilitarios.Validaciones;
 
-namespace MyRentCar.UI
+namespace MyRentCar.UI.Formularios
 {
     public partial class frmMarcas : Form
     {
-        BindingSource bsMarcas;
-        MarcaController controller;
+        private Marca marca;
+        private MarcaController controller;
         public frmMarcas()
         {
             InitializeComponent();
-            
+            controller = new MarcaController();
+            tipoVehiculoBindingSource.DataSource = controller.TraerTiposVehiculos();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void LblTitulo_Click(object sender, EventArgs e)
         {
-            var lol = bsMarcas.List;
-            Marca mm = controller.devolverMarca();
-            mm.Modelos.Clear();
 
-            foreach (Modelo l in lol)
-            {
-                //controller.Agregar(l);
-                //MessageBox.Show(l.Descripcion);
-                mm.Modelos.Add(l);
-            }
-            controller.Guardar();
-            dgvMarcas.Refresh();
+        }
+
+        private void LimpiarCampos()
+        {
+            txtNumeroMarca.Text = "";
+            txtDescripcion.Text = "";
+            chkEstado.Checked = false;
+            modeloBindingSource.DataSource = new BindingList<Modelo>(new List<Modelo>());
             
         }
 
         private void FrmMarcas_Load(object sender, EventArgs e)
         {
-            controller = new MarcaController();
-            bsMarcas = new BindingSource();
-            //bsMarcas.DataSource = controller.TraerMarcas();
-            Marca m = controller.devolverMarca();
-           // bsMarcas.DataSource = m.Modelos.ToList();
-            bsMarcas.DataSource = new BindingList<Modelo>(m.Modelos.ToList());
-            dgvMarcas.DataSource = bsMarcas;
-            //dgvMarcas.DataSource = controller.TraerMarcas();
+            HabilitarControles(false);
+
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void TsbNuevo_Click(object sender, EventArgs e)
         {
-            Modelo prueba = bsMarcas.Current as Modelo;
-            prueba.Descripcion = textBox1.Text;
-
+            NuevaMarca();
         }
-
-        private void DgvMarcas_DataSourceChanged(object sender, EventArgs e)
+        
+        private void NuevaMarca()
         {
-            MessageBox.Show("Hola");
+            HabilitarControles(true);
+            tsbNuevo.Enabled = false;
+            this.marca = new Marca();
+            LimpiarCampos();
+            MostrarMarca(this.marca);
+            chkEstado.Checked = true;
 
         }
 
-        private void DgvMarcas_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void LlenarMarca(Marca _marca)
         {
-            MessageBox.Show("Hola");
+            _marca.Descripcion = txtDescripcion.Text;
+            _marca.Estado = chkEstado.Checked;
+            List<Modelo> modelos = new List<Modelo>();
+            foreach (Modelo m in modeloBindingSource.List)
+            {
+                if (ValidacionesModelos.ValidarModelo(m))
+                {
+                    modelos.Add(m);
+                } 
+            }
+            _marca.Modelos = modelos;
         }
+
+        private void TsbGuardar_Click(object sender, EventArgs e)
+        {
+            if (marca == null)
+            {
+                MessageBox.Show("Debe seleccionar o crear una nueva factura.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                LimpiarCampos();
+                return;
+
+            }
+
+            LlenarMarca(this.marca);
+            controller.Guardar(marca);
+            MessageBox.Show("La marca de vehículo " + marca.Descripcion + " se ha guardado correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            tsbNuevo.Enabled = true;
+
+        }
+
+        private void TsbBuscar_Click(object sender, EventArgs e)
+        {
+            frmBusquedaMarca f = new frmBusquedaMarca();
+            f.ShowDialog();
+            marca = controller.BuscarMarca(f.IdMarca);
+            if (marca != null)
+            {
+                HabilitarControles(true);
+                MostrarMarca(marca);
+            }
+           
+        }
+
+        private void MostrarMarca(Marca _marca)
+        {
+            this.txtNumeroMarca.Text = _marca.Id.ToString();
+            this.txtDescripcion.Text = _marca.Descripcion;
+            this.chkEstado.Checked = _marca.Estado ?? false;
+
+            this.modeloBindingSource.DataSource = new BindingList<Modelo>(_marca.Modelos.ToList());
+            this.dgvModelos.Refresh();
+        }
+
+        private void TsbEliminar_Click(object sender, EventArgs e)
+        {
+            if (marca == null)
+            {
+                MessageBox.Show("Debe seleccionar una marca antes de eliminarla.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                LimpiarCampos();
+                return;
+            }
+
+            if (MessageBox.Show($"¿Está seguro de que desea eliminar la marca {marca?.Descripcion ?? ""}?", "CONFIRMAR ELIMINACIÓN", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                LlenarMarca(marca);
+
+                if (controller.ExisteMarca(marca))
+                {
+                    controller.Eliminar(marca);
+                }
+                LimpiarCampos();
+                MessageBox.Show("La marca ha sido eliminada correctamente.", "REGISTRO ELIMINADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            return;
+        }
+
+        private void HabilitarControles(bool valor)
+        {
+            txtDescripcion.Enabled = valor;
+            chkEstado.Enabled = valor;
+            dgvModelos.Enabled = valor;
+        }
+
+        
     }
 }

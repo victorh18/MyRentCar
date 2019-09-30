@@ -1,4 +1,4 @@
-﻿namespace MyRentCar.UI
+﻿namespace MyRentCar.UI.Formularios
 {
     partial class frmVehiculos
     {
@@ -31,10 +31,10 @@
             this.grbMarca = new System.Windows.Forms.GroupBox();
             this.cbxCombustible = new System.Windows.Forms.ComboBox();
             this.txtNumeroChasis = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtNumeroMotor = new System.Windows.Forms.TextBox();
             this.txtNumeroPlaca = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.chkEstado = new System.Windows.Forms.CheckBox();
             this.lblCombustible = new System.Windows.Forms.Label();
@@ -44,11 +44,15 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblModelo = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsVehiculos = new System.Windows.Forms.ToolStrip();
+            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.dgvVehiculos = new System.Windows.Forms.DataGridView();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.grbMarca.SuspendLayout();
+            this.tsVehiculos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,10 +62,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grbMarca.Controls.Add(this.cbxCombustible);
             this.grbMarca.Controls.Add(this.txtNumeroChasis);
-            this.grbMarca.Controls.Add(this.textBox2);
+            this.grbMarca.Controls.Add(this.txtDescripcion);
             this.grbMarca.Controls.Add(this.txtNumeroMotor);
             this.grbMarca.Controls.Add(this.txtNumeroPlaca);
-            this.grbMarca.Controls.Add(this.textBox1);
+            this.grbMarca.Controls.Add(this.txtModelo);
             this.grbMarca.Controls.Add(this.txtMarca);
             this.grbMarca.Controls.Add(this.chkEstado);
             this.grbMarca.Controls.Add(this.lblCombustible);
@@ -98,15 +102,15 @@
             this.txtNumeroChasis.Size = new System.Drawing.Size(207, 20);
             this.txtNumeroChasis.TabIndex = 13;
             // 
-            // textBox2
+            // txtDescripcion
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(10, 125);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(883, 53);
-            this.textBox2.TabIndex = 12;
+            this.txtDescripcion.Location = new System.Drawing.Point(10, 125);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(883, 53);
+            this.txtDescripcion.TabIndex = 12;
             // 
             // txtNumeroMotor
             // 
@@ -128,15 +132,17 @@
             this.txtNumeroPlaca.Size = new System.Drawing.Size(222, 20);
             this.txtNumeroPlaca.TabIndex = 10;
             // 
-            // textBox1
+            // txtModelo
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtModelo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox1.Location = new System.Drawing.Point(274, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 20);
-            this.textBox1.TabIndex = 9;
+            this.txtModelo.BackColor = System.Drawing.SystemColors.Info;
+            this.txtModelo.Location = new System.Drawing.Point(274, 37);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.ReadOnly = true;
+            this.txtModelo.Size = new System.Drawing.Size(222, 20);
+            this.txtModelo.TabIndex = 9;
+            this.txtModelo.DoubleClick += new System.EventHandler(this.TxtModelo_DoubleClick);
             // 
             // txtMarca
             // 
@@ -144,6 +150,7 @@
             this.txtMarca.BackColor = System.Drawing.SystemColors.Info;
             this.txtMarca.Location = new System.Drawing.Point(10, 37);
             this.txtMarca.Name = "txtMarca";
+            this.txtMarca.ReadOnly = true;
             this.txtMarca.Size = new System.Drawing.Size(222, 20);
             this.txtMarca.TabIndex = 8;
             // 
@@ -153,7 +160,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chkEstado.AutoSize = true;
             this.chkEstado.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.chkEstado.Location = new System.Drawing.Point(799, 64);
+            this.chkEstado.Location = new System.Drawing.Point(799, 62);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(56, 17);
             this.chkEstado.TabIndex = 7;
@@ -202,7 +209,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNumeroChasis.AutoSize = true;
             this.lblNumeroChasis.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblNumeroChasis.Location = new System.Drawing.Point(549, 64);
+            this.lblNumeroChasis.Location = new System.Drawing.Point(543, 63);
             this.lblNumeroChasis.Name = "lblNumeroChasis";
             this.lblNumeroChasis.Size = new System.Drawing.Size(61, 13);
             this.lblNumeroChasis.TabIndex = 3;
@@ -244,13 +251,47 @@
             this.lblMarca.TabIndex = 0;
             this.lblMarca.Text = "Marca:";
             // 
-            // toolStrip1
+            // tsVehiculos
             // 
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(923, 25);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
+            this.tsVehiculos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbNuevo,
+            this.tsbGuardar,
+            this.tsbEliminar});
+            this.tsVehiculos.Location = new System.Drawing.Point(0, 0);
+            this.tsVehiculos.Name = "tsVehiculos";
+            this.tsVehiculos.Size = new System.Drawing.Size(923, 25);
+            this.tsVehiculos.TabIndex = 2;
+            this.tsVehiculos.Text = "toolStrip1";
+            // 
+            // tsbNuevo
+            // 
+            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNuevo.Image = global::MyRentCar.Properties.Resources.Nuevo;
+            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNuevo.Name = "tsbNuevo";
+            this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
+            this.tsbNuevo.Text = "Nuevo";
+            this.tsbNuevo.Click += new System.EventHandler(this.TsbNuevo_Click);
+            // 
+            // tsbGuardar
+            // 
+            this.tsbGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbGuardar.Image = global::MyRentCar.Properties.Resources.Guardar;
+            this.tsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbGuardar.Name = "tsbGuardar";
+            this.tsbGuardar.Size = new System.Drawing.Size(23, 22);
+            this.tsbGuardar.Text = "Guardar";
+            this.tsbGuardar.Click += new System.EventHandler(this.TsbGuardar_Click);
+            // 
+            // tsbEliminar
+            // 
+            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEliminar.Image = global::MyRentCar.Properties.Resources.Cancelar;
+            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEliminar.Name = "tsbEliminar";
+            this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEliminar.Text = "Eliminar";
+            this.tsbEliminar.Click += new System.EventHandler(this.TsbEliminar_Click);
             // 
             // dgvVehiculos
             // 
@@ -288,13 +329,16 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.dgvVehiculos);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.tsVehiculos);
             this.Controls.Add(this.grbMarca);
             this.MinimumSize = new System.Drawing.Size(939, 563);
             this.Name = "frmVehiculos";
             this.Text = "Registro de vehículos";
+            this.Load += new System.EventHandler(this.FrmVehiculos_Load);
             this.grbMarca.ResumeLayout(false);
             this.grbMarca.PerformLayout();
+            this.tsVehiculos.ResumeLayout(false);
+            this.tsVehiculos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -306,10 +350,10 @@
         private System.Windows.Forms.GroupBox grbMarca;
         private System.Windows.Forms.ComboBox cbxCombustible;
         private System.Windows.Forms.TextBox txtNumeroChasis;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtNumeroMotor;
         private System.Windows.Forms.TextBox txtNumeroPlaca;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.CheckBox chkEstado;
         private System.Windows.Forms.Label lblCombustible;
@@ -319,9 +363,12 @@
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblModelo;
         private System.Windows.Forms.Label lblMarca;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tsVehiculos;
         private System.Windows.Forms.DataGridView dgvVehiculos;
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.ToolStripButton tsbGuardar;
+        private System.Windows.Forms.ToolStripButton tsbNuevo;
+        private System.Windows.Forms.ToolStripButton tsbEliminar;
     }
 }

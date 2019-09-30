@@ -29,6 +29,9 @@ namespace MyRentCar.Data.Modelos
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Modelo>().ToTable("Modelos");
+            modelBuilder.Entity<TipoVehiculo>().ToTable("TiposVehiculos");
+            modelBuilder.Entity<TipoCombustible>().ToTable("TiposCombustibles");
+            modelBuilder.Entity<Vehiculo>().ToTable("Vehiculos");
 
             modelBuilder.Entity<Cliente>()
                 .HasMany(e => e.Inspecciones)
@@ -66,8 +69,9 @@ namespace MyRentCar.Data.Modelos
 
             modelBuilder.Entity<Marca>()
                 .HasMany(e => e.Modelos)
-                .WithOptional(e => e.Marca)
-                .HasForeignKey(e => e.IdMarca);
+                .WithRequired(e => e.Marca)
+                .HasForeignKey(e => e.IdMarca)
+                .WillCascadeOnDelete();
 
             modelBuilder.Entity<Modelo>()
                 .HasMany(e => e.Vehiculos)
@@ -76,7 +80,7 @@ namespace MyRentCar.Data.Modelos
 
             modelBuilder.Entity<TipoCombustible>()
                 .HasMany(e => e.Vehiculos)
-                .WithOptional(e => e.TiposCombustibles)
+                .WithOptional(e => e.TipoCombustible)
                 .HasForeignKey(e => e.IdCombustible);
 
             modelBuilder.Entity<TipoDocumento>()
@@ -90,7 +94,7 @@ namespace MyRentCar.Data.Modelos
 
             modelBuilder.Entity<TipoVehiculo>()
                 .HasMany(e => e.Modelos)
-                .WithOptional(e => e.TiposVehiculos)
+                .WithOptional(e => e.TipoVehiculo)
                 .HasForeignKey(e => e.IdTipoVehiculo);
 
             modelBuilder.Entity<Vehiculo>()
