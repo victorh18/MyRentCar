@@ -44,5 +44,12 @@ namespace MyRentCar.UI.Formularios
             f.MdiParent = this;
             f.Show();
         }
+
+        private void EmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEmpleados f = new frmEmpleados();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsClientes = new System.Windows.Forms.ToolStrip();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.grbCliente = new System.Windows.Forms.GroupBox();
             this.cbxTipoDocumento = new System.Windows.Forms.ComboBox();
             this.nudLimiteCredito = new System.Windows.Forms.NumericUpDown();
             this.txtTarjetaCredito = new System.Windows.Forms.TextBox();
-            this.txtNumeroDocumento = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.chkEstado = new System.Windows.Forms.CheckBox();
             this.lblLimiteCredito = new System.Windows.Forms.Label();
@@ -46,19 +45,34 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txtNumeroDocumento = new System.Windows.Forms.MaskedTextBox();
+            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.clienteDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nombreClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.tsClientes.SuspendLayout();
             this.grbCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudLimiteCredito)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // tsClientes
             // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(920, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
+            this.tsClientes.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.tsClientes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbNuevo,
+            this.tsbGuardar,
+            this.tsbEliminar});
+            this.tsClientes.Location = new System.Drawing.Point(0, 0);
+            this.tsClientes.Name = "tsClientes";
+            this.tsClientes.Size = new System.Drawing.Size(920, 31);
+            this.tsClientes.TabIndex = 0;
+            this.tsClientes.Text = "Clientes";
             // 
             // lblTitulo
             // 
@@ -72,10 +86,10 @@
             // 
             // grbCliente
             // 
+            this.grbCliente.Controls.Add(this.txtNumeroDocumento);
             this.grbCliente.Controls.Add(this.cbxTipoDocumento);
             this.grbCliente.Controls.Add(this.nudLimiteCredito);
             this.grbCliente.Controls.Add(this.txtTarjetaCredito);
-            this.grbCliente.Controls.Add(this.txtNumeroDocumento);
             this.grbCliente.Controls.Add(this.txtNombre);
             this.grbCliente.Controls.Add(this.chkEstado);
             this.grbCliente.Controls.Add(this.lblLimiteCredito);
@@ -116,14 +130,6 @@
             this.txtTarjetaCredito.Name = "txtTarjetaCredito";
             this.txtTarjetaCredito.Size = new System.Drawing.Size(285, 20);
             this.txtTarjetaCredito.TabIndex = 8;
-            // 
-            // txtNumeroDocumento
-            // 
-            this.txtNumeroDocumento.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.txtNumeroDocumento.Location = new System.Drawing.Point(323, 37);
-            this.txtNumeroDocumento.Name = "txtNumeroDocumento";
-            this.txtNumeroDocumento.Size = new System.Drawing.Size(252, 20);
-            this.txtNumeroDocumento.TabIndex = 7;
             // 
             // txtNombre
             // 
@@ -197,7 +203,18 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nombreClienteDataGridViewTextBoxColumn,
+            this.tipoDocumentoDataGridViewTextBoxColumn,
+            this.numeroDocumentoDataGridViewTextBoxColumn,
+            this.estadoDataGridViewCheckBoxColumn});
+            this.dataGridView1.DataSource = this.clienteDTOBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(13, 267);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(889, 171);
@@ -206,7 +223,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(13, 240);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(891, 20);
             this.textBox1.TabIndex = 4;
@@ -217,6 +234,74 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // txtNumeroDocumento
+            // 
+            this.txtNumeroDocumento.Location = new System.Drawing.Point(323, 36);
+            this.txtNumeroDocumento.Name = "txtNumeroDocumento";
+            this.txtNumeroDocumento.Size = new System.Drawing.Size(252, 20);
+            this.txtNumeroDocumento.TabIndex = 11;
+            // 
+            // tsbNuevo
+            // 
+            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNuevo.Image = global::MyRentCar.Properties.Resources.Nuevo;
+            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNuevo.Name = "tsbNuevo";
+            this.tsbNuevo.Size = new System.Drawing.Size(28, 28);
+            this.tsbNuevo.Text = "Nuevo";
+            // 
+            // tsbGuardar
+            // 
+            this.tsbGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbGuardar.Image = global::MyRentCar.Properties.Resources.Guardar;
+            this.tsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbGuardar.Name = "tsbGuardar";
+            this.tsbGuardar.Size = new System.Drawing.Size(28, 28);
+            this.tsbGuardar.Text = "Guardar";
+            // 
+            // tsbEliminar
+            // 
+            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEliminar.Image = global::MyRentCar.Properties.Resources.Cancelar;
+            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEliminar.Name = "tsbEliminar";
+            this.tsbEliminar.Size = new System.Drawing.Size(28, 28);
+            this.tsbEliminar.Text = "Eliminar";
+            // 
+            // clienteDTOBindingSource
+            // 
+            this.clienteDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.ClienteDTO);
+            // 
+            // nombreClienteDataGridViewTextBoxColumn
+            // 
+            this.nombreClienteDataGridViewTextBoxColumn.DataPropertyName = "NombreCliente";
+            this.nombreClienteDataGridViewTextBoxColumn.HeaderText = "NOMBRE";
+            this.nombreClienteDataGridViewTextBoxColumn.Name = "nombreClienteDataGridViewTextBoxColumn";
+            this.nombreClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreClienteDataGridViewTextBoxColumn.Width = 400;
+            // 
+            // tipoDocumentoDataGridViewTextBoxColumn
+            // 
+            this.tipoDocumentoDataGridViewTextBoxColumn.DataPropertyName = "TipoDocumento";
+            this.tipoDocumentoDataGridViewTextBoxColumn.HeaderText = "TIPO DOCUMENTO";
+            this.tipoDocumentoDataGridViewTextBoxColumn.Name = "tipoDocumentoDataGridViewTextBoxColumn";
+            this.tipoDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tipoDocumentoDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // numeroDocumentoDataGridViewTextBoxColumn
+            // 
+            this.numeroDocumentoDataGridViewTextBoxColumn.DataPropertyName = "NumeroDocumento";
+            this.numeroDocumentoDataGridViewTextBoxColumn.HeaderText = "DOCUMENTO";
+            this.numeroDocumentoDataGridViewTextBoxColumn.Name = "numeroDocumentoDataGridViewTextBoxColumn";
+            this.numeroDocumentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // estadoDataGridViewCheckBoxColumn
+            // 
+            this.estadoDataGridViewCheckBoxColumn.DataPropertyName = "Estado";
+            this.estadoDataGridViewCheckBoxColumn.HeaderText = "ACTIVO";
+            this.estadoDataGridViewCheckBoxColumn.Name = "estadoDataGridViewCheckBoxColumn";
+            this.estadoDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,13 +311,17 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.grbCliente);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.tsClientes);
             this.Name = "frmClientes";
             this.Text = "frmClientes";
+            this.Load += new System.EventHandler(this.FrmClientes_Load);
+            this.tsClientes.ResumeLayout(false);
+            this.tsClientes.PerformLayout();
             this.grbCliente.ResumeLayout(false);
             this.grbCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudLimiteCredito)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,7 +329,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tsClientes;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.GroupBox grbCliente;
         private System.Windows.Forms.TextBox txtNombre;
@@ -250,12 +339,20 @@
         private System.Windows.Forms.Label lblTipoDocumento;
         private System.Windows.Forms.Label lblNumeroDocumento;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox txtNumeroDocumento;
         private System.Windows.Forms.ComboBox cbxTipoDocumento;
         private System.Windows.Forms.NumericUpDown nudLimiteCredito;
         private System.Windows.Forms.TextBox txtTarjetaCredito;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.MaskedTextBox txtNumeroDocumento;
+        private System.Windows.Forms.ToolStripButton tsbNuevo;
+        private System.Windows.Forms.ToolStripButton tsbGuardar;
+        private System.Windows.Forms.ToolStripButton tsbEliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreClienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDocumentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numeroDocumentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.BindingSource clienteDTOBindingSource;
     }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MyRentCar.Data.Modelos;
+using MyRentCar.Logica.Controladores;
 
 namespace MyRentCar.UI.Formularios
 {
@@ -18,6 +20,11 @@ namespace MyRentCar.UI.Formularios
         }
 
         private void LblTipoDocumento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmClientes_Load(object sender, EventArgs e)
         {
 
         }

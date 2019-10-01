@@ -75,6 +75,8 @@ namespace MyRentCar.UI.Formularios
 
         private void HabilitarControles(bool valor)
         {
+            txtMarca.Enabled = valor;
+            txtModelo.Enabled = valor;
             cbxCombustible.Enabled = valor;
             txtNumeroChasis.Enabled = valor;
             txtNumeroPlaca.Enabled = valor;

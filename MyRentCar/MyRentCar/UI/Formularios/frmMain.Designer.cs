@@ -34,6 +34,7 @@
             this.mnuTiposVehiculos = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCombustibles = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuVehiculos = new System.Windows.Forms.ToolStripMenuItem();
+            this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,8 @@
             this.mnuMarcas,
             this.mnuTiposVehiculos,
             this.mnuCombustibles,
-            this.mnuVehiculos});
+            this.mnuVehiculos,
+            this.empleadosToolStripMenuItem});
             this.mnuMantenimientos.Name = "mnuMantenimientos";
             this.mnuMantenimientos.Size = new System.Drawing.Size(106, 20);
             this.mnuMantenimientos.Text = "Mantenimientos";
@@ -86,6 +88,13 @@
             this.mnuVehiculos.Text = "Vehículos";
             this.mnuVehiculos.Click += new System.EventHandler(this.MnuVehiculos_Click);
             // 
+            // empleadosToolStripMenuItem
+            // 
+            this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.empleadosToolStripMenuItem.Text = "Empleados";
+            this.empleadosToolStripMenuItem.Click += new System.EventHandler(this.EmpleadosToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,5 +121,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuTiposVehiculos;
         private System.Windows.Forms.ToolStripMenuItem mnuCombustibles;
         private System.Windows.Forms.ToolStripMenuItem mnuVehiculos;
+        private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
     }
 }

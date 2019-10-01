@@ -83,7 +83,9 @@
     <Compile Include="Data\Modelos\TipoInspeccion.cs" />
     <Compile Include="Data\Modelos\TipoVehiculo.cs" />
     <Compile Include="Data\Modelos\Vehiculo.cs" />
+    <Compile Include="Logica\Controladores\ClienteController.cs" />
     <Compile Include="Logica\Controladores\CombustiblesController.cs" />
+    <Compile Include="Logica\Controladores\EmpleadoController.cs" />
     <Compile Include="Logica\Controladores\MarcaController.cs" />
     <Compile Include="Logica\Controladores\ModeloController.cs" />
     <Compile Include="Logica\Controladores\TiposVehiculosController.cs" />
@@ -159,6 +161,7 @@
     <Compile Include="Utilitarios\DTOs\MarcaDTO.cs" />
     <Compile Include="Utilitarios\DTOs\ModeloDTO.cs" />
     <Compile Include="Utilitarios\DTOs\VehiculoDTO.cs" />
+    <Compile Include="Utilitarios\DTOs\ClienteDTO.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesCombustibles.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesMarca.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesModelos.cs" />
@@ -208,11 +211,13 @@
       <DependentUpon>frmVehiculos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\MyRentCar.Data.Modelos.Empleado.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Data.Modelos.Marca.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Data.Modelos.Modelo.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Data.Modelos.TipoCombustible.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Data.Modelos.TipoVehiculo.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Data.Modelos.Vehiculo.datasource" />
+    <None Include="Properties\DataSources\MyRentCar.Utilitarios.DTOs.ClienteDTO.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Utilitarios.DTOs.ModeloDTO.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Utilitarios.DTOs.VehiculoDTO.datasource" />
     <None Include="Properties\Settings.settings">

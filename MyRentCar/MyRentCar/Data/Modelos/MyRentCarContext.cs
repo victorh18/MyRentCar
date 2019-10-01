@@ -32,6 +32,7 @@ namespace MyRentCar.Data.Modelos
             modelBuilder.Entity<TipoVehiculo>().ToTable("TiposVehiculos");
             modelBuilder.Entity<TipoCombustible>().ToTable("TiposCombustibles");
             modelBuilder.Entity<Vehiculo>().ToTable("Vehiculos");
+            modelBuilder.Entity<Empleado>().ToTable("Empleados");
 
             modelBuilder.Entity<Cliente>()
                 .HasMany(e => e.Inspecciones)
@@ -85,7 +86,7 @@ namespace MyRentCar.Data.Modelos
 
             modelBuilder.Entity<TipoDocumento>()
                 .HasOptional(e => e.Clientes)
-                .WithRequired(e => e.TiposDocumentos);
+                .WithRequired(e => e.TipoDocumento);
 
             modelBuilder.Entity<TipoInspeccion>()
                 .HasMany(e => e.Inspecciones)
