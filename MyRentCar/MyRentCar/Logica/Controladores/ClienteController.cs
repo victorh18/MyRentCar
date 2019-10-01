@@ -43,5 +43,10 @@ namespace MyRentCar.Logica.Controladores
             db.SaveChanges();
             return;
         }
+
+        public List<TipoDocumento> TraerTiposDocumentos()
+        {
+            return db.TiposDocumentos.ToList();
+        }
     }
 }

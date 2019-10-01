@@ -13,6 +13,6 @@ namespace MyRentCar.Data.Modelos
         [Required]
         public string Descripcion { get; set; }
 
-        public virtual Cliente Clientes { get; set; }
+        public virtual ICollection<Cliente> Clientes { get; set; }
     }
 }

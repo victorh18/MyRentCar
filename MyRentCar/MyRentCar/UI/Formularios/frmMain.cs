@@ -58,5 +58,12 @@ namespace MyRentCar.UI.Formularios
             f.MdiParent = this;
             f.Show();
         }
+
+        private void mnuClientes_Click(object sender, EventArgs e)
+        {
+            frmClientes f = new frmClientes();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

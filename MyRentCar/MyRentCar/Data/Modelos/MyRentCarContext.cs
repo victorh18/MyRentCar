@@ -86,8 +86,9 @@ namespace MyRentCar.Data.Modelos
                 .HasForeignKey(e => e.IdCombustible);
 
             modelBuilder.Entity<TipoDocumento>()
-                .HasOptional(e => e.Clientes)
-                .WithRequired(e => e.TipoDocumento);
+                .HasMany(e => e.Clientes)
+                .WithOptional(e => e.TipoDocumento)
+                .HasForeignKey(e => e.IdTipoDocumento);
 
             modelBuilder.Entity<TipoInspeccion>()
                 .HasMany(e => e.Inspecciones)

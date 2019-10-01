@@ -23,7 +23,7 @@ namespace MyRentCar.Data.Modelos
         [Required]
         public string NumeroDocumento { get; set; }
 
-        public string IdTipoDocumento { get; set; }
+        public int? IdTipoDocumento { get; set; }
 
         public string NumeroTarjetaCredito { get; set; }
 
