@@ -32,6 +32,7 @@ namespace MyRentCar.Logica.Controladores
 
         public void Guardar()
         {
+
             db.SaveChanges();
             return;
         }

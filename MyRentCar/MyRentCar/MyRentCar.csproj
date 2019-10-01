@@ -88,6 +88,7 @@
     <Compile Include="Logica\Controladores\EmpleadoController.cs" />
     <Compile Include="Logica\Controladores\MarcaController.cs" />
     <Compile Include="Logica\Controladores\ModeloController.cs" />
+    <Compile Include="Logica\Controladores\TipoDocumentoController.cs" />
     <Compile Include="Logica\Controladores\TiposVehiculosController.cs" />
     <Compile Include="Logica\Controladores\VehiculosController.cs" />
     <Compile Include="Program.cs" />
@@ -146,6 +147,12 @@
     <Compile Include="UI\Formularios\frmRentas.Designer.cs">
       <DependentUpon>frmRentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Formularios\frmTiposDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formularios\frmTiposDocumentos.Designer.cs">
+      <DependentUpon>frmTiposDocumentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Formularios\frmTiposVehiculos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +172,7 @@
     <Compile Include="Utilitarios\Validaciones\ValidacionesCombustibles.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesMarca.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesModelos.cs" />
+    <Compile Include="Utilitarios\Validaciones\ValidacionesTipoDocumento.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesTiposVehiculos.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesVehiculos.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -204,6 +212,9 @@
     <EmbeddedResource Include="UI\Formularios\frmRentas.resx">
       <DependentUpon>frmRentas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formularios\frmTiposDocumentos.resx">
+      <DependentUpon>frmTiposDocumentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Formularios\frmTiposVehiculos.resx">
       <DependentUpon>frmTiposVehiculos.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +226,7 @@
     <None Include="Properties\DataSources\MyRentCar.Data.Modelos.Marca.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Data.Modelos.Modelo.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Data.Modelos.TipoCombustible.datasource" />
+    <None Include="Properties\DataSources\MyRentCar.Data.Modelos.TipoDocumento.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Data.Modelos.TipoVehiculo.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Data.Modelos.Vehiculo.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Utilitarios.DTOs.ClienteDTO.datasource" />

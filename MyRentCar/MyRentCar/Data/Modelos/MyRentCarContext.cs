@@ -33,6 +33,7 @@ namespace MyRentCar.Data.Modelos
             modelBuilder.Entity<TipoCombustible>().ToTable("TiposCombustibles");
             modelBuilder.Entity<Vehiculo>().ToTable("Vehiculos");
             modelBuilder.Entity<Empleado>().ToTable("Empleados");
+            modelBuilder.Entity<TipoDocumento>().ToTable("TiposDocumentos");
 
             modelBuilder.Entity<Cliente>()
                 .HasMany(e => e.Inspecciones)
