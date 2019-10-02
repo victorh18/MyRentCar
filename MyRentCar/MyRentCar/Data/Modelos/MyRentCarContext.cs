@@ -42,7 +42,7 @@ namespace MyRentCar.Data.Modelos
 
             modelBuilder.Entity<Cliente>()
                 .HasMany(e => e.Rentas)
-                .WithOptional(e => e.Clientes)
+                .WithOptional(e => e.Cliente)
                 .HasForeignKey(e => e.IdCliente);
 
             modelBuilder.Entity<Empleado>()
@@ -56,12 +56,12 @@ namespace MyRentCar.Data.Modelos
 
             modelBuilder.Entity<Empleado>()
                 .HasMany(e => e.Rentas)
-                .WithOptional(e => e.Empleados)
+                .WithOptional(e => e.Empleado)
                 .HasForeignKey(e => e.IdEmpleado);
 
             modelBuilder.Entity<EstadosRentas>()
                 .HasMany(e => e.Rentas)
-                .WithOptional(e => e.EstadosRentas)
+                .WithOptional(e => e.EstadoRenta)
                 .HasForeignKey(e => e.IdEstado);
 
             modelBuilder.Entity<Inspeccion>()
@@ -102,7 +102,7 @@ namespace MyRentCar.Data.Modelos
 
             modelBuilder.Entity<Vehiculo>()
                 .HasMany(e => e.Rentas)
-                .WithOptional(e => e.Vehiculos)
+                .WithOptional(e => e.Vehiculo)
                 .HasForeignKey(e => e.IdVehiculo);
         }
     }

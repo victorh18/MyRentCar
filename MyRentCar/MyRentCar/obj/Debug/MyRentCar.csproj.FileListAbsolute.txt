@@ -49,3 +49,4 @@ D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.csproj.CoreCompile
 D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.csproj.CopyComplete
 D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.exe
 D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.pdb
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmTiposDocumentos.resources

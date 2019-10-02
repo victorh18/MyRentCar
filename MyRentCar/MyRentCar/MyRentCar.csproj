@@ -88,6 +88,7 @@
     <Compile Include="Logica\Controladores\EmpleadoController.cs" />
     <Compile Include="Logica\Controladores\MarcaController.cs" />
     <Compile Include="Logica\Controladores\ModeloController.cs" />
+    <Compile Include="Logica\Controladores\RentaController.cs" />
     <Compile Include="Logica\Controladores\TipoDocumentoController.cs" />
     <Compile Include="Logica\Controladores\TiposVehiculosController.cs" />
     <Compile Include="Logica\Controladores\VehiculosController.cs" />
@@ -167,6 +168,7 @@
     </Compile>
     <Compile Include="Utilitarios\DTOs\MarcaDTO.cs" />
     <Compile Include="Utilitarios\DTOs\ModeloDTO.cs" />
+    <Compile Include="Utilitarios\DTOs\RentaDTO.cs" />
     <Compile Include="Utilitarios\DTOs\VehiculoDTO.cs" />
     <Compile Include="Utilitarios\DTOs\ClienteDTO.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesCombustibles.cs" />
@@ -231,6 +233,7 @@
     <None Include="Properties\DataSources\MyRentCar.Data.Modelos.Vehiculo.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Utilitarios.DTOs.ClienteDTO.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Utilitarios.DTOs.ModeloDTO.datasource" />
+    <None Include="Properties\DataSources\MyRentCar.Utilitarios.DTOs.RentaDTO.datasource" />
     <None Include="Properties\DataSources\MyRentCar.Utilitarios.DTOs.VehiculoDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

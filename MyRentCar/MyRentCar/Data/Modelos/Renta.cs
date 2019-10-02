@@ -22,16 +22,18 @@ namespace MyRentCar.Data.Modelos
 
         public decimal? MontoDia { get; set; }
 
+        public int? DiasRenta { get; set; }
+
         public string Comentario { get; set; }
 
         public int? IdEstado { get; set; }
 
-        public virtual Cliente Clientes { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
-        public virtual Empleado Empleados { get; set; }
+        public virtual Empleado Empleado { get; set; }
 
-        public virtual EstadosRentas EstadosRentas { get; set; }
+        public virtual EstadosRentas EstadoRenta { get; set; }
 
-        public virtual Vehiculo Vehiculos { get; set; }
+        public virtual Vehiculo Vehiculo { get; set; }
     }
 }

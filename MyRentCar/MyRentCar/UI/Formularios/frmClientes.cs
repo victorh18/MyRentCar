@@ -97,7 +97,7 @@ namespace MyRentCar.UI.Formularios
             {
                 clientesConsulta.Add(new ClienteDTO(c));
             }
-            dgvClientesConsulta.DataSource = clientesConsulta;
+            clienteDTOBindingSource.DataSource = clientesConsulta;
             
         }
 
@@ -118,7 +118,8 @@ namespace MyRentCar.UI.Formularios
                 {
                     controller.Guardar(this.cliente);
                 }
-                MessageBox.Show("Los datos del cliente han sido guardados correctamente.");
+                MessageBox.Show("Los datos del cliente han sido guardados correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarClientesConsulta();
             }
         }
 
@@ -135,6 +136,30 @@ namespace MyRentCar.UI.Formularios
                 return false;
             }
             return true;
+        }
+
+        private void DgvClientesConsulta_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.cliente = (clienteDTOBindingSource.Current as ClienteDTO).Cliente;
+            HabilitarControles(true);
+            MostrarCliente(this.cliente);
+        }
+
+        private void TsbEliminar_Click(object sender, EventArgs e)
+        {
+            Eliminar(this.cliente);
+        }
+
+        private void Eliminar(Cliente cliente)
+        {
+            if (MessageBox.Show($"¿Está seguro de que desea eliminar al cliente actual {cliente?.Nombre}?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                controller.Eliminar(cliente);
+                LimpiarControles();
+                CargarClientesConsulta();
+                HabilitarControles(false);
+            }
+            
         }
     }
 }

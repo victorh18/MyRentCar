@@ -46,5 +46,12 @@ namespace MyRentCar.Utilitarios.DTOs
             }
         }
 
+        public Cliente Cliente
+        {
+            get
+            {
+                return cliente;
+            }
+        }
     }
 }

@@ -35,6 +35,7 @@
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.grbCliente = new System.Windows.Forms.GroupBox();
+            this.txtNumeroDocumento = new System.Windows.Forms.TextBox();
             this.cbxTipoDocumento = new System.Windows.Forms.ComboBox();
             this.nudLimiteCredito = new System.Windows.Forms.NumericUpDown();
             this.txtTarjetaCredito = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@
             this.dgvClientesConsulta = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.txtNumeroDocumento = new System.Windows.Forms.TextBox();
             this.nombreClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,8 +70,7 @@
             this.tsbEliminar});
             this.tsClientes.Location = new System.Drawing.Point(0, 0);
             this.tsClientes.Name = "tsClientes";
-            this.tsClientes.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.tsClientes.Size = new System.Drawing.Size(1380, 31);
+            this.tsClientes.Size = new System.Drawing.Size(920, 31);
             this.tsClientes.TabIndex = 0;
             this.tsClientes.Text = "Clientes";
             // 
@@ -103,14 +102,14 @@
             this.tsbEliminar.Name = "tsbEliminar";
             this.tsbEliminar.Size = new System.Drawing.Size(28, 28);
             this.tsbEliminar.Text = "Eliminar";
+            this.tsbEliminar.Click += new System.EventHandler(this.TsbEliminar_Click);
             // 
             // lblTitulo
             // 
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(18, 38);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitulo.Location = new System.Drawing.Point(12, 25);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(1344, 82);
+            this.lblTitulo.Size = new System.Drawing.Size(896, 53);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "REGISTRO DE CLIENTES";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -129,61 +128,62 @@
             this.grbCliente.Controls.Add(this.lblNumeroDocumento);
             this.grbCliente.Controls.Add(this.lblNombre);
             this.grbCliente.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.grbCliente.Location = new System.Drawing.Point(24, 126);
-            this.grbCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grbCliente.Location = new System.Drawing.Point(16, 82);
             this.grbCliente.Name = "grbCliente";
-            this.grbCliente.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.grbCliente.Size = new System.Drawing.Size(1338, 183);
+            this.grbCliente.Size = new System.Drawing.Size(892, 119);
             this.grbCliente.TabIndex = 2;
             this.grbCliente.TabStop = false;
             this.grbCliente.Text = "Cliente";
+            // 
+            // txtNumeroDocumento
+            // 
+            this.txtNumeroDocumento.Location = new System.Drawing.Point(323, 35);
+            this.txtNumeroDocumento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNumeroDocumento.Name = "txtNumeroDocumento";
+            this.txtNumeroDocumento.Size = new System.Drawing.Size(253, 20);
+            this.txtNumeroDocumento.TabIndex = 11;
             // 
             // cbxTipoDocumento
             // 
             this.cbxTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTipoDocumento.ForeColor = System.Drawing.SystemColors.Desktop;
             this.cbxTipoDocumento.FormattingEnabled = true;
-            this.cbxTipoDocumento.Location = new System.Drawing.Point(914, 54);
-            this.cbxTipoDocumento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbxTipoDocumento.Location = new System.Drawing.Point(609, 35);
             this.cbxTipoDocumento.Name = "cbxTipoDocumento";
-            this.cbxTipoDocumento.Size = new System.Drawing.Size(414, 28);
+            this.cbxTipoDocumento.Size = new System.Drawing.Size(277, 21);
             this.cbxTipoDocumento.TabIndex = 10;
             // 
             // nudLimiteCredito
             // 
             this.nudLimiteCredito.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.nudLimiteCredito.Location = new System.Drawing.Point(484, 128);
-            this.nudLimiteCredito.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nudLimiteCredito.Location = new System.Drawing.Point(323, 83);
             this.nudLimiteCredito.Name = "nudLimiteCredito";
-            this.nudLimiteCredito.Size = new System.Drawing.Size(378, 26);
+            this.nudLimiteCredito.Size = new System.Drawing.Size(252, 20);
             this.nudLimiteCredito.TabIndex = 9;
             // 
             // txtTarjetaCredito
             // 
             this.txtTarjetaCredito.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.txtTarjetaCredito.Location = new System.Drawing.Point(20, 129);
-            this.txtTarjetaCredito.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTarjetaCredito.Location = new System.Drawing.Point(13, 84);
             this.txtTarjetaCredito.Name = "txtTarjetaCredito";
-            this.txtTarjetaCredito.Size = new System.Drawing.Size(426, 26);
+            this.txtTarjetaCredito.Size = new System.Drawing.Size(285, 20);
             this.txtTarjetaCredito.TabIndex = 8;
             // 
             // txtNombre
             // 
             this.txtNombre.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.txtNombre.Location = new System.Drawing.Point(20, 57);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNombre.Location = new System.Drawing.Point(13, 37);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(426, 26);
+            this.txtNombre.Size = new System.Drawing.Size(285, 20);
             this.txtNombre.TabIndex = 6;
             // 
             // chkEstado
             // 
             this.chkEstado.AutoSize = true;
             this.chkEstado.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.chkEstado.Location = new System.Drawing.Point(1106, 128);
-            this.chkEstado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chkEstado.Location = new System.Drawing.Point(737, 83);
             this.chkEstado.Name = "chkEstado";
-            this.chkEstado.Size = new System.Drawing.Size(78, 24);
+            this.chkEstado.Size = new System.Drawing.Size(56, 17);
             this.chkEstado.TabIndex = 5;
             this.chkEstado.Text = "Activo";
             this.chkEstado.UseVisualStyleBackColor = true;
@@ -192,10 +192,9 @@
             // 
             this.lblLimiteCredito.AutoSize = true;
             this.lblLimiteCredito.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblLimiteCredito.Location = new System.Drawing.Point(480, 103);
-            this.lblLimiteCredito.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLimiteCredito.Location = new System.Drawing.Point(320, 67);
             this.lblLimiteCredito.Name = "lblLimiteCredito";
-            this.lblLimiteCredito.Size = new System.Drawing.Size(110, 20);
+            this.lblLimiteCredito.Size = new System.Drawing.Size(75, 13);
             this.lblLimiteCredito.TabIndex = 4;
             this.lblLimiteCredito.Text = "Límite Crédito:";
             // 
@@ -203,10 +202,9 @@
             // 
             this.lblTarjetaCredito.AutoSize = true;
             this.lblTarjetaCredito.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblTarjetaCredito.Location = new System.Drawing.Point(15, 103);
-            this.lblTarjetaCredito.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTarjetaCredito.Location = new System.Drawing.Point(10, 67);
             this.lblTarjetaCredito.Name = "lblTarjetaCredito";
-            this.lblTarjetaCredito.Size = new System.Drawing.Size(117, 20);
+            this.lblTarjetaCredito.Size = new System.Drawing.Size(79, 13);
             this.lblTarjetaCredito.TabIndex = 3;
             this.lblTarjetaCredito.Text = "Tarjeta Crédito:";
             // 
@@ -214,10 +212,9 @@
             // 
             this.lblTipoDocumento.AutoSize = true;
             this.lblTipoDocumento.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblTipoDocumento.Location = new System.Drawing.Point(909, 31);
-            this.lblTipoDocumento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTipoDocumento.Location = new System.Drawing.Point(606, 20);
             this.lblTipoDocumento.Name = "lblTipoDocumento";
-            this.lblTipoDocumento.Size = new System.Drawing.Size(130, 20);
+            this.lblTipoDocumento.Size = new System.Drawing.Size(89, 13);
             this.lblTipoDocumento.TabIndex = 2;
             this.lblTipoDocumento.Text = "Tipo Documento:";
             this.lblTipoDocumento.Click += new System.EventHandler(this.LblTipoDocumento_Click);
@@ -226,10 +223,9 @@
             // 
             this.lblNumeroDocumento.AutoSize = true;
             this.lblNumeroDocumento.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblNumeroDocumento.Location = new System.Drawing.Point(480, 31);
-            this.lblNumeroDocumento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNumeroDocumento.Location = new System.Drawing.Point(320, 20);
             this.lblNumeroDocumento.Name = "lblNumeroDocumento";
-            this.lblNumeroDocumento.Size = new System.Drawing.Size(124, 20);
+            this.lblNumeroDocumento.Size = new System.Drawing.Size(85, 13);
             this.lblNumeroDocumento.TabIndex = 1;
             this.lblNumeroDocumento.Text = "No. Documento:";
             // 
@@ -237,10 +233,9 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblNombre.Location = new System.Drawing.Point(10, 31);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Location = new System.Drawing.Point(7, 20);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(69, 20);
+            this.lblNombre.Size = new System.Drawing.Size(47, 13);
             this.lblNombre.TabIndex = 0;
             this.lblNombre.Text = "Nombre:";
             // 
@@ -258,17 +253,18 @@
             this.numeroDocumentoDataGridViewTextBoxColumn,
             this.estadoDataGridViewCheckBoxColumn});
             this.dgvClientesConsulta.DataSource = this.clienteDTOBindingSource;
-            this.dgvClientesConsulta.Location = new System.Drawing.Point(20, 411);
-            this.dgvClientesConsulta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvClientesConsulta.Location = new System.Drawing.Point(13, 267);
             this.dgvClientesConsulta.Name = "dgvClientesConsulta";
-            this.dgvClientesConsulta.Size = new System.Drawing.Size(1334, 263);
+            this.dgvClientesConsulta.Size = new System.Drawing.Size(889, 171);
             this.dgvClientesConsulta.TabIndex = 3;
+            this.dgvClientesConsulta.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClientesConsulta_CellDoubleClick);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(20, 369);
+            this.textBox1.Location = new System.Drawing.Point(13, 240);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1334, 26);
+            this.textBox1.Size = new System.Drawing.Size(891, 20);
             this.textBox1.TabIndex = 4;
             // 
             // contextMenuStrip1
@@ -276,13 +272,6 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // txtNumeroDocumento
-            // 
-            this.txtNumeroDocumento.Location = new System.Drawing.Point(484, 54);
-            this.txtNumeroDocumento.Name = "txtNumeroDocumento";
-            this.txtNumeroDocumento.Size = new System.Drawing.Size(378, 26);
-            this.txtNumeroDocumento.TabIndex = 11;
             // 
             // nombreClienteDataGridViewTextBoxColumn
             // 
@@ -321,15 +310,14 @@
             // 
             // frmClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1380, 692);
+            this.ClientSize = new System.Drawing.Size(920, 450);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgvClientesConsulta);
             this.Controls.Add(this.grbCliente);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.tsClientes);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmClientes";
             this.Text = "frmClientes";
             this.Load += new System.EventHandler(this.FrmClientes_Load);
