@@ -32,6 +32,12 @@
             this.tlspRentas = new System.Windows.Forms.ToolStrip();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.grbDatosRenta = new System.Windows.Forms.GroupBox();
+            this.nudCantidadDias = new System.Windows.Forms.NumericUpDown();
+            this.nudMontoPorDia = new System.Windows.Forms.NumericUpDown();
+            this.dtpFechaDevolucion = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaRenta = new System.Windows.Forms.DateTimePicker();
+            this.txtVehiculo = new System.Windows.Forms.TextBox();
+            this.lblVehiculo = new System.Windows.Forms.Label();
             this.chkEstado = new System.Windows.Forms.CheckBox();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.txtPlacaVehiculo = new System.Windows.Forms.TextBox();
@@ -49,12 +55,6 @@
             this.lblNumeroRenta = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
-            this.txtVehiculo = new System.Windows.Forms.TextBox();
-            this.lblVehiculo = new System.Windows.Forms.Label();
-            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.rentaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.numeroRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehiculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,24 +62,24 @@
             this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empleadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtpFechaRenta = new System.Windows.Forms.DateTimePicker();
-            this.dtpFechaDevolucion = new System.Windows.Forms.DateTimePicker();
-            this.nudMontoPorDia = new System.Windows.Forms.NumericUpDown();
-            this.nudCantidadDias = new System.Windows.Forms.NumericUpDown();
+            this.rentaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.tlspRentas.SuspendLayout();
             this.grbDatosRenta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadDias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMontoPorDia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentaDTOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMontoPorDia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadDias)).BeginInit();
             this.SuspendLayout();
             // 
             // tlspRentas
             // 
             this.tlspRentas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
-            this.toolStripButton2,
-            this.toolStripButton3});
+            this.tsbGuardar,
+            this.tsbEliminar});
             this.tlspRentas.Location = new System.Drawing.Point(0, 0);
             this.tlspRentas.Name = "tlspRentas";
             this.tlspRentas.Size = new System.Drawing.Size(1071, 25);
@@ -126,6 +126,57 @@
             this.grbDatosRenta.TabStop = false;
             this.grbDatosRenta.Text = "Datos Renta";
             // 
+            // nudCantidadDias
+            // 
+            this.nudCantidadDias.Location = new System.Drawing.Point(620, 106);
+            this.nudCantidadDias.Name = "nudCantidadDias";
+            this.nudCantidadDias.Size = new System.Drawing.Size(167, 20);
+            this.nudCantidadDias.TabIndex = 24;
+            // 
+            // nudMontoPorDia
+            // 
+            this.nudMontoPorDia.Location = new System.Drawing.Point(418, 103);
+            this.nudMontoPorDia.Name = "nudMontoPorDia";
+            this.nudMontoPorDia.Size = new System.Drawing.Size(167, 20);
+            this.nudMontoPorDia.TabIndex = 23;
+            // 
+            // dtpFechaDevolucion
+            // 
+            this.dtpFechaDevolucion.CustomFormat = "dd/MM/yyyy";
+            this.dtpFechaDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaDevolucion.Location = new System.Drawing.Point(215, 103);
+            this.dtpFechaDevolucion.Name = "dtpFechaDevolucion";
+            this.dtpFechaDevolucion.Size = new System.Drawing.Size(174, 20);
+            this.dtpFechaDevolucion.TabIndex = 22;
+            // 
+            // dtpFechaRenta
+            // 
+            this.dtpFechaRenta.CustomFormat = "dd/MM/yyyy";
+            this.dtpFechaRenta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaRenta.Location = new System.Drawing.Point(22, 103);
+            this.dtpFechaRenta.Name = "dtpFechaRenta";
+            this.dtpFechaRenta.Size = new System.Drawing.Size(173, 20);
+            this.dtpFechaRenta.TabIndex = 21;
+            // 
+            // txtVehiculo
+            // 
+            this.txtVehiculo.BackColor = System.Drawing.SystemColors.Info;
+            this.txtVehiculo.Location = new System.Drawing.Point(620, 42);
+            this.txtVehiculo.Name = "txtVehiculo";
+            this.txtVehiculo.ReadOnly = true;
+            this.txtVehiculo.Size = new System.Drawing.Size(167, 20);
+            this.txtVehiculo.TabIndex = 20;
+            this.txtVehiculo.DoubleClick += new System.EventHandler(this.TxtVehiculo_DoubleClick);
+            // 
+            // lblVehiculo
+            // 
+            this.lblVehiculo.AutoSize = true;
+            this.lblVehiculo.Location = new System.Drawing.Point(617, 25);
+            this.lblVehiculo.Name = "lblVehiculo";
+            this.lblVehiculo.Size = new System.Drawing.Size(53, 13);
+            this.lblVehiculo.TabIndex = 19;
+            this.lblVehiculo.Text = "Vehículo:";
+            // 
             // chkEstado
             // 
             this.chkEstado.AutoSize = true;
@@ -144,6 +195,8 @@
             this.txtCliente.ReadOnly = true;
             this.txtCliente.Size = new System.Drawing.Size(163, 20);
             this.txtCliente.TabIndex = 16;
+            this.txtCliente.TextChanged += new System.EventHandler(this.TxtCliente_TextChanged);
+            this.txtCliente.DoubleClick += new System.EventHandler(this.TxtCliente_DoubleClick);
             // 
             // txtPlacaVehiculo
             // 
@@ -153,6 +206,7 @@
             this.txtPlacaVehiculo.ReadOnly = true;
             this.txtPlacaVehiculo.Size = new System.Drawing.Size(167, 20);
             this.txtPlacaVehiculo.TabIndex = 15;
+            this.txtPlacaVehiculo.DoubleClick += new System.EventHandler(this.TxtPlacaVehiculo_DoubleClick);
             // 
             // txtEmpleado
             // 
@@ -162,6 +216,7 @@
             this.txtEmpleado.ReadOnly = true;
             this.txtEmpleado.Size = new System.Drawing.Size(174, 20);
             this.txtEmpleado.TabIndex = 12;
+            this.txtEmpleado.DoubleClick += new System.EventHandler(this.TxtEmpleado_DoubleClick);
             // 
             // txtComentario
             // 
@@ -286,55 +341,6 @@
             this.txtBusqueda.Size = new System.Drawing.Size(879, 20);
             this.txtBusqueda.TabIndex = 19;
             // 
-            // txtVehiculo
-            // 
-            this.txtVehiculo.BackColor = System.Drawing.SystemColors.Info;
-            this.txtVehiculo.Location = new System.Drawing.Point(620, 42);
-            this.txtVehiculo.Name = "txtVehiculo";
-            this.txtVehiculo.ReadOnly = true;
-            this.txtVehiculo.Size = new System.Drawing.Size(167, 20);
-            this.txtVehiculo.TabIndex = 20;
-            // 
-            // lblVehiculo
-            // 
-            this.lblVehiculo.AutoSize = true;
-            this.lblVehiculo.Location = new System.Drawing.Point(617, 25);
-            this.lblVehiculo.Name = "lblVehiculo";
-            this.lblVehiculo.Size = new System.Drawing.Size(53, 13);
-            this.lblVehiculo.TabIndex = 19;
-            this.lblVehiculo.Text = "Vehículo:";
-            // 
-            // tsbNuevo
-            // 
-            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbNuevo.Image = global::MyRentCar.Properties.Resources.Nuevo;
-            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbNuevo.Name = "tsbNuevo";
-            this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
-            this.tsbNuevo.Text = "toolStripButton1";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::MyRentCar.Properties.Resources.Guardar;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::MyRentCar.Properties.Resources.Cancelar;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton3";
-            // 
-            // rentaDTOBindingSource
-            // 
-            this.rentaDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.RentaDTO);
-            // 
             // numeroRentaDataGridViewTextBoxColumn
             // 
             this.numeroRentaDataGridViewTextBoxColumn.DataPropertyName = "NumeroRenta";
@@ -386,37 +392,38 @@
             this.estadoRentaDataGridViewTextBoxColumn.Name = "estadoRentaDataGridViewTextBoxColumn";
             this.estadoRentaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dtpFechaRenta
+            // rentaDTOBindingSource
             // 
-            this.dtpFechaRenta.CustomFormat = "dd/MM/yyyy";
-            this.dtpFechaRenta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaRenta.Location = new System.Drawing.Point(22, 103);
-            this.dtpFechaRenta.Name = "dtpFechaRenta";
-            this.dtpFechaRenta.Size = new System.Drawing.Size(173, 20);
-            this.dtpFechaRenta.TabIndex = 21;
+            this.rentaDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.RentaDTO);
             // 
-            // dtpFechaDevolucion
+            // tsbNuevo
             // 
-            this.dtpFechaDevolucion.CustomFormat = "dd/MM/yyyy";
-            this.dtpFechaDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaDevolucion.Location = new System.Drawing.Point(215, 103);
-            this.dtpFechaDevolucion.Name = "dtpFechaDevolucion";
-            this.dtpFechaDevolucion.Size = new System.Drawing.Size(174, 20);
-            this.dtpFechaDevolucion.TabIndex = 22;
+            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNuevo.Image = global::MyRentCar.Properties.Resources.Nuevo;
+            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNuevo.Name = "tsbNuevo";
+            this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
+            this.tsbNuevo.Text = "toolStripButton1";
+            this.tsbNuevo.Click += new System.EventHandler(this.TsbNuevo_Click);
             // 
-            // nudMontoPorDia
+            // tsbGuardar
             // 
-            this.nudMontoPorDia.Location = new System.Drawing.Point(418, 103);
-            this.nudMontoPorDia.Name = "nudMontoPorDia";
-            this.nudMontoPorDia.Size = new System.Drawing.Size(167, 20);
-            this.nudMontoPorDia.TabIndex = 23;
+            this.tsbGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbGuardar.Image = global::MyRentCar.Properties.Resources.Guardar;
+            this.tsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbGuardar.Name = "tsbGuardar";
+            this.tsbGuardar.Size = new System.Drawing.Size(23, 22);
+            this.tsbGuardar.Text = "toolStripButton2";
+            this.tsbGuardar.Click += new System.EventHandler(this.TsbGuardar_Click);
             // 
-            // nudCantidadDias
+            // tsbEliminar
             // 
-            this.nudCantidadDias.Location = new System.Drawing.Point(620, 106);
-            this.nudCantidadDias.Name = "nudCantidadDias";
-            this.nudCantidadDias.Size = new System.Drawing.Size(167, 20);
-            this.nudCantidadDias.TabIndex = 24;
+            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEliminar.Image = global::MyRentCar.Properties.Resources.Cancelar;
+            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEliminar.Name = "tsbEliminar";
+            this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEliminar.Text = "toolStripButton3";
             // 
             // frmRentas
             // 
@@ -434,10 +441,10 @@
             this.tlspRentas.PerformLayout();
             this.grbDatosRenta.ResumeLayout(false);
             this.grbDatosRenta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadDias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMontoPorDia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentaDTOBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMontoPorDia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadDias)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -468,8 +475,8 @@
         private System.Windows.Forms.TextBox txtVehiculo;
         private System.Windows.Forms.Label lblVehiculo;
         private System.Windows.Forms.ToolStripButton tsbNuevo;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton tsbGuardar;
+        private System.Windows.Forms.ToolStripButton tsbEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn numeroRentaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaRentaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vehiculoDataGridViewTextBoxColumn;

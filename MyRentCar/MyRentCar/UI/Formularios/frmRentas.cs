@@ -22,6 +22,7 @@ namespace MyRentCar.UI.Formularios
             InitializeComponent();
             controller = new RentaController();
             CargarConsultaRentas();
+            HabilitarCampos(false);
         }
 
         private void CargarConsultaRentas()
@@ -41,11 +42,11 @@ namespace MyRentCar.UI.Formularios
             nudCantidadDias.Value = _renta.DiasRenta ?? 0;
             nudMontoPorDia.Value = 0;
             txtComentario.Text =_renta.Comentario ?? "";
-            txtCliente.Text =_renta.Cliente.Nombre;
-            txtPlacaVehiculo.Text =_renta.Vehiculo.NumeroPlaca;
-            txtNumeroRenta.Text =_renta.Id.ToString();
-            txtEmpleado.Text =_renta.Empleado.Nombre;
-            txtVehiculo.Text =_renta.Vehiculo.Modelo.Marca.Descripcion + " " + renta.Vehiculo.Modelo.Descripcion;
+            txtCliente.Text =_renta?.Cliente?.Nombre ?? "";
+            txtPlacaVehiculo.Text =_renta?.Vehiculo?.NumeroPlaca ?? "";
+            txtNumeroRenta.Text = _renta?.Id.ToString();
+            txtEmpleado.Text =_renta?.Empleado?.Nombre ?? "";
+            txtVehiculo.Text =_renta?.Vehiculo?.Modelo?.Marca?.Descripcion ?? "" + " " + renta?.Vehiculo?.Modelo?.Descripcion ?? "";
         }
 
         private void LlenarRenta(Renta _renta)
@@ -95,11 +96,7 @@ namespace MyRentCar.UI.Formularios
 
         private void Guardar(Renta _renta)
         {
-            if (MessageBox.Show("¿Está seguro de que desea guardar la renta actual?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-            {
-                this.controller.Guardar(renta);
-            }
-            MessageBox.Show("La renta se ha guardado exitosamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.controller.Guardar(renta);
         }
 
         private void Eliminar(Renta _renta)
@@ -114,15 +111,67 @@ namespace MyRentCar.UI.Formularios
 
         private void BuscarCliente()
         {
-            
+            frmBusquedaCliente f = new frmBusquedaCliente();
+            f.ShowDialog();
+            this.renta.Cliente = controller.Buscar<Cliente>(f.Id);
+            txtCliente.Text = this.renta.Cliente.Nombre;
         }
 
         private void BuscarVehiculo()
         {
-
+            frmBusquedaVehiculos f = new frmBusquedaVehiculos();
+            f.ShowDialog();
+            this.renta.Vehiculo = controller.Buscar<Vehiculo>(f.Id);
+            txtVehiculo.Text = this?.renta?.Vehiculo?.Modelo?.Marca?.Descripcion ?? "" + " " + this?.renta?.Vehiculo?.Modelo?.Descripcion ?? "";
         }
 
         private void BuscarEmpleado()
+        {
+            frmBusquedaEmpleado f = new frmBusquedaEmpleado();
+            f.ShowDialog();
+            this.renta.Empleado = controller.Buscar<Empleado>(f.Id);
+            txtEmpleado.Text = this.renta.Empleado.Nombre;
+        }
+
+        private void TsbNuevo_Click(object sender, EventArgs e)
+        {
+            NuevaRenta();
+
+        }
+
+        private void TsbGuardar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro de que desea guardar la renta actual?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                LlenarRenta(this.renta);
+                Guardar(this.renta);
+                MessageBox.Show("Los datos de la renta se han guardado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+        }
+
+        private void TxtCliente_DoubleClick(object sender, EventArgs e)
+        {
+            BuscarCliente();
+        }
+
+        private void TxtEmpleado_DoubleClick(object sender, EventArgs e)
+        {
+            BuscarEmpleado();
+        }
+
+        private void TxtPlacaVehiculo_DoubleClick(object sender, EventArgs e)
+        {
+            BuscarVehiculo();
+
+        }
+
+        private void TxtVehiculo_DoubleClick(object sender, EventArgs e)
+        {
+            BuscarVehiculo();
+        }
+
+        private void TxtCliente_TextChanged(object sender, EventArgs e)
         {
 
         }

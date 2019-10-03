@@ -50,3 +50,6 @@ D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.csproj.CopyComplet
 D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.exe
 D:\personal\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.pdb
 D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmTiposDocumentos.resources
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmBusquedaCliente.resources
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmBusquedaEmpleado.resources
+D:\projects\MyRentCar\MyRentCar\MyRentCar\obj\Debug\MyRentCar.UI.Formularios.frmBusquedaVehiculos.resources
