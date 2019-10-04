@@ -9,10 +9,10 @@ namespace MyRentCar.Data.Modelos
     public partial class Inspeccion
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Inspeccion()
-        {
-            Inspecciones1 = new HashSet<Inspeccion>();
-        }
+        //public Inspeccion()
+        //{
+        //    Inspecciones1 = new HashSet<Inspeccion>();
+        //}
 
         public int Id { get; set; }
 
@@ -42,15 +42,15 @@ namespace MyRentCar.Data.Modelos
 
         public int? IdRenta { get; set; }
 
-        public virtual Cliente Clientes { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
-        public virtual Empleado Empleados { get; set; }
+        public virtual Empleado Empleado { get; set; }
 
-        public virtual TipoInspeccion TiposInspecciones { get; set; }
+        public virtual TipoInspeccion TipoInspeccion { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Inspeccion> Inspecciones1 { get; set; }
+        //public virtual ICollection<Inspeccion> Inspecciones1 { get; set; }
 
-        public virtual Inspeccion Inspecciones2 { get; set; }
+        public virtual Vehiculo Vehiculo { get; set; }
     }
 }
