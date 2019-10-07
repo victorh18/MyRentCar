@@ -14,21 +14,18 @@ namespace MyRentCar.UI.Formularios
 {
     public partial class frmBusquedaVehiculos : Form
     {
-        private BindingSource datosBindingSource;
         private MyRentCarContext db;
         public int Id;
         public frmBusquedaVehiculos()
         {
             InitializeComponent();
-            this.datosBindingSource = new BindingSource();
             this.db = new MyRentCarContext();
             List<VehiculoDTO> vehiculosConsultas = new List<VehiculoDTO>();
             foreach (Vehiculo v in db.Vehiculos.ToList())
             {
                 vehiculosConsultas.Add(new VehiculoDTO(v));
             }
-            this.datosBindingSource.DataSource = vehiculosConsultas;
-           // this.dgvDatos.DataSource = datosBindingSource;
+            vehiculoDTOBindingSource.DataSource = vehiculosConsultas;
         }
 
         private void DgvDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

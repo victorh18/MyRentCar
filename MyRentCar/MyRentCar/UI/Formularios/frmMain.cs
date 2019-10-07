@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MyRentCar.UI.Formularios.Reportes;
 
 namespace MyRentCar.UI.Formularios
 {
@@ -69,6 +70,27 @@ namespace MyRentCar.UI.Formularios
         private void MnuRenta_Click(object sender, EventArgs e)
         {
             frmRentas f = new frmRentas();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void TiposDeInspeccionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTiposInspecciones f = new frmTiposInspecciones();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void InspeccionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInspecciones f = new frmInspecciones();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void RentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteRentas f = new frmReporteRentas();
             f.MdiParent = this;
             f.Show();
         }

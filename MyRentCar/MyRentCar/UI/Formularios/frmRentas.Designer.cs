@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tlspRentas = new System.Windows.Forms.ToolStrip();
+            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.grbDatosRenta = new System.Windows.Forms.GroupBox();
             this.nudCantidadDias = new System.Windows.Forms.NumericUpDown();
@@ -54,7 +57,6 @@
             this.txtNumeroRenta = new System.Windows.Forms.TextBox();
             this.lblNumeroRenta = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.numeroRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehiculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,9 +65,7 @@
             this.empleadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rentaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
-            this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
-            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.tlspRentas.SuspendLayout();
             this.grbDatosRenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadDias)).BeginInit();
@@ -85,6 +85,35 @@
             this.tlspRentas.Size = new System.Drawing.Size(1071, 25);
             this.tlspRentas.TabIndex = 0;
             this.tlspRentas.Text = "toolStrip1";
+            // 
+            // tsbNuevo
+            // 
+            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNuevo.Image = global::MyRentCar.Properties.Resources.Nuevo;
+            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNuevo.Name = "tsbNuevo";
+            this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
+            this.tsbNuevo.Text = "toolStripButton1";
+            this.tsbNuevo.Click += new System.EventHandler(this.TsbNuevo_Click);
+            // 
+            // tsbGuardar
+            // 
+            this.tsbGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbGuardar.Image = global::MyRentCar.Properties.Resources.Guardar;
+            this.tsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbGuardar.Name = "tsbGuardar";
+            this.tsbGuardar.Size = new System.Drawing.Size(23, 22);
+            this.tsbGuardar.Text = "toolStripButton2";
+            this.tsbGuardar.Click += new System.EventHandler(this.TsbGuardar_Click);
+            // 
+            // tsbEliminar
+            // 
+            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEliminar.Image = global::MyRentCar.Properties.Resources.Cancelar;
+            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEliminar.Name = "tsbEliminar";
+            this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEliminar.Text = "toolStripButton3";
             // 
             // lblTitulo
             // 
@@ -128,16 +157,16 @@
             // 
             // nudCantidadDias
             // 
-            this.nudCantidadDias.Location = new System.Drawing.Point(620, 106);
+            this.nudCantidadDias.Location = new System.Drawing.Point(631, 102);
             this.nudCantidadDias.Name = "nudCantidadDias";
-            this.nudCantidadDias.Size = new System.Drawing.Size(167, 20);
+            this.nudCantidadDias.Size = new System.Drawing.Size(203, 20);
             this.nudCantidadDias.TabIndex = 24;
             // 
             // nudMontoPorDia
             // 
-            this.nudMontoPorDia.Location = new System.Drawing.Point(418, 103);
+            this.nudMontoPorDia.Location = new System.Drawing.Point(423, 103);
             this.nudMontoPorDia.Name = "nudMontoPorDia";
-            this.nudMontoPorDia.Size = new System.Drawing.Size(167, 20);
+            this.nudMontoPorDia.Size = new System.Drawing.Size(187, 20);
             this.nudMontoPorDia.TabIndex = 23;
             // 
             // dtpFechaDevolucion
@@ -146,7 +175,7 @@
             this.dtpFechaDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaDevolucion.Location = new System.Drawing.Point(215, 103);
             this.dtpFechaDevolucion.Name = "dtpFechaDevolucion";
-            this.dtpFechaDevolucion.Size = new System.Drawing.Size(174, 20);
+            this.dtpFechaDevolucion.Size = new System.Drawing.Size(190, 20);
             this.dtpFechaDevolucion.TabIndex = 22;
             // 
             // dtpFechaRenta
@@ -161,17 +190,17 @@
             // txtVehiculo
             // 
             this.txtVehiculo.BackColor = System.Drawing.SystemColors.Info;
-            this.txtVehiculo.Location = new System.Drawing.Point(620, 42);
+            this.txtVehiculo.Location = new System.Drawing.Point(631, 42);
             this.txtVehiculo.Name = "txtVehiculo";
             this.txtVehiculo.ReadOnly = true;
-            this.txtVehiculo.Size = new System.Drawing.Size(167, 20);
+            this.txtVehiculo.Size = new System.Drawing.Size(203, 20);
             this.txtVehiculo.TabIndex = 20;
             this.txtVehiculo.DoubleClick += new System.EventHandler(this.TxtVehiculo_DoubleClick);
             // 
             // lblVehiculo
             // 
             this.lblVehiculo.AutoSize = true;
-            this.lblVehiculo.Location = new System.Drawing.Point(617, 25);
+            this.lblVehiculo.Location = new System.Drawing.Point(628, 25);
             this.lblVehiculo.Name = "lblVehiculo";
             this.lblVehiculo.Size = new System.Drawing.Size(53, 13);
             this.lblVehiculo.TabIndex = 19;
@@ -180,7 +209,7 @@
             // chkEstado
             // 
             this.chkEstado.AutoSize = true;
-            this.chkEstado.Location = new System.Drawing.Point(868, 106);
+            this.chkEstado.Location = new System.Drawing.Point(898, 105);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(56, 17);
             this.chkEstado.TabIndex = 18;
@@ -190,10 +219,10 @@
             // txtCliente
             // 
             this.txtCliente.BackColor = System.Drawing.SystemColors.Info;
-            this.txtCliente.Location = new System.Drawing.Point(825, 43);
+            this.txtCliente.Location = new System.Drawing.Point(855, 42);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.ReadOnly = true;
-            this.txtCliente.Size = new System.Drawing.Size(163, 20);
+            this.txtCliente.Size = new System.Drawing.Size(181, 20);
             this.txtCliente.TabIndex = 16;
             this.txtCliente.TextChanged += new System.EventHandler(this.TxtCliente_TextChanged);
             this.txtCliente.DoubleClick += new System.EventHandler(this.TxtCliente_DoubleClick);
@@ -201,20 +230,21 @@
             // txtPlacaVehiculo
             // 
             this.txtPlacaVehiculo.BackColor = System.Drawing.SystemColors.Info;
-            this.txtPlacaVehiculo.Location = new System.Drawing.Point(418, 43);
+            this.txtPlacaVehiculo.Location = new System.Drawing.Point(423, 42);
             this.txtPlacaVehiculo.Name = "txtPlacaVehiculo";
             this.txtPlacaVehiculo.ReadOnly = true;
-            this.txtPlacaVehiculo.Size = new System.Drawing.Size(167, 20);
+            this.txtPlacaVehiculo.Size = new System.Drawing.Size(187, 20);
             this.txtPlacaVehiculo.TabIndex = 15;
+            this.txtPlacaVehiculo.TextChanged += new System.EventHandler(this.TxtPlacaVehiculo_TextChanged);
             this.txtPlacaVehiculo.DoubleClick += new System.EventHandler(this.TxtPlacaVehiculo_DoubleClick);
             // 
             // txtEmpleado
             // 
             this.txtEmpleado.BackColor = System.Drawing.SystemColors.Info;
-            this.txtEmpleado.Location = new System.Drawing.Point(215, 43);
+            this.txtEmpleado.Location = new System.Drawing.Point(215, 42);
             this.txtEmpleado.Name = "txtEmpleado";
             this.txtEmpleado.ReadOnly = true;
-            this.txtEmpleado.Size = new System.Drawing.Size(174, 20);
+            this.txtEmpleado.Size = new System.Drawing.Size(190, 20);
             this.txtEmpleado.TabIndex = 12;
             this.txtEmpleado.DoubleClick += new System.EventHandler(this.TxtEmpleado_DoubleClick);
             // 
@@ -238,7 +268,7 @@
             // lblCantidadDias
             // 
             this.lblCantidadDias.AutoSize = true;
-            this.lblCantidadDias.Location = new System.Drawing.Point(617, 87);
+            this.lblCantidadDias.Location = new System.Drawing.Point(628, 87);
             this.lblCantidadDias.Name = "lblCantidadDias";
             this.lblCantidadDias.Size = new System.Drawing.Size(93, 13);
             this.lblCantidadDias.TabIndex = 8;
@@ -247,7 +277,7 @@
             // lblMontoDia
             // 
             this.lblMontoDia.AutoSize = true;
-            this.lblMontoDia.Location = new System.Drawing.Point(415, 87);
+            this.lblMontoDia.Location = new System.Drawing.Point(420, 86);
             this.lblMontoDia.Name = "lblMontoDia";
             this.lblMontoDia.Size = new System.Drawing.Size(79, 13);
             this.lblMontoDia.TabIndex = 7;
@@ -274,7 +304,7 @@
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(822, 26);
+            this.lblCliente.Location = new System.Drawing.Point(852, 25);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(42, 13);
             this.lblCliente.TabIndex = 4;
@@ -283,7 +313,7 @@
             // lblPlacaVehiculo
             // 
             this.lblPlacaVehiculo.AutoSize = true;
-            this.lblPlacaVehiculo.Location = new System.Drawing.Point(415, 26);
+            this.lblPlacaVehiculo.Location = new System.Drawing.Point(420, 25);
             this.lblPlacaVehiculo.Name = "lblPlacaVehiculo";
             this.lblPlacaVehiculo.Size = new System.Drawing.Size(83, 13);
             this.lblPlacaVehiculo.TabIndex = 3;
@@ -333,13 +363,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1042, 224);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // txtBusqueda
-            // 
-            this.txtBusqueda.Location = new System.Drawing.Point(17, 323);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(879, 20);
-            this.txtBusqueda.TabIndex = 19;
             // 
             // numeroRentaDataGridViewTextBoxColumn
             // 
@@ -396,34 +419,12 @@
             // 
             this.rentaDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.RentaDTO);
             // 
-            // tsbNuevo
+            // txtBusqueda
             // 
-            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbNuevo.Image = global::MyRentCar.Properties.Resources.Nuevo;
-            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbNuevo.Name = "tsbNuevo";
-            this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
-            this.tsbNuevo.Text = "toolStripButton1";
-            this.tsbNuevo.Click += new System.EventHandler(this.TsbNuevo_Click);
-            // 
-            // tsbGuardar
-            // 
-            this.tsbGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbGuardar.Image = global::MyRentCar.Properties.Resources.Guardar;
-            this.tsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbGuardar.Name = "tsbGuardar";
-            this.tsbGuardar.Size = new System.Drawing.Size(23, 22);
-            this.tsbGuardar.Text = "toolStripButton2";
-            this.tsbGuardar.Click += new System.EventHandler(this.TsbGuardar_Click);
-            // 
-            // tsbEliminar
-            // 
-            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbEliminar.Image = global::MyRentCar.Properties.Resources.Cancelar;
-            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEliminar.Name = "tsbEliminar";
-            this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
-            this.tsbEliminar.Text = "toolStripButton3";
+            this.txtBusqueda.Location = new System.Drawing.Point(17, 323);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(879, 20);
+            this.txtBusqueda.TabIndex = 19;
             // 
             // frmRentas
             // 

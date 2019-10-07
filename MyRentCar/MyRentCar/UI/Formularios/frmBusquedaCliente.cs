@@ -16,7 +16,7 @@ namespace MyRentCar.UI.Formularios
     public partial class frmBusquedaCliente : Form
     {
         private ClienteController controller;
-        public int Id;
+        public int IdCliente;
         public frmBusquedaCliente()
         {
             InitializeComponent();
@@ -29,21 +29,15 @@ namespace MyRentCar.UI.Formularios
             clienteDTOBindingSource.DataSource = clientesConsulta;
         }
 
-        private void FrmBusquedaCliente_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void DgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ClienteDTO cliente = clienteDTOBindingSource.Current as ClienteDTO;
-            this.Id = cliente.Cliente.Id;
+            this.IdCliente = (clienteDTOBindingSource.Current as ClienteDTO).Cliente.Id;
             this.Close();
+        }
+
+        private void DgvClientes_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

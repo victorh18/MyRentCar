@@ -54,6 +54,18 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1358.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.3.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1358.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1358.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -72,7 +84,6 @@
   <ItemGroup>
     <Compile Include="Data\Modelos\Cliente.cs" />
     <Compile Include="Data\Modelos\Empleado.cs" />
-    <Compile Include="Data\Modelos\EstadoRenta.cs" />
     <Compile Include="Data\Modelos\Inspeccion.cs" />
     <Compile Include="Data\Modelos\Marca.cs" />
     <Compile Include="Data\Modelos\MyRentCarContext.cs" />
@@ -96,11 +107,18 @@
     <Compile Include="Logica\Controladores\VehiculosController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UI\Formularios\frmBusquedaEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Formularios\frmBusquedaEmpleado.Designer.cs">
       <DependentUpon>frmBusquedaEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formularios\frmBusquedaRentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formularios\frmBusquedaRentas.Designer.cs">
+      <DependentUpon>frmBusquedaRentas.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Formularios\frmBusquedaVehiculos.cs">
       <SubType>Form</SubType>
@@ -192,6 +210,18 @@
     <Compile Include="UI\Formularios\frmVehiculos.Designer.cs">
       <DependentUpon>frmVehiculos.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Formularios\frmReporteRentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formularios\frmReporteRentas.Designer.cs">
+      <DependentUpon>frmReporteRentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formularios\frmVisualizacionReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formularios\frmVisualizacionReporte.Designer.cs">
+      <DependentUpon>frmVisualizacionReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilitarios\DTOs\InspeccionesDTO.cs" />
     <Compile Include="Utilitarios\DTOs\MarcaDTO.cs" />
     <Compile Include="Utilitarios\DTOs\ModeloDTO.cs" />
@@ -199,9 +229,11 @@
     <Compile Include="Utilitarios\DTOs\VehiculoDTO.cs" />
     <Compile Include="Utilitarios\DTOs\ClienteDTO.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesCombustibles.cs" />
+    <Compile Include="Utilitarios\Validaciones\ValidacionesInspecciones.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesMarca.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesModelos.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesTipoDocumento.cs" />
+    <Compile Include="Utilitarios\Validaciones\ValidacionesTiposInpecciones.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesTiposVehiculos.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesVehiculos.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -216,6 +248,9 @@
     </Compile>
     <EmbeddedResource Include="UI\Formularios\frmBusquedaEmpleado.resx">
       <DependentUpon>frmBusquedaEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formularios\frmBusquedaRentas.resx">
+      <DependentUpon>frmBusquedaRentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Formularios\frmBusquedaVehiculos.resx">
       <DependentUpon>frmBusquedaVehiculos.cs</DependentUpon>
@@ -261,6 +296,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Formularios\frmVehiculos.resx">
       <DependentUpon>frmVehiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formularios\frmReporteRentas.resx">
+      <DependentUpon>frmReporteRentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formularios\frmVisualizacionReporte.resx">
+      <DependentUpon>frmVisualizacionReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Formularios\Reportes\rptRentas.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MyRentCar.Data.Modelos.Empleado.datasource" />
@@ -308,6 +352,19 @@
     <Content Include="MyRentCar.mdf" />
     <Content Include="MyRentCar_log.ldf">
       <DependentUpon>MyRentCar.mdf</DependentUpon>
+    </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Search_256x.png" />
     <None Include="Resources\Cancel_64x.png" />

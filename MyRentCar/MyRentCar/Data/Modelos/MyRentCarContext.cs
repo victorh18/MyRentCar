@@ -15,7 +15,6 @@ namespace MyRentCar.Data.Modelos
 
         public virtual DbSet<Cliente> Clientes { get; set; }
         public virtual DbSet<Empleado> Empleados { get; set; }
-        public virtual DbSet<EstadosRentas> EstadosRentas { get; set; }
         public virtual DbSet<Inspeccion> Inspecciones { get; set; }
         public virtual DbSet<Marca> Marcas { get; set; }
         public virtual DbSet<Modelo> Modelos { get; set; }
@@ -34,6 +33,8 @@ namespace MyRentCar.Data.Modelos
             modelBuilder.Entity<Vehiculo>().ToTable("Vehiculos");
             modelBuilder.Entity<Empleado>().ToTable("Empleados");
             modelBuilder.Entity<TipoDocumento>().ToTable("TiposDocumentos");
+            modelBuilder.Entity<TipoInspeccion>().ToTable("TiposInspecciones");
+            modelBuilder.Entity<Inspeccion>().ToTable("Inspecciones");
 
             modelBuilder.Entity<Cliente>()
                 .HasMany(e => e.Inspecciones)
@@ -58,11 +59,6 @@ namespace MyRentCar.Data.Modelos
                 .HasMany(e => e.Rentas)
                 .WithOptional(e => e.Empleado)
                 .HasForeignKey(e => e.IdEmpleado);
-
-            modelBuilder.Entity<EstadosRentas>()
-                .HasMany(e => e.Rentas)
-                .WithOptional(e => e.EstadoRenta)
-                .HasForeignKey(e => e.IdEstado);
 
             //modelBuilder.Entity<Inspeccion>()
             //    .HasMany(e => e.Inspecciones1)
@@ -104,6 +100,16 @@ namespace MyRentCar.Data.Modelos
                 .HasMany(e => e.Rentas)
                 .WithOptional(e => e.Vehiculo)
                 .HasForeignKey(e => e.IdVehiculo);
+
+            modelBuilder.Entity<Vehiculo>()
+                .HasMany(v => v.Inspecciones)
+                .WithRequired(i => i.Vehiculo)
+                .HasForeignKey(i => i.IdVehiculo);
+
+            modelBuilder.Entity<Renta>()
+                .HasMany(r => r.Inspecciones)
+                .WithOptional(i => i.Renta)
+                .HasForeignKey(r => r.IdRenta);
         }
     }
 }

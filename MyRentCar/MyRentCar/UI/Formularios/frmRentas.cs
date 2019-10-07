@@ -113,7 +113,7 @@ namespace MyRentCar.UI.Formularios
         {
             frmBusquedaCliente f = new frmBusquedaCliente();
             f.ShowDialog();
-            this.renta.Cliente = controller.Buscar<Cliente>(f.Id);
+            this.renta.Cliente = controller.Buscar<Cliente>(f.IdCliente);
             txtCliente.Text = this.renta.Cliente.Nombre;
         }
 
@@ -122,14 +122,15 @@ namespace MyRentCar.UI.Formularios
             frmBusquedaVehiculos f = new frmBusquedaVehiculos();
             f.ShowDialog();
             this.renta.Vehiculo = controller.Buscar<Vehiculo>(f.Id);
-            txtVehiculo.Text = this?.renta?.Vehiculo?.Modelo?.Marca?.Descripcion ?? "" + " " + this?.renta?.Vehiculo?.Modelo?.Descripcion ?? "";
+            txtVehiculo.Text = this?.renta?.Vehiculo?.NombreVehiculo;
+            txtPlacaVehiculo.Text = this?.renta?.Vehiculo?.NumeroPlaca;
         }
 
         private void BuscarEmpleado()
         {
             frmBusquedaEmpleado f = new frmBusquedaEmpleado();
             f.ShowDialog();
-            this.renta.Empleado = controller.Buscar<Empleado>(f.Id);
+            this.renta.Empleado = controller.Buscar<Empleado>(f.IdEmpleado);
             txtEmpleado.Text = this.renta.Empleado.Nombre;
         }
 
@@ -172,6 +173,11 @@ namespace MyRentCar.UI.Formularios
         }
 
         private void TxtCliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtPlacaVehiculo_TextChanged(object sender, EventArgs e)
         {
 
         }

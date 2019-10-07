@@ -16,7 +16,7 @@ namespace MyRentCar.UI.Formularios
     public partial class frmBusquedaEmpleado : Form
     {
         private MyRentCarContext db;
-        public int Id;
+        public int IdEmpleado;
 
         public frmBusquedaEmpleado()
         {
@@ -28,7 +28,7 @@ namespace MyRentCar.UI.Formularios
 
         private void DgvEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.Id = (empleadoBindingSource.Current as Empleado).Id;
+            this.IdEmpleado = (empleadoBindingSource.Current as Empleado).Id;
             this.Close();
         }
     }

@@ -22,13 +22,11 @@ namespace MyRentCar.Data.Modelos
 
         public bool? TieneRayadura { get; set; }
 
-        public int? CantidadCombustible { get; set; }
+        public decimal? CantidadCombustible { get; set; }
 
         public bool? TieneGomaRepuesto { get; set; }
 
         public bool? TieneRoturasCristal { get; set; }
-
-        public string EstadoGomas { get; set; }
 
         public string Observaciones { get; set; }
 
@@ -36,11 +34,23 @@ namespace MyRentCar.Data.Modelos
 
         public int? IdEmpleadoInspeccion { get; set; }
 
-        public int? Estado { get; set; }
+        public bool? Estado { get; set; }
 
         public int? IdTipoInspeccion { get; set; }
 
         public int? IdRenta { get; set; }
+
+        public bool? GomaFronteraDerecha { get;set; }
+
+        public bool? GomaFronteraIzquierda { get;set; }
+
+        public bool? GomaTraseraDerecha { get;set; }
+
+        public bool? GomaTraseraIzquierda { get; set; }
+
+        public bool? TieneGato { get; set; }
+
+        public Renta Renta { get; set; }
 
         public virtual Cliente Cliente { get; set; }
 

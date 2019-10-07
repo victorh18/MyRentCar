@@ -26,14 +26,14 @@ namespace MyRentCar.Data.Modelos
 
         public string Comentario { get; set; }
 
-        public int? IdEstado { get; set; }
+        public bool? Estado { get; set; }
 
         public virtual Cliente Cliente { get; set; }
 
         public virtual Empleado Empleado { get; set; }
 
-        public virtual EstadosRentas EstadoRenta { get; set; }
-
         public virtual Vehiculo Vehiculo { get; set; }
+
+        public virtual ICollection<Inspeccion> Inspecciones { get; set; }
     }
 }

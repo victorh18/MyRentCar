@@ -35,7 +35,7 @@ namespace MyRentCar.Utilitarios.DTOs
         {
             get
             {
-                return inspeccion.Vehiculo.NumeroPlaca;
+                return inspeccion?.Vehiculo?.NumeroPlaca ?? "";
             }
         }
 
@@ -43,7 +43,7 @@ namespace MyRentCar.Utilitarios.DTOs
         {
             get
             {
-                return inspeccion?.Vehiculo?.Modelo?.Marca?.Descripcion ?? "" + " " + this.inspeccion?.Vehiculo?.Modelo?.Descripcion ?? "";
+                return inspeccion?.Vehiculo?.NombreVehiculo;
             }
         }
 
@@ -68,6 +68,14 @@ namespace MyRentCar.Utilitarios.DTOs
             get
             {
                 return this.inspeccion?.Empleado?.Nombre ?? "";
+            }
+        }
+
+        public Inspeccion Inspeccion
+        {
+            get
+            {
+                return this.inspeccion;
             }
         }
     }

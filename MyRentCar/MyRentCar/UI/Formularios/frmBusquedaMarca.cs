@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyRentCar.Logica.Controladores;
+using MyRentCar.Data.Modelos;
 
 namespace MyRentCar.UI.Formularios
 {
@@ -34,7 +35,7 @@ namespace MyRentCar.UI.Formularios
 
         private void DgvMarcas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.IdMarca = (int)dgvMarcas.CurrentRow.Cells[0].Value;
+            this.IdMarca = (marcaBindingSource.Current as Marca).Id;
             this.Close();
         }
     }

@@ -133,7 +133,7 @@ namespace MyRentCar.UI.Formularios
         {
             frmBusquedaModelo f = new frmBusquedaModelo();
             f.ShowDialog();
-            Modelo modelo = controller.BuscarModelo(f.modelo);
+            Modelo modelo = controller.BuscarModelo(f.IdModelo);
             if (modelo != null)
             {
                 this.vehiculo.Modelo = modelo;

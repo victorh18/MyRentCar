@@ -16,7 +16,7 @@ namespace MyRentCar.UI.Formularios
     public partial class frmBusquedaModelo : Form
     {
         private ModeloController controller; 
-        public int modelo;
+        public int IdModelo;
         public frmBusquedaModelo()
         {
             InitializeComponent();
@@ -38,7 +38,7 @@ namespace MyRentCar.UI.Formularios
         private void DgvModelos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ModeloDTO m = modeloDTOBindingSource.Current as ModeloDTO;
-            this.modelo = m.Modelo.Id;
+            this.IdModelo = m.Modelo.Id;
             this.Close();
         }
     }

@@ -20,7 +20,8 @@ GO
 
 CREATE TABLE TiposInspecciones(
 	Id INT IDENTITY(1, 1),
-	Descripcion NVARCHAR(MAX) NOT NULL
+	Descripcion NVARCHAR(MAX) NOT NULL,
+	Estado BIT,
 
 	CONSTRAINT pk_TiposInspecciones PRIMARY KEY(Id)
 )
@@ -136,20 +137,24 @@ CREATE TABLE Inspecciones(
 	CantidadCombustible INT,
 	TieneGomaRepuesto BIT,
 	TieneRoturasCristal BIT,
-	EstadoGomas NVARCHAR(MAX),
+	GomaFronteraDerecha BIT,
+	GomaFronteraIzquierda BIT,
+	GomaTraseraDerecha BIT,
+	GomaTraseraIzquierda BIT,
+	TieneGato BIT,
 	Observaciones NVARCHAR(MAX),
 	Fecha DATETIME,
 	IdEmpleadoInspeccion INT,
-	Estado INT,
+	Estado BIT,
 	IdTipoInspeccion INT,
 	IdRenta INT,
 
 	CONSTRAINT pk_Inspecciones PRIMARY KEY(Id),
-	CONSTRAINT fk_Vehiculo_Inspecciones FOREIGN KEY(IdVehiculo) REFERENCES Inspecciones(Id),
+	CONSTRAINT fk_Vehiculo_Inspecciones FOREIGN KEY(IdVehiculo) REFERENCES Vehiculos(Id),
 	CONSTRAINT fk_Cliente_Inspecciones FOREIGN KEY(IdCliente) REFERENCES Clientes(Id),
 	CONSTRAINT fk_Empleado_Inspecciones FOREIGN KEY(IdEmpleadoInspeccion) REFERENCES Empleados(Id),
 	CONSTRAINT fk_TipoInspeccion_Inspeccion FOREIGN KEY(IdTipoInspeccion) REFERENCES TiposInspecciones(Id)
-
+	CONSTRAINT fk_Inspecciones_Marcas FOREIGN KEY (IdRenta) REFERENCES dbo.Rentas(Id) 
 )
 GO
 

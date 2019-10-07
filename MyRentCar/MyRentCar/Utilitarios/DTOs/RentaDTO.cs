@@ -64,12 +64,22 @@ namespace MyRentCar.Utilitarios.DTOs
             }
         }
 
-        public string EstadoRenta
+        public bool Estado
         {
             get
             {
-                return renta.EstadoRenta.Descripcion;
+                return renta?.Estado ?? false;
             }
         }
+
+        public Renta Renta
+        {
+            get
+            {
+                return this.renta;
+            }
+        }
+
+    
     }
 }

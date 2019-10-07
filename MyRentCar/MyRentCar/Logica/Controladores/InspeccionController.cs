@@ -45,6 +45,11 @@ namespace MyRentCar.Logica.Controladores
             return this.db.Set<T>().Find(Id);
         }
 
+        public List<TipoInspeccion> TraerTiposInspeccion()
+        {
+            return db.TiposInspecciones.Where(t => t.Estado ?? false).ToList();
+        }
+
 
     }
 }

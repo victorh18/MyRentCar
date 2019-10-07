@@ -31,11 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.tsInspeccion = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.grbDatosGenerales = new System.Windows.Forms.GroupBox();
-            this.txt = new System.Windows.Forms.TextBox();
+            this.cbxTipoInspeccion = new System.Windows.Forms.ComboBox();
+            this.txtNumeroInspeccion = new System.Windows.Forms.TextBox();
             this.lblNumeroInspeccion = new System.Windows.Forms.Label();
             this.txtNumeroRenta = new System.Windows.Forms.TextBox();
             this.lblNumeroRenta = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@
             this.lblVehiculo = new System.Windows.Forms.Label();
             this.lblPlacaVehiculo = new System.Windows.Forms.Label();
             this.grbDatosInspeccion = new System.Windows.Forms.GroupBox();
+            this.nudCantidadCombustible = new System.Windows.Forms.NumericUpDown();
             this.chkGomaTraseraDerecha = new System.Windows.Forms.CheckBox();
             this.chkGomaFronteraDerecha = new System.Windows.Forms.CheckBox();
             this.chkGomaTraseraIzquierda = new System.Windows.Forms.CheckBox();
@@ -59,14 +61,12 @@
             this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.lblObservaciones = new System.Windows.Forms.Label();
             this.lblCantidadCombustible = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.chkTieneRoturasCristal = new System.Windows.Forms.CheckBox();
             this.chkTieneGato = new System.Windows.Forms.CheckBox();
-            this.TchkTieneRayadura = new System.Windows.Forms.CheckBox();
-            this.ckhTieneGomaRepuesto = new System.Windows.Forms.CheckBox();
+            this.chkTieneRayadura = new System.Windows.Forms.CheckBox();
+            this.chkTieneGomaRepuesto = new System.Windows.Forms.CheckBox();
             this.dgvConsultaInspecciones = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.inspeccionesDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placaVehiculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,10 +74,11 @@
             this.tipoInspeccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreEmpleadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbxTipoInspeccion = new System.Windows.Forms.ComboBox();
+            this.inspeccionesDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tsInspeccion.SuspendLayout();
             this.grbDatosGenerales.SuspendLayout();
             this.grbDatosInspeccion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadCombustible)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaInspecciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspeccionesDTOBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -86,8 +87,8 @@
             // 
             this.tsInspeccion.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
-            this.toolStripButton2,
-            this.toolStripButton3});
+            this.tsbGuardar,
+            this.tsbEliminar});
             this.tsInspeccion.Location = new System.Drawing.Point(0, 0);
             this.tsInspeccion.Name = "tsInspeccion";
             this.tsInspeccion.Size = new System.Drawing.Size(953, 25);
@@ -102,24 +103,27 @@
             this.tsbNuevo.Name = "tsbNuevo";
             this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
             this.tsbNuevo.Text = "Nuevo";
+            this.tsbNuevo.Click += new System.EventHandler(this.TsbNuevo_Click);
             // 
-            // toolStripButton2
+            // tsbGuardar
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::MyRentCar.Properties.Resources.Guardar;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.tsbGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbGuardar.Image = global::MyRentCar.Properties.Resources.Guardar;
+            this.tsbGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbGuardar.Name = "tsbGuardar";
+            this.tsbGuardar.Size = new System.Drawing.Size(23, 22);
+            this.tsbGuardar.Text = "Guardar";
+            this.tsbGuardar.Click += new System.EventHandler(this.TsbGuardar_Click);
             // 
-            // toolStripButton3
+            // tsbEliminar
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::MyRentCar.Properties.Resources.Cancelar;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEliminar.Image = global::MyRentCar.Properties.Resources.Cancelar;
+            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEliminar.Name = "tsbEliminar";
+            this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEliminar.Text = "Eliminar";
+            this.tsbEliminar.Click += new System.EventHandler(this.TsbEliminar_Click);
             // 
             // lblTitulo
             // 
@@ -134,7 +138,7 @@
             // grbDatosGenerales
             // 
             this.grbDatosGenerales.Controls.Add(this.cbxTipoInspeccion);
-            this.grbDatosGenerales.Controls.Add(this.txt);
+            this.grbDatosGenerales.Controls.Add(this.txtNumeroInspeccion);
             this.grbDatosGenerales.Controls.Add(this.lblNumeroInspeccion);
             this.grbDatosGenerales.Controls.Add(this.txtNumeroRenta);
             this.grbDatosGenerales.Controls.Add(this.lblNumeroRenta);
@@ -157,13 +161,22 @@
             this.grbDatosGenerales.TabStop = false;
             this.grbDatosGenerales.Text = "Datos Generales";
             // 
-            // txt
+            // cbxTipoInspeccion
             // 
-            this.txt.BackColor = System.Drawing.SystemColors.Info;
-            this.txt.Location = new System.Drawing.Point(18, 41);
-            this.txt.Name = "txt";
-            this.txt.Size = new System.Drawing.Size(201, 20);
-            this.txt.TabIndex = 18;
+            this.cbxTipoInspeccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTipoInspeccion.FormattingEnabled = true;
+            this.cbxTipoInspeccion.Location = new System.Drawing.Point(18, 87);
+            this.cbxTipoInspeccion.Name = "cbxTipoInspeccion";
+            this.cbxTipoInspeccion.Size = new System.Drawing.Size(201, 21);
+            this.cbxTipoInspeccion.TabIndex = 19;
+            // 
+            // txtNumeroInspeccion
+            // 
+            this.txtNumeroInspeccion.BackColor = System.Drawing.SystemColors.Info;
+            this.txtNumeroInspeccion.Location = new System.Drawing.Point(18, 41);
+            this.txtNumeroInspeccion.Name = "txtNumeroInspeccion";
+            this.txtNumeroInspeccion.Size = new System.Drawing.Size(201, 20);
+            this.txtNumeroInspeccion.TabIndex = 18;
             // 
             // lblNumeroInspeccion
             // 
@@ -181,6 +194,8 @@
             this.txtNumeroRenta.Name = "txtNumeroRenta";
             this.txtNumeroRenta.Size = new System.Drawing.Size(201, 20);
             this.txtNumeroRenta.TabIndex = 16;
+            this.txtNumeroRenta.TextChanged += new System.EventHandler(this.TxtNumeroRenta_TextChanged);
+            this.txtNumeroRenta.DoubleClick += new System.EventHandler(this.TxtNumeroRenta_DoubleClick);
             // 
             // lblNumeroRenta
             // 
@@ -221,15 +236,18 @@
             // 
             // txtEmpleado
             // 
+            this.txtEmpleado.BackColor = System.Drawing.SystemColors.Info;
             this.txtEmpleado.Location = new System.Drawing.Point(482, 89);
             this.txtEmpleado.Name = "txtEmpleado";
             this.txtEmpleado.Size = new System.Drawing.Size(206, 20);
             this.txtEmpleado.TabIndex = 10;
+            this.txtEmpleado.DoubleClick += new System.EventHandler(this.TxtEmpleado_DoubleClick);
             // 
             // txtCliente
             // 
             this.txtCliente.Location = new System.Drawing.Point(248, 89);
             this.txtCliente.Name = "txtCliente";
+            this.txtCliente.ReadOnly = true;
             this.txtCliente.Size = new System.Drawing.Size(201, 20);
             this.txtCliente.TabIndex = 9;
             // 
@@ -240,14 +258,16 @@
             this.txtVehiculo.Name = "txtVehiculo";
             this.txtVehiculo.Size = new System.Drawing.Size(201, 20);
             this.txtVehiculo.TabIndex = 7;
+            this.txtVehiculo.DoubleClick += new System.EventHandler(this.TxtVehiculo_DoubleClick);
             // 
             // txtPlacaVehiculo
             // 
             this.txtPlacaVehiculo.BackColor = System.Drawing.SystemColors.Info;
             this.txtPlacaVehiculo.Location = new System.Drawing.Point(482, 41);
             this.txtPlacaVehiculo.Name = "txtPlacaVehiculo";
-            this.txtPlacaVehiculo.Size = new System.Drawing.Size(201, 20);
+            this.txtPlacaVehiculo.Size = new System.Drawing.Size(206, 20);
             this.txtPlacaVehiculo.TabIndex = 6;
+            this.txtPlacaVehiculo.DoubleClick += new System.EventHandler(this.TxtPlacaVehiculo_DoubleClick);
             // 
             // lblTipoInspeccion
             // 
@@ -296,6 +316,7 @@
             // 
             // grbDatosInspeccion
             // 
+            this.grbDatosInspeccion.Controls.Add(this.nudCantidadCombustible);
             this.grbDatosInspeccion.Controls.Add(this.chkGomaTraseraDerecha);
             this.grbDatosInspeccion.Controls.Add(this.chkGomaFronteraDerecha);
             this.grbDatosInspeccion.Controls.Add(this.chkGomaTraseraIzquierda);
@@ -303,17 +324,23 @@
             this.grbDatosInspeccion.Controls.Add(this.txtObservaciones);
             this.grbDatosInspeccion.Controls.Add(this.lblObservaciones);
             this.grbDatosInspeccion.Controls.Add(this.lblCantidadCombustible);
-            this.grbDatosInspeccion.Controls.Add(this.maskedTextBox1);
             this.grbDatosInspeccion.Controls.Add(this.chkTieneRoturasCristal);
             this.grbDatosInspeccion.Controls.Add(this.chkTieneGato);
-            this.grbDatosInspeccion.Controls.Add(this.TchkTieneRayadura);
-            this.grbDatosInspeccion.Controls.Add(this.ckhTieneGomaRepuesto);
+            this.grbDatosInspeccion.Controls.Add(this.chkTieneRayadura);
+            this.grbDatosInspeccion.Controls.Add(this.chkTieneGomaRepuesto);
             this.grbDatosInspeccion.Location = new System.Drawing.Point(17, 237);
             this.grbDatosInspeccion.Name = "grbDatosInspeccion";
             this.grbDatosInspeccion.Size = new System.Drawing.Size(924, 147);
             this.grbDatosInspeccion.TabIndex = 3;
             this.grbDatosInspeccion.TabStop = false;
             this.grbDatosInspeccion.Text = "Datos Inspección";
+            // 
+            // nudCantidadCombustible
+            // 
+            this.nudCantidadCombustible.Location = new System.Drawing.Point(14, 45);
+            this.nudCantidadCombustible.Name = "nudCantidadCombustible";
+            this.nudCantidadCombustible.Size = new System.Drawing.Size(201, 20);
+            this.nudCantidadCombustible.TabIndex = 15;
             // 
             // chkGomaTraseraDerecha
             // 
@@ -362,6 +389,7 @@
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(705, 33);
             this.txtObservaciones.TabIndex = 10;
+            this.txtObservaciones.TextChanged += new System.EventHandler(this.TxtObservaciones_TextChanged);
             // 
             // lblObservaciones
             // 
@@ -380,13 +408,6 @@
             this.lblCantidadCombustible.Size = new System.Drawing.Size(112, 13);
             this.lblCantidadCombustible.TabIndex = 5;
             this.lblCantidadCombustible.Text = "Cantidad Combustible:";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(14, 45);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(201, 20);
-            this.maskedTextBox1.TabIndex = 4;
             // 
             // chkTieneRoturasCristal
             // 
@@ -408,25 +429,25 @@
             this.chkTieneGato.Text = "Tiene Gato";
             this.chkTieneGato.UseVisualStyleBackColor = true;
             // 
-            // TchkTieneRayadura
+            // chkTieneRayadura
             // 
-            this.TchkTieneRayadura.AutoSize = true;
-            this.TchkTieneRayadura.Location = new System.Drawing.Point(764, 69);
-            this.TchkTieneRayadura.Name = "TchkTieneRayadura";
-            this.TchkTieneRayadura.Size = new System.Drawing.Size(102, 17);
-            this.TchkTieneRayadura.TabIndex = 1;
-            this.TchkTieneRayadura.Text = "Tiene Rayadura";
-            this.TchkTieneRayadura.UseVisualStyleBackColor = true;
+            this.chkTieneRayadura.AutoSize = true;
+            this.chkTieneRayadura.Location = new System.Drawing.Point(764, 69);
+            this.chkTieneRayadura.Name = "chkTieneRayadura";
+            this.chkTieneRayadura.Size = new System.Drawing.Size(102, 17);
+            this.chkTieneRayadura.TabIndex = 1;
+            this.chkTieneRayadura.Text = "Tiene Rayadura";
+            this.chkTieneRayadura.UseVisualStyleBackColor = true;
             // 
-            // ckhTieneGomaRepuesto
+            // chkTieneGomaRepuesto
             // 
-            this.ckhTieneGomaRepuesto.AutoSize = true;
-            this.ckhTieneGomaRepuesto.Location = new System.Drawing.Point(764, 45);
-            this.ckhTieneGomaRepuesto.Name = "ckhTieneGomaRepuesto";
-            this.ckhTieneGomaRepuesto.Size = new System.Drawing.Size(133, 17);
-            this.ckhTieneGomaRepuesto.TabIndex = 0;
-            this.ckhTieneGomaRepuesto.Text = "Tiene Goma Repuesto";
-            this.ckhTieneGomaRepuesto.UseVisualStyleBackColor = true;
+            this.chkTieneGomaRepuesto.AutoSize = true;
+            this.chkTieneGomaRepuesto.Location = new System.Drawing.Point(764, 45);
+            this.chkTieneGomaRepuesto.Name = "chkTieneGomaRepuesto";
+            this.chkTieneGomaRepuesto.Size = new System.Drawing.Size(133, 17);
+            this.chkTieneGomaRepuesto.TabIndex = 0;
+            this.chkTieneGomaRepuesto.Text = "Tiene Goma Repuesto";
+            this.chkTieneGomaRepuesto.UseVisualStyleBackColor = true;
             // 
             // dgvConsultaInspecciones
             // 
@@ -445,6 +466,7 @@
             this.dgvConsultaInspecciones.Name = "dgvConsultaInspecciones";
             this.dgvConsultaInspecciones.Size = new System.Drawing.Size(928, 147);
             this.dgvConsultaInspecciones.TabIndex = 4;
+            this.dgvConsultaInspecciones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvConsultaInspecciones_CellDoubleClick);
             // 
             // textBox1
             // 
@@ -452,10 +474,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(929, 20);
             this.textBox1.TabIndex = 8;
-            // 
-            // inspeccionesDTOBindingSource
-            // 
-            this.inspeccionesDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.InspeccionesDTO);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -509,14 +527,9 @@
             this.nombreEmpleadoDataGridViewTextBoxColumn.ReadOnly = true;
             this.nombreEmpleadoDataGridViewTextBoxColumn.Width = 200;
             // 
-            // cbxTipoInspeccion
+            // inspeccionesDTOBindingSource
             // 
-            this.cbxTipoInspeccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxTipoInspeccion.FormattingEnabled = true;
-            this.cbxTipoInspeccion.Location = new System.Drawing.Point(18, 87);
-            this.cbxTipoInspeccion.Name = "cbxTipoInspeccion";
-            this.cbxTipoInspeccion.Size = new System.Drawing.Size(201, 21);
-            this.cbxTipoInspeccion.TabIndex = 19;
+            this.inspeccionesDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.InspeccionesDTO);
             // 
             // frmInspecciones
             // 
@@ -531,12 +544,14 @@
             this.Controls.Add(this.tsInspeccion);
             this.Name = "frmInspecciones";
             this.Text = "Registro de Inspecciones";
+            this.Load += new System.EventHandler(this.FrmInspecciones_Load);
             this.tsInspeccion.ResumeLayout(false);
             this.tsInspeccion.PerformLayout();
             this.grbDatosGenerales.ResumeLayout(false);
             this.grbDatosGenerales.PerformLayout();
             this.grbDatosInspeccion.ResumeLayout(false);
             this.grbDatosInspeccion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadCombustible)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaInspecciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inspeccionesDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -565,11 +580,10 @@
         private System.Windows.Forms.TextBox txtObservaciones;
         private System.Windows.Forms.Label lblObservaciones;
         private System.Windows.Forms.Label lblCantidadCombustible;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.CheckBox chkTieneRoturasCristal;
         private System.Windows.Forms.CheckBox chkTieneGato;
-        private System.Windows.Forms.CheckBox TchkTieneRayadura;
-        private System.Windows.Forms.CheckBox ckhTieneGomaRepuesto;
+        private System.Windows.Forms.CheckBox chkTieneRayadura;
+        private System.Windows.Forms.CheckBox chkTieneGomaRepuesto;
         private System.Windows.Forms.CheckBox chkGomaTraseraDerecha;
         private System.Windows.Forms.CheckBox chkGomaFronteraDerecha;
         private System.Windows.Forms.CheckBox chkGomaTraseraIzquierda;
@@ -579,9 +593,9 @@
         private System.Windows.Forms.TextBox txtNumeroRenta;
         private System.Windows.Forms.Label lblNumeroRenta;
         private System.Windows.Forms.ToolStripButton tsbNuevo;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.TextBox txt;
+        private System.Windows.Forms.ToolStripButton tsbGuardar;
+        private System.Windows.Forms.ToolStripButton tsbEliminar;
+        private System.Windows.Forms.TextBox txtNumeroInspeccion;
         private System.Windows.Forms.Label lblNumeroInspeccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numeroRentaDataGridViewTextBoxColumn;
@@ -592,5 +606,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreEmpleadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource inspeccionesDTOBindingSource;
         private System.Windows.Forms.ComboBox cbxTipoInspeccion;
+        private System.Windows.Forms.NumericUpDown nudCantidadCombustible;
     }
 }

@@ -38,6 +38,10 @@
             this.mnuTiposDocumentos = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRenta = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeInspeccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inspeccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +49,8 @@
             // 
             this.msMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuMantenimientos});
+            this.mnuMantenimientos,
+            this.reportesToolStripMenuItem});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.Size = new System.Drawing.Size(800, 24);
@@ -62,7 +67,9 @@
             this.empleadosToolStripMenuItem,
             this.mnuTiposDocumentos,
             this.mnuClientes,
-            this.mnuRenta});
+            this.mnuRenta,
+            this.tiposDeInspeccionesToolStripMenuItem,
+            this.inspeccionesToolStripMenuItem});
             this.mnuMantenimientos.Name = "mnuMantenimientos";
             this.mnuMantenimientos.Size = new System.Drawing.Size(106, 20);
             this.mnuMantenimientos.Text = "Mantenimientos";
@@ -123,6 +130,35 @@
             this.mnuRenta.Text = "Renta";
             this.mnuRenta.Click += new System.EventHandler(this.MnuRenta_Click);
             // 
+            // tiposDeInspeccionesToolStripMenuItem
+            // 
+            this.tiposDeInspeccionesToolStripMenuItem.Name = "tiposDeInspeccionesToolStripMenuItem";
+            this.tiposDeInspeccionesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.tiposDeInspeccionesToolStripMenuItem.Text = "Tipos de Inspecciones";
+            this.tiposDeInspeccionesToolStripMenuItem.Click += new System.EventHandler(this.TiposDeInspeccionesToolStripMenuItem_Click);
+            // 
+            // inspeccionesToolStripMenuItem
+            // 
+            this.inspeccionesToolStripMenuItem.Name = "inspeccionesToolStripMenuItem";
+            this.inspeccionesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.inspeccionesToolStripMenuItem.Text = "Inspecciones";
+            this.inspeccionesToolStripMenuItem.Click += new System.EventHandler(this.InspeccionesToolStripMenuItem_Click);
+            // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rentasToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // rentasToolStripMenuItem
+            // 
+            this.rentasToolStripMenuItem.Name = "rentasToolStripMenuItem";
+            this.rentasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rentasToolStripMenuItem.Text = "Rentas";
+            this.rentasToolStripMenuItem.Click += new System.EventHandler(this.RentasToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,5 +189,9 @@
         private System.Windows.Forms.ToolStripMenuItem mnuTiposDocumentos;
         private System.Windows.Forms.ToolStripMenuItem mnuClientes;
         private System.Windows.Forms.ToolStripMenuItem mnuRenta;
+        private System.Windows.Forms.ToolStripMenuItem tiposDeInspeccionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inspeccionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rentasToolStripMenuItem;
     }
 }
