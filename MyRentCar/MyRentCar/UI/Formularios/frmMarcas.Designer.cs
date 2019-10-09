@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMarcas));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tsMarcas = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
@@ -45,12 +46,12 @@
             this.grbModelos = new System.Windows.Forms.GroupBox();
             this.dgvModelos = new System.Windows.Forms.DataGridView();
             this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.tipoVehiculoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.modeloBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.TipoVehiculo = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.TipoVehiculo = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.tipoVehiculoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.modeloBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tsMarcas.SuspendLayout();
             this.grbMarca.SuspendLayout();
             this.grbModelos.SuspendLayout();
@@ -131,6 +132,8 @@
             this.grbMarca.Controls.Add(this.chkEstado);
             this.grbMarca.Controls.Add(this.lblDescripcion);
             this.grbMarca.Controls.Add(this.lblNumeroMarca);
+            this.grbMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbMarca.ForeColor = System.Drawing.SystemColors.Highlight;
             this.grbMarca.Location = new System.Drawing.Point(16, 82);
             this.grbMarca.Name = "grbMarca";
             this.grbMarca.Size = new System.Drawing.Size(888, 74);
@@ -140,6 +143,8 @@
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtDescripcion.Location = new System.Drawing.Point(277, 36);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(364, 20);
@@ -147,6 +152,8 @@
             // 
             // txtNumeroMarca
             // 
+            this.txtNumeroMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroMarca.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtNumeroMarca.Location = new System.Drawing.Point(10, 36);
             this.txtNumeroMarca.Name = "txtNumeroMarca";
             this.txtNumeroMarca.ReadOnly = true;
@@ -156,6 +163,8 @@
             // chkEstado
             // 
             this.chkEstado.AutoSize = true;
+            this.chkEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkEstado.ForeColor = System.Drawing.SystemColors.Desktop;
             this.chkEstado.Location = new System.Drawing.Point(738, 36);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(56, 17);
@@ -166,6 +175,8 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblDescripcion.Location = new System.Drawing.Point(274, 20);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
@@ -175,6 +186,8 @@
             // lblNumeroMarca
             // 
             this.lblNumeroMarca.AutoSize = true;
+            this.lblNumeroMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumeroMarca.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblNumeroMarca.Location = new System.Drawing.Point(7, 20);
             this.lblNumeroMarca.Name = "lblNumeroMarca";
             this.lblNumeroMarca.Size = new System.Drawing.Size(60, 13);
@@ -184,6 +197,8 @@
             // grbModelos
             // 
             this.grbModelos.Controls.Add(this.dgvModelos);
+            this.grbModelos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbModelos.ForeColor = System.Drawing.SystemColors.Highlight;
             this.grbModelos.Location = new System.Drawing.Point(16, 189);
             this.grbModelos.Name = "grbModelos";
             this.grbModelos.Size = new System.Drawing.Size(888, 276);
@@ -201,6 +216,14 @@
             this.estadoDataGridViewTextBoxColumn,
             this.TipoVehiculo});
             this.dgvModelos.DataSource = this.modeloBindingSource;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvModelos.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvModelos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvModelos.Location = new System.Drawing.Point(10, 20);
             this.dgvModelos.Name = "dgvModelos";
@@ -213,13 +236,15 @@
             this.dataGridViewComboBoxColumn1.HeaderText = "TIPO VEHICULO";
             this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
             // 
-            // tipoVehiculoBindingSource
+            // TipoVehiculo
             // 
-            this.tipoVehiculoBindingSource.DataSource = typeof(MyRentCar.Data.Modelos.TipoVehiculo);
-            // 
-            // modeloBindingSource
-            // 
-            this.modeloBindingSource.DataSource = typeof(MyRentCar.Data.Modelos.Modelo);
+            this.TipoVehiculo.DataPropertyName = "IdTipoVehiculo";
+            this.TipoVehiculo.DataSource = this.tipoVehiculoBindingSource;
+            this.TipoVehiculo.DisplayMember = "Descripcion";
+            this.TipoVehiculo.HeaderText = "TIPO VEHICULO";
+            this.TipoVehiculo.Name = "TipoVehiculo";
+            this.TipoVehiculo.ValueMember = "Id";
+            this.TipoVehiculo.Width = 150;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -243,14 +268,13 @@
             this.estadoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.estadoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // TipoVehiculo
+            // tipoVehiculoBindingSource
             // 
-            this.TipoVehiculo.DataPropertyName = "IdTipoVehiculo";
-            this.TipoVehiculo.DataSource = this.tipoVehiculoBindingSource;
-            this.TipoVehiculo.DisplayMember = "Descripcion";
-            this.TipoVehiculo.HeaderText = "TIPO VEHICULO";
-            this.TipoVehiculo.Name = "TipoVehiculo";
-            this.TipoVehiculo.ValueMember = "Id";
+            this.tipoVehiculoBindingSource.DataSource = typeof(MyRentCar.Data.Modelos.TipoVehiculo);
+            // 
+            // modeloBindingSource
+            // 
+            this.modeloBindingSource.DataSource = typeof(MyRentCar.Data.Modelos.Modelo);
             // 
             // frmMarcas
             // 
@@ -261,6 +285,7 @@
             this.Controls.Add(this.grbMarca);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.tsMarcas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMarcas";
             this.Text = "frmMarcas";
             this.Load += new System.EventHandler(this.FrmMarcas_Load);
@@ -295,10 +320,10 @@
         private System.Windows.Forms.BindingSource modeloBindingSource;
         private System.Windows.Forms.ToolStripButton tsbBuscar;
         private System.Windows.Forms.BindingSource tipoVehiculoBindingSource;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn TipoVehiculo;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
     }
 }

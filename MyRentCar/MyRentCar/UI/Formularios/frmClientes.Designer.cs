@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tsClientes = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
@@ -47,13 +48,13 @@
             this.lblNumeroDocumento = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.dgvClientesConsulta = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.nombreClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroDocumentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.clienteDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsClientes.SuspendLayout();
             this.grbCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudLimiteCredito)).BeginInit();
@@ -127,6 +128,7 @@
             this.grbCliente.Controls.Add(this.lblTipoDocumento);
             this.grbCliente.Controls.Add(this.lblNumeroDocumento);
             this.grbCliente.Controls.Add(this.lblNombre);
+            this.grbCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbCliente.ForeColor = System.Drawing.SystemColors.Highlight;
             this.grbCliente.Location = new System.Drawing.Point(16, 82);
             this.grbCliente.Name = "grbCliente";
@@ -137,8 +139,9 @@
             // 
             // txtNumeroDocumento
             // 
+            this.txtNumeroDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroDocumento.Location = new System.Drawing.Point(323, 35);
-            this.txtNumeroDocumento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNumeroDocumento.Margin = new System.Windows.Forms.Padding(2);
             this.txtNumeroDocumento.Name = "txtNumeroDocumento";
             this.txtNumeroDocumento.Size = new System.Drawing.Size(253, 20);
             this.txtNumeroDocumento.TabIndex = 11;
@@ -146,6 +149,7 @@
             // cbxTipoDocumento
             // 
             this.cbxTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTipoDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxTipoDocumento.ForeColor = System.Drawing.SystemColors.Desktop;
             this.cbxTipoDocumento.FormattingEnabled = true;
             this.cbxTipoDocumento.Location = new System.Drawing.Point(609, 35);
@@ -155,6 +159,7 @@
             // 
             // nudLimiteCredito
             // 
+            this.nudLimiteCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudLimiteCredito.ForeColor = System.Drawing.SystemColors.Desktop;
             this.nudLimiteCredito.Location = new System.Drawing.Point(323, 83);
             this.nudLimiteCredito.Name = "nudLimiteCredito";
@@ -163,6 +168,7 @@
             // 
             // txtTarjetaCredito
             // 
+            this.txtTarjetaCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTarjetaCredito.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtTarjetaCredito.Location = new System.Drawing.Point(13, 84);
             this.txtTarjetaCredito.Name = "txtTarjetaCredito";
@@ -171,6 +177,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtNombre.Location = new System.Drawing.Point(13, 37);
             this.txtNombre.Name = "txtNombre";
@@ -180,6 +187,7 @@
             // chkEstado
             // 
             this.chkEstado.AutoSize = true;
+            this.chkEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkEstado.ForeColor = System.Drawing.SystemColors.Desktop;
             this.chkEstado.Location = new System.Drawing.Point(737, 83);
             this.chkEstado.Name = "chkEstado";
@@ -191,6 +199,7 @@
             // lblLimiteCredito
             // 
             this.lblLimiteCredito.AutoSize = true;
+            this.lblLimiteCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLimiteCredito.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblLimiteCredito.Location = new System.Drawing.Point(320, 67);
             this.lblLimiteCredito.Name = "lblLimiteCredito";
@@ -201,6 +210,7 @@
             // lblTarjetaCredito
             // 
             this.lblTarjetaCredito.AutoSize = true;
+            this.lblTarjetaCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTarjetaCredito.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblTarjetaCredito.Location = new System.Drawing.Point(10, 67);
             this.lblTarjetaCredito.Name = "lblTarjetaCredito";
@@ -211,6 +221,7 @@
             // lblTipoDocumento
             // 
             this.lblTipoDocumento.AutoSize = true;
+            this.lblTipoDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoDocumento.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblTipoDocumento.Location = new System.Drawing.Point(606, 20);
             this.lblTipoDocumento.Name = "lblTipoDocumento";
@@ -222,6 +233,7 @@
             // lblNumeroDocumento
             // 
             this.lblNumeroDocumento.AutoSize = true;
+            this.lblNumeroDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumeroDocumento.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblNumeroDocumento.Location = new System.Drawing.Point(320, 20);
             this.lblNumeroDocumento.Name = "lblNumeroDocumento";
@@ -232,6 +244,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblNombre.Location = new System.Drawing.Point(7, 20);
             this.lblNombre.Name = "lblNombre";
@@ -246,6 +259,14 @@
             this.dgvClientesConsulta.AllowUserToResizeColumns = false;
             this.dgvClientesConsulta.AllowUserToResizeRows = false;
             this.dgvClientesConsulta.AutoGenerateColumns = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientesConsulta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvClientesConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientesConsulta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombreClienteDataGridViewTextBoxColumn,
@@ -258,20 +279,6 @@
             this.dgvClientesConsulta.Size = new System.Drawing.Size(889, 171);
             this.dgvClientesConsulta.TabIndex = 3;
             this.dgvClientesConsulta.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClientesConsulta_CellDoubleClick);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(13, 240);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(891, 20);
-            this.textBox1.TabIndex = 4;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // nombreClienteDataGridViewTextBoxColumn
             // 
@@ -308,6 +315,20 @@
             // 
             this.clienteDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.ClienteDTO);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(13, 240);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(891, 20);
+            this.textBox1.TabIndex = 4;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,6 +339,7 @@
             this.Controls.Add(this.grbCliente);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.tsClientes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmClientes";
             this.Text = "frmClientes";
             this.Load += new System.EventHandler(this.FrmClientes_Load);

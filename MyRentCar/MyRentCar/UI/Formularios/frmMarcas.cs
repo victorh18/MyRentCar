@@ -79,16 +79,20 @@ namespace MyRentCar.UI.Formularios
         {
             if (marca == null)
             {
-                MessageBox.Show("Debe seleccionar o crear una nueva factura.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe seleccionar o crear una nueva marca.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 LimpiarCampos();
                 return;
 
             }
-
-            LlenarMarca(this.marca);
-            controller.Guardar(marca);
-            MessageBox.Show("La marca de vehículo " + marca.Descripcion + " se ha guardado correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            tsbNuevo.Enabled = true;
+            if (Validar())
+            {
+                LlenarMarca(this.marca);
+                controller.Guardar(marca);
+                MessageBox.Show("La marca de vehículo " + marca.Descripcion + " se ha guardado correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tsbNuevo.Enabled = true;
+                return;
+            }
+            
 
         }
 
@@ -143,6 +147,16 @@ namespace MyRentCar.UI.Formularios
             txtDescripcion.Enabled = valor;
             chkEstado.Enabled = valor;
             dgvModelos.Enabled = valor;
+        }
+
+        private bool Validar()
+        {
+            if (txtDescripcion.Text == "")
+            {
+                MessageBox.Show("Tiene que digitar un nombre para la marca.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            return true;
         }
 
         

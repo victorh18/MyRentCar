@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grbMarca = new System.Windows.Forms.GroupBox();
             this.cbxCombustible = new System.Windows.Forms.ComboBox();
             this.txtNumeroChasis = new System.Windows.Forms.TextBox();
@@ -50,8 +51,6 @@
             this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.dgvVehiculos = new System.Windows.Forms.DataGridView();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.marcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modeloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroPlacaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +59,8 @@
             this.combustibleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehiculoDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.grbMarca.SuspendLayout();
             this.tsVehiculos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos)).BeginInit();
@@ -85,12 +86,11 @@
             this.grbMarca.Controls.Add(this.lblDescripcion);
             this.grbMarca.Controls.Add(this.lblModelo);
             this.grbMarca.Controls.Add(this.lblMarca);
+            this.grbMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbMarca.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.grbMarca.Location = new System.Drawing.Point(18, 138);
-            this.grbMarca.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grbMarca.Location = new System.Drawing.Point(12, 90);
             this.grbMarca.Name = "grbMarca";
-            this.grbMarca.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.grbMarca.Size = new System.Drawing.Size(1348, 283);
+            this.grbMarca.Size = new System.Drawing.Size(899, 184);
             this.grbMarca.TabIndex = 1;
             this.grbMarca.TabStop = false;
             this.grbMarca.Text = "Vehículo";
@@ -98,11 +98,11 @@
             // cbxCombustible
             // 
             this.cbxCombustible.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCombustible.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCombustible.FormattingEnabled = true;
-            this.cbxCombustible.Location = new System.Drawing.Point(819, 55);
-            this.cbxCombustible.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbxCombustible.Location = new System.Drawing.Point(546, 36);
             this.cbxCombustible.Name = "cbxCombustible";
-            this.cbxCombustible.Size = new System.Drawing.Size(308, 28);
+            this.cbxCombustible.Size = new System.Drawing.Size(207, 21);
             this.cbxCombustible.TabIndex = 14;
             // 
             // txtNumeroChasis
@@ -110,21 +110,21 @@
             this.txtNumeroChasis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNumeroChasis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumeroChasis.Location = new System.Drawing.Point(819, 123);
-            this.txtNumeroChasis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNumeroChasis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroChasis.Location = new System.Drawing.Point(546, 80);
             this.txtNumeroChasis.Name = "txtNumeroChasis";
-            this.txtNumeroChasis.Size = new System.Drawing.Size(308, 26);
+            this.txtNumeroChasis.Size = new System.Drawing.Size(207, 20);
             this.txtNumeroChasis.TabIndex = 13;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescripcion.Location = new System.Drawing.Point(15, 192);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.Location = new System.Drawing.Point(10, 125);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(1322, 79);
+            this.txtDescripcion.Size = new System.Drawing.Size(883, 53);
             this.txtDescripcion.TabIndex = 12;
             // 
             // txtNumeroMotor
@@ -132,10 +132,10 @@
             this.txtNumeroMotor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNumeroMotor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumeroMotor.Location = new System.Drawing.Point(411, 122);
-            this.txtNumeroMotor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNumeroMotor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroMotor.Location = new System.Drawing.Point(274, 79);
             this.txtNumeroMotor.Name = "txtNumeroMotor";
-            this.txtNumeroMotor.Size = new System.Drawing.Size(331, 26);
+            this.txtNumeroMotor.Size = new System.Drawing.Size(222, 20);
             this.txtNumeroMotor.TabIndex = 11;
             // 
             // txtNumeroPlaca
@@ -143,10 +143,10 @@
             this.txtNumeroPlaca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNumeroPlaca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumeroPlaca.Location = new System.Drawing.Point(15, 123);
-            this.txtNumeroPlaca.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNumeroPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroPlaca.Location = new System.Drawing.Point(10, 80);
             this.txtNumeroPlaca.Name = "txtNumeroPlaca";
-            this.txtNumeroPlaca.Size = new System.Drawing.Size(331, 26);
+            this.txtNumeroPlaca.Size = new System.Drawing.Size(222, 20);
             this.txtNumeroPlaca.TabIndex = 10;
             // 
             // txtModelo
@@ -154,11 +154,11 @@
             this.txtModelo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtModelo.BackColor = System.Drawing.SystemColors.Info;
-            this.txtModelo.Location = new System.Drawing.Point(411, 57);
-            this.txtModelo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModelo.Location = new System.Drawing.Point(274, 37);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.ReadOnly = true;
-            this.txtModelo.Size = new System.Drawing.Size(331, 26);
+            this.txtModelo.Size = new System.Drawing.Size(222, 20);
             this.txtModelo.TabIndex = 9;
             this.txtModelo.DoubleClick += new System.EventHandler(this.TxtModelo_DoubleClick);
             // 
@@ -166,11 +166,11 @@
             // 
             this.txtMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMarca.BackColor = System.Drawing.SystemColors.Info;
-            this.txtMarca.Location = new System.Drawing.Point(15, 57);
-            this.txtMarca.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMarca.Location = new System.Drawing.Point(10, 37);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.ReadOnly = true;
-            this.txtMarca.Size = new System.Drawing.Size(331, 26);
+            this.txtMarca.Size = new System.Drawing.Size(222, 20);
             this.txtMarca.TabIndex = 8;
             // 
             // chkEstado
@@ -178,11 +178,11 @@
             this.chkEstado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chkEstado.AutoSize = true;
+            this.chkEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkEstado.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.chkEstado.Location = new System.Drawing.Point(1198, 95);
-            this.chkEstado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chkEstado.Location = new System.Drawing.Point(799, 62);
             this.chkEstado.Name = "chkEstado";
-            this.chkEstado.Size = new System.Drawing.Size(78, 24);
+            this.chkEstado.Size = new System.Drawing.Size(56, 17);
             this.chkEstado.TabIndex = 7;
             this.chkEstado.Text = "Activo";
             this.chkEstado.UseVisualStyleBackColor = true;
@@ -192,11 +192,11 @@
             this.lblCombustible.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCombustible.AutoSize = true;
+            this.lblCombustible.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCombustible.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblCombustible.Location = new System.Drawing.Point(814, 31);
-            this.lblCombustible.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCombustible.Location = new System.Drawing.Point(543, 20);
             this.lblCombustible.Name = "lblCombustible";
-            this.lblCombustible.Size = new System.Drawing.Size(101, 20);
+            this.lblCombustible.Size = new System.Drawing.Size(67, 13);
             this.lblCombustible.TabIndex = 6;
             this.lblCombustible.Text = "Combustible:";
             // 
@@ -205,11 +205,11 @@
             this.lblNumeroPlaca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNumeroPlaca.AutoSize = true;
+            this.lblNumeroPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumeroPlaca.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblNumeroPlaca.Location = new System.Drawing.Point(10, 97);
-            this.lblNumeroPlaca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNumeroPlaca.Location = new System.Drawing.Point(7, 63);
             this.lblNumeroPlaca.Name = "lblNumeroPlaca";
-            this.lblNumeroPlaca.Size = new System.Drawing.Size(80, 20);
+            this.lblNumeroPlaca.Size = new System.Drawing.Size(57, 13);
             this.lblNumeroPlaca.TabIndex = 5;
             this.lblNumeroPlaca.Text = "No. Placa:";
             // 
@@ -218,11 +218,11 @@
             this.lblNumeroMotor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNumeroMotor.AutoSize = true;
+            this.lblNumeroMotor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumeroMotor.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblNumeroMotor.Location = new System.Drawing.Point(406, 97);
-            this.lblNumeroMotor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNumeroMotor.Location = new System.Drawing.Point(271, 63);
             this.lblNumeroMotor.Name = "lblNumeroMotor";
-            this.lblNumeroMotor.Size = new System.Drawing.Size(82, 20);
+            this.lblNumeroMotor.Size = new System.Drawing.Size(57, 13);
             this.lblNumeroMotor.TabIndex = 4;
             this.lblNumeroMotor.Text = "No. Motor:";
             // 
@@ -231,11 +231,11 @@
             this.lblNumeroChasis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNumeroChasis.AutoSize = true;
+            this.lblNumeroChasis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumeroChasis.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblNumeroChasis.Location = new System.Drawing.Point(814, 97);
-            this.lblNumeroChasis.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNumeroChasis.Location = new System.Drawing.Point(543, 63);
             this.lblNumeroChasis.Name = "lblNumeroChasis";
-            this.lblNumeroChasis.Size = new System.Drawing.Size(89, 20);
+            this.lblNumeroChasis.Size = new System.Drawing.Size(61, 13);
             this.lblNumeroChasis.TabIndex = 3;
             this.lblNumeroChasis.Text = "No. Chasis:";
             // 
@@ -244,11 +244,11 @@
             this.lblDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblDescripcion.Location = new System.Drawing.Point(10, 166);
-            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDescripcion.Location = new System.Drawing.Point(7, 108);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(96, 20);
+            this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
             this.lblDescripcion.TabIndex = 2;
             this.lblDescripcion.Text = "Descripción:";
             // 
@@ -257,11 +257,11 @@
             this.lblModelo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblModelo.AutoSize = true;
+            this.lblModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModelo.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblModelo.Location = new System.Drawing.Point(406, 31);
-            this.lblModelo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblModelo.Location = new System.Drawing.Point(271, 20);
             this.lblModelo.Name = "lblModelo";
-            this.lblModelo.Size = new System.Drawing.Size(65, 20);
+            this.lblModelo.Size = new System.Drawing.Size(45, 13);
             this.lblModelo.TabIndex = 1;
             this.lblModelo.Text = "Modelo:";
             // 
@@ -270,11 +270,11 @@
             this.lblMarca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMarca.AutoSize = true;
+            this.lblMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMarca.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblMarca.Location = new System.Drawing.Point(10, 31);
-            this.lblMarca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMarca.Location = new System.Drawing.Point(7, 20);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(57, 20);
+            this.lblMarca.Size = new System.Drawing.Size(40, 13);
             this.lblMarca.TabIndex = 0;
             this.lblMarca.Text = "Marca:";
             // 
@@ -287,8 +287,7 @@
             this.tsbEliminar});
             this.tsVehiculos.Location = new System.Drawing.Point(0, 0);
             this.tsVehiculos.Name = "tsVehiculos";
-            this.tsVehiculos.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.tsVehiculos.Size = new System.Drawing.Size(1384, 31);
+            this.tsVehiculos.Size = new System.Drawing.Size(923, 31);
             this.tsVehiculos.TabIndex = 2;
             this.tsVehiculos.Text = "toolStrip1";
             // 
@@ -328,10 +327,15 @@
             this.dgvVehiculos.AllowUserToDeleteRows = false;
             this.dgvVehiculos.AllowUserToResizeColumns = false;
             this.dgvVehiculos.AllowUserToResizeRows = false;
-            this.dgvVehiculos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvVehiculos.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVehiculos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVehiculos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.marcaDataGridViewTextBoxColumn,
@@ -342,31 +346,11 @@
             this.combustibleDataGridViewTextBoxColumn,
             this.descripcionDataGridViewTextBoxColumn});
             this.dgvVehiculos.DataSource = this.vehiculoDTOBindingSource;
-            this.dgvVehiculos.Location = new System.Drawing.Point(18, 522);
-            this.dgvVehiculos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvVehiculos.Location = new System.Drawing.Point(12, 339);
             this.dgvVehiculos.Name = "dgvVehiculos";
-            this.dgvVehiculos.Size = new System.Drawing.Size(1348, 266);
+            this.dgvVehiculos.Size = new System.Drawing.Size(899, 173);
             this.dgvVehiculos.TabIndex = 3;
             this.dgvVehiculos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVehiculos_CellDoubleClick);
-            // 
-            // txtBusqueda
-            // 
-            this.txtBusqueda.Location = new System.Drawing.Point(18, 482);
-            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(1348, 26);
-            this.txtBusqueda.TabIndex = 4;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(28, 38);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(1329, 82);
-            this.lblTitulo.TabIndex = 6;
-            this.lblTitulo.Text = "REGISTRO DE VEHÍCULOS";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // marcaDataGridViewTextBoxColumn
             // 
@@ -428,18 +412,35 @@
             // 
             this.vehiculoDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.VehiculoDTO);
             // 
+            // txtBusqueda
+            // 
+            this.txtBusqueda.Location = new System.Drawing.Point(12, 313);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(900, 20);
+            this.txtBusqueda.TabIndex = 4;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(19, 25);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(886, 53);
+            this.lblTitulo.TabIndex = 6;
+            this.lblTitulo.Text = "REGISTRO DE VEHÍCULOS";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmVehiculos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 806);
+            this.ClientSize = new System.Drawing.Size(923, 524);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.dgvVehiculos);
             this.Controls.Add(this.tsVehiculos);
             this.Controls.Add(this.grbMarca);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MinimumSize = new System.Drawing.Size(1398, 836);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimumSize = new System.Drawing.Size(937, 557);
             this.Name = "frmVehiculos";
             this.Text = "Registro de vehículos";
             this.Load += new System.EventHandler(this.FrmVehiculos_Load);

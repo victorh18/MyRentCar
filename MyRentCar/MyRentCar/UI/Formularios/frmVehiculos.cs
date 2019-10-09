@@ -27,7 +27,8 @@ namespace MyRentCar.UI.Formularios
             cbxCombustible.ValueMember = "Id";
             LimpiarCampos();
             HabilitarControles(false);
-
+            tsbGuardar.Enabled = false;
+            tsbEliminar.Enabled = false;
             CargarVehiculosConsultas();
         }
         
@@ -60,12 +61,15 @@ namespace MyRentCar.UI.Formularios
             vehiculo = new Vehiculo();
             MostrarVehiculo(vehiculo);
             HabilitarControles(true);
+            tsbGuardar.Enabled = true;
+            tsbEliminar.Enabled = true;
         }
 
         private void LimpiarCampos()
         {
             cbxCombustible.SelectedItem = null;
             txtMarca.Text = "";
+            txtModelo.Text = "";
             txtNumeroChasis.Text = "";
             txtNumeroMotor.Text = "";
             txtNumeroPlaca.Text = "";
@@ -96,6 +100,8 @@ namespace MyRentCar.UI.Formularios
             controller.Guardar(_vehiculo);
             MessageBox.Show("El vehículo ha sido guardado correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             CargarVehiculosConsultas();
+
+            
         }
 
         private void TsbNuevo_Click(object sender, EventArgs e)
@@ -107,9 +113,9 @@ namespace MyRentCar.UI.Formularios
         {
             if (MessageBox.Show("¿Está seguro de que desea guardar el vehículo actual?", "GUARDAR", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
-                LlenarVehiculo(vehiculo);
-                if (ValidacionesVehiculos.ValidarVehiculo(vehiculo))
+               if (Validar())
                 {
+                    LlenarVehiculo(vehiculo);
                     Guardar(vehiculo);
                 }        
             }
@@ -125,6 +131,10 @@ namespace MyRentCar.UI.Formularios
                     controller.Eliminar(vehiculo);
                 }
                 LimpiarCampos();
+                HabilitarControles(false);
+                tsbGuardar.Enabled = false;
+                tsbEliminar.Enabled = false;
+                CargarVehiculosConsultas();
                 return;
             }
         }
@@ -163,6 +173,40 @@ namespace MyRentCar.UI.Formularios
             VehiculoDTO vehiculoDTO = vehiculoDTOBindingSource.Current as VehiculoDTO;
             vehiculo = vehiculoDTO.Vehiculo;
             MostrarVehiculo(vehiculo);
+            tsbGuardar.Enabled = true;
+            tsbEliminar.Enabled = true;
+        }
+
+        private bool Validar()
+        {
+            if (this.vehiculo.Modelo == null && txtModelo.Text == "")
+            {
+                MensajeValidacion("Debe seleccionar un modelo para el vehículo");
+                return false;
+            } else if (cbxCombustible.SelectedItem == null)
+            {
+                MensajeValidacion("Debe seleccionar el tipo de combustible para el vehículo");
+                return false;
+            }else if(txtNumeroPlaca.Text == "")
+            {
+                MensajeValidacion("Debe digitar el número de placa del vehículo");
+                return false;
+            } else if (txtNumeroChasis.Text == "")
+            {
+                MensajeValidacion("Debe digitar el número de chasis.");
+                return false;
+            } else if (txtNumeroMotor.Text == "")
+            {
+                MensajeValidacion("Debe digitar el número de motor");
+                return false;
+            }
+            return true;
+        }
+
+        private void MensajeValidacion(string mensaje)
+        {
+            MessageBox.Show(mensaje, "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return;
         }
     }
 }

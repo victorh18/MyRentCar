@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tsInspeccion = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
@@ -66,7 +67,6 @@
             this.chkTieneRayadura = new System.Windows.Forms.CheckBox();
             this.chkTieneGomaRepuesto = new System.Windows.Forms.CheckBox();
             this.dgvConsultaInspecciones = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeroRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placaVehiculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,6 +75,7 @@
             this.nombreClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreEmpleadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inspeccionesDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tsInspeccion.SuspendLayout();
             this.grbDatosGenerales.SuspendLayout();
             this.grbDatosInspeccion.SuspendLayout();
@@ -154,6 +155,8 @@
             this.grbDatosGenerales.Controls.Add(this.lblCliente);
             this.grbDatosGenerales.Controls.Add(this.lblVehiculo);
             this.grbDatosGenerales.Controls.Add(this.lblPlacaVehiculo);
+            this.grbDatosGenerales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbDatosGenerales.ForeColor = System.Drawing.SystemColors.Highlight;
             this.grbDatosGenerales.Location = new System.Drawing.Point(13, 86);
             this.grbDatosGenerales.Name = "grbDatosGenerales";
             this.grbDatosGenerales.Size = new System.Drawing.Size(928, 135);
@@ -164,6 +167,8 @@
             // cbxTipoInspeccion
             // 
             this.cbxTipoInspeccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTipoInspeccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTipoInspeccion.ForeColor = System.Drawing.SystemColors.Desktop;
             this.cbxTipoInspeccion.FormattingEnabled = true;
             this.cbxTipoInspeccion.Location = new System.Drawing.Point(18, 87);
             this.cbxTipoInspeccion.Name = "cbxTipoInspeccion";
@@ -173,6 +178,8 @@
             // txtNumeroInspeccion
             // 
             this.txtNumeroInspeccion.BackColor = System.Drawing.SystemColors.Info;
+            this.txtNumeroInspeccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroInspeccion.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtNumeroInspeccion.Location = new System.Drawing.Point(18, 41);
             this.txtNumeroInspeccion.Name = "txtNumeroInspeccion";
             this.txtNumeroInspeccion.Size = new System.Drawing.Size(201, 20);
@@ -181,6 +188,8 @@
             // lblNumeroInspeccion
             // 
             this.lblNumeroInspeccion.AutoSize = true;
+            this.lblNumeroInspeccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumeroInspeccion.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblNumeroInspeccion.Location = new System.Drawing.Point(15, 25);
             this.lblNumeroInspeccion.Name = "lblNumeroInspeccion";
             this.lblNumeroInspeccion.Size = new System.Drawing.Size(79, 13);
@@ -190,6 +199,8 @@
             // txtNumeroRenta
             // 
             this.txtNumeroRenta.BackColor = System.Drawing.SystemColors.Info;
+            this.txtNumeroRenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroRenta.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtNumeroRenta.Location = new System.Drawing.Point(248, 41);
             this.txtNumeroRenta.Name = "txtNumeroRenta";
             this.txtNumeroRenta.Size = new System.Drawing.Size(201, 20);
@@ -200,6 +211,8 @@
             // lblNumeroRenta
             // 
             this.lblNumeroRenta.AutoSize = true;
+            this.lblNumeroRenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumeroRenta.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblNumeroRenta.Location = new System.Drawing.Point(245, 25);
             this.lblNumeroRenta.Name = "lblNumeroRenta";
             this.lblNumeroRenta.Size = new System.Drawing.Size(56, 13);
@@ -209,6 +222,7 @@
             // dtpFechaInspeccion
             // 
             this.dtpFechaInspeccion.CustomFormat = "dd/MM/yyyy";
+            this.dtpFechaInspeccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaInspeccion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaInspeccion.Location = new System.Drawing.Point(716, 89);
             this.dtpFechaInspeccion.Name = "dtpFechaInspeccion";
@@ -218,6 +232,8 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblFecha.Location = new System.Drawing.Point(713, 73);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(95, 13);
@@ -227,6 +243,8 @@
             // chkEstado
             // 
             this.chkEstado.AutoSize = true;
+            this.chkEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkEstado.ForeColor = System.Drawing.SystemColors.Desktop;
             this.chkEstado.Location = new System.Drawing.Point(857, 91);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(56, 17);
@@ -237,6 +255,8 @@
             // txtEmpleado
             // 
             this.txtEmpleado.BackColor = System.Drawing.SystemColors.Info;
+            this.txtEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmpleado.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtEmpleado.Location = new System.Drawing.Point(482, 89);
             this.txtEmpleado.Name = "txtEmpleado";
             this.txtEmpleado.Size = new System.Drawing.Size(206, 20);
@@ -245,6 +265,8 @@
             // 
             // txtCliente
             // 
+            this.txtCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCliente.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtCliente.Location = new System.Drawing.Point(248, 89);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.ReadOnly = true;
@@ -254,6 +276,8 @@
             // txtVehiculo
             // 
             this.txtVehiculo.BackColor = System.Drawing.SystemColors.Info;
+            this.txtVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVehiculo.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtVehiculo.Location = new System.Drawing.Point(716, 41);
             this.txtVehiculo.Name = "txtVehiculo";
             this.txtVehiculo.Size = new System.Drawing.Size(201, 20);
@@ -263,6 +287,8 @@
             // txtPlacaVehiculo
             // 
             this.txtPlacaVehiculo.BackColor = System.Drawing.SystemColors.Info;
+            this.txtPlacaVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlacaVehiculo.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtPlacaVehiculo.Location = new System.Drawing.Point(482, 41);
             this.txtPlacaVehiculo.Name = "txtPlacaVehiculo";
             this.txtPlacaVehiculo.Size = new System.Drawing.Size(206, 20);
@@ -272,6 +298,8 @@
             // lblTipoInspeccion
             // 
             this.lblTipoInspeccion.AutoSize = true;
+            this.lblTipoInspeccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoInspeccion.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblTipoInspeccion.Location = new System.Drawing.Point(15, 73);
             this.lblTipoInspeccion.Name = "lblTipoInspeccion";
             this.lblTipoInspeccion.Size = new System.Drawing.Size(86, 13);
@@ -281,6 +309,8 @@
             // lblEmpleado
             // 
             this.lblEmpleado.AutoSize = true;
+            this.lblEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmpleado.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblEmpleado.Location = new System.Drawing.Point(482, 73);
             this.lblEmpleado.Name = "lblEmpleado";
             this.lblEmpleado.Size = new System.Drawing.Size(97, 13);
@@ -290,6 +320,8 @@
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
+            this.lblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCliente.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblCliente.Location = new System.Drawing.Point(245, 73);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(82, 13);
@@ -299,6 +331,8 @@
             // lblVehiculo
             // 
             this.lblVehiculo.AutoSize = true;
+            this.lblVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVehiculo.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblVehiculo.Location = new System.Drawing.Point(713, 25);
             this.lblVehiculo.Name = "lblVehiculo";
             this.lblVehiculo.Size = new System.Drawing.Size(53, 13);
@@ -308,6 +342,8 @@
             // lblPlacaVehiculo
             // 
             this.lblPlacaVehiculo.AutoSize = true;
+            this.lblPlacaVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlacaVehiculo.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblPlacaVehiculo.Location = new System.Drawing.Point(479, 25);
             this.lblPlacaVehiculo.Name = "lblPlacaVehiculo";
             this.lblPlacaVehiculo.Size = new System.Drawing.Size(83, 13);
@@ -328,6 +364,8 @@
             this.grbDatosInspeccion.Controls.Add(this.chkTieneGato);
             this.grbDatosInspeccion.Controls.Add(this.chkTieneRayadura);
             this.grbDatosInspeccion.Controls.Add(this.chkTieneGomaRepuesto);
+            this.grbDatosInspeccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbDatosInspeccion.ForeColor = System.Drawing.SystemColors.Highlight;
             this.grbDatosInspeccion.Location = new System.Drawing.Point(17, 237);
             this.grbDatosInspeccion.Name = "grbDatosInspeccion";
             this.grbDatosInspeccion.Size = new System.Drawing.Size(924, 147);
@@ -337,6 +375,8 @@
             // 
             // nudCantidadCombustible
             // 
+            this.nudCantidadCombustible.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudCantidadCombustible.ForeColor = System.Drawing.SystemColors.Desktop;
             this.nudCantidadCombustible.Location = new System.Drawing.Point(14, 45);
             this.nudCantidadCombustible.Name = "nudCantidadCombustible";
             this.nudCantidadCombustible.Size = new System.Drawing.Size(201, 20);
@@ -345,6 +385,8 @@
             // chkGomaTraseraDerecha
             // 
             this.chkGomaTraseraDerecha.AutoSize = true;
+            this.chkGomaTraseraDerecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkGomaTraseraDerecha.ForeColor = System.Drawing.SystemColors.Desktop;
             this.chkGomaTraseraDerecha.Location = new System.Drawing.Point(493, 67);
             this.chkGomaTraseraDerecha.Name = "chkGomaTraseraDerecha";
             this.chkGomaTraseraDerecha.Size = new System.Drawing.Size(137, 17);
@@ -355,6 +397,8 @@
             // chkGomaFronteraDerecha
             // 
             this.chkGomaFronteraDerecha.AutoSize = true;
+            this.chkGomaFronteraDerecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkGomaFronteraDerecha.ForeColor = System.Drawing.SystemColors.Desktop;
             this.chkGomaFronteraDerecha.Location = new System.Drawing.Point(493, 45);
             this.chkGomaFronteraDerecha.Name = "chkGomaFronteraDerecha";
             this.chkGomaFronteraDerecha.Size = new System.Drawing.Size(140, 17);
@@ -365,6 +409,8 @@
             // chkGomaTraseraIzquierda
             // 
             this.chkGomaTraseraIzquierda.AutoSize = true;
+            this.chkGomaTraseraIzquierda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkGomaTraseraIzquierda.ForeColor = System.Drawing.SystemColors.Desktop;
             this.chkGomaTraseraIzquierda.Location = new System.Drawing.Point(295, 67);
             this.chkGomaTraseraIzquierda.Name = "chkGomaTraseraIzquierda";
             this.chkGomaTraseraIzquierda.Size = new System.Drawing.Size(139, 17);
@@ -375,6 +421,8 @@
             // chkGomaFronteraIzquierda
             // 
             this.chkGomaFronteraIzquierda.AutoSize = true;
+            this.chkGomaFronteraIzquierda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkGomaFronteraIzquierda.ForeColor = System.Drawing.SystemColors.Desktop;
             this.chkGomaFronteraIzquierda.Location = new System.Drawing.Point(295, 43);
             this.chkGomaFronteraIzquierda.Name = "chkGomaFronteraIzquierda";
             this.chkGomaFronteraIzquierda.Size = new System.Drawing.Size(142, 17);
@@ -384,6 +432,8 @@
             // 
             // txtObservaciones
             // 
+            this.txtObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtObservaciones.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtObservaciones.Location = new System.Drawing.Point(14, 99);
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
@@ -394,6 +444,8 @@
             // lblObservaciones
             // 
             this.lblObservaciones.AutoSize = true;
+            this.lblObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObservaciones.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblObservaciones.Location = new System.Drawing.Point(11, 83);
             this.lblObservaciones.Name = "lblObservaciones";
             this.lblObservaciones.Size = new System.Drawing.Size(81, 13);
@@ -403,6 +455,8 @@
             // lblCantidadCombustible
             // 
             this.lblCantidadCombustible.AutoSize = true;
+            this.lblCantidadCombustible.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidadCombustible.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblCantidadCombustible.Location = new System.Drawing.Point(11, 29);
             this.lblCantidadCombustible.Name = "lblCantidadCombustible";
             this.lblCantidadCombustible.Size = new System.Drawing.Size(112, 13);
@@ -412,6 +466,8 @@
             // chkTieneRoturasCristal
             // 
             this.chkTieneRoturasCristal.AutoSize = true;
+            this.chkTieneRoturasCristal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkTieneRoturasCristal.ForeColor = System.Drawing.SystemColors.Desktop;
             this.chkTieneRoturasCristal.Location = new System.Drawing.Point(764, 115);
             this.chkTieneRoturasCristal.Name = "chkTieneRoturasCristal";
             this.chkTieneRoturasCristal.Size = new System.Drawing.Size(124, 17);
@@ -422,6 +478,8 @@
             // chkTieneGato
             // 
             this.chkTieneGato.AutoSize = true;
+            this.chkTieneGato.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkTieneGato.ForeColor = System.Drawing.SystemColors.Desktop;
             this.chkTieneGato.Location = new System.Drawing.Point(764, 92);
             this.chkTieneGato.Name = "chkTieneGato";
             this.chkTieneGato.Size = new System.Drawing.Size(79, 17);
@@ -432,6 +490,8 @@
             // chkTieneRayadura
             // 
             this.chkTieneRayadura.AutoSize = true;
+            this.chkTieneRayadura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkTieneRayadura.ForeColor = System.Drawing.SystemColors.Desktop;
             this.chkTieneRayadura.Location = new System.Drawing.Point(764, 69);
             this.chkTieneRayadura.Name = "chkTieneRayadura";
             this.chkTieneRayadura.Size = new System.Drawing.Size(102, 17);
@@ -442,6 +502,8 @@
             // chkTieneGomaRepuesto
             // 
             this.chkTieneGomaRepuesto.AutoSize = true;
+            this.chkTieneGomaRepuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkTieneGomaRepuesto.ForeColor = System.Drawing.SystemColors.Desktop;
             this.chkTieneGomaRepuesto.Location = new System.Drawing.Point(764, 45);
             this.chkTieneGomaRepuesto.Name = "chkTieneGomaRepuesto";
             this.chkTieneGomaRepuesto.Size = new System.Drawing.Size(133, 17);
@@ -452,6 +514,14 @@
             // dgvConsultaInspecciones
             // 
             this.dgvConsultaInspecciones.AutoGenerateColumns = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConsultaInspecciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvConsultaInspecciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsultaInspecciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -467,13 +537,6 @@
             this.dgvConsultaInspecciones.Size = new System.Drawing.Size(928, 147);
             this.dgvConsultaInspecciones.TabIndex = 4;
             this.dgvConsultaInspecciones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvConsultaInspecciones_CellDoubleClick);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 400);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(929, 20);
-            this.textBox1.TabIndex = 8;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -531,6 +594,13 @@
             // 
             this.inspeccionesDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.InspeccionesDTO);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 400);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(929, 20);
+            this.textBox1.TabIndex = 8;
+            // 
             // frmInspecciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -542,6 +612,7 @@
             this.Controls.Add(this.grbDatosGenerales);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.tsInspeccion);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmInspecciones";
             this.Text = "Registro de Inspecciones";
             this.Load += new System.EventHandler(this.FrmInspecciones_Load);

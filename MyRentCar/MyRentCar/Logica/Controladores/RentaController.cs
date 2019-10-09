@@ -44,19 +44,14 @@ namespace MyRentCar.Logica.Controladores
             return;
         }
 
-        //public Empleado BuscarEmpleado(int id)
-        //{
-        //    return db.Empleados.Find(id);
-        //}
-
-        //public Modelo BuscarModelo(int id)
-        //{
-        //    return db.Modelos.Find(id);
-        //}
-
         public T Buscar<T>(int id) where T : class
         {
             return db.Set<T>().Find(id);
+        }
+
+        public List<T> Traer<T>() where T : class
+        {
+            return db.Set<T>().ToList();
         }
     }
 }

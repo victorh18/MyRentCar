@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tsCombustibles = new System.Windows.Forms.ToolStrip();
             this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -74,6 +75,14 @@
             // dgvCombustibles
             // 
             this.dgvCombustibles.AutoGenerateColumns = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCombustibles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCombustibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCombustibles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.descripcionDataGridViewTextBoxColumn,
@@ -112,6 +121,7 @@
             this.Controls.Add(this.dgvCombustibles);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.tsCombustibles);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmCombustibles";
             this.Text = "frmCombustibles";
             this.Load += new System.EventHandler(this.FrmCombustibles_Load);

@@ -20,7 +20,7 @@ namespace MyRentCar.Utilitarios.DTOs
         {
             get
             {
-                return this.vehiculo.Descripcion;
+                return this.vehiculo?.Descripcion ?? "";
             }
         }
 
@@ -28,21 +28,21 @@ namespace MyRentCar.Utilitarios.DTOs
         {
             get
             {
-                return this.vehiculo.NumeroChasis;
+                return this.vehiculo?.NumeroChasis ?? "";
             }
         }
         public string NumeroMotor
         {
             get
             {
-                return this.vehiculo.NumeroMotor;
+                return this.vehiculo?.NumeroMotor ?? "";
             }
         }
         public string NumeroPlaca
         {
             get
             {
-                return this.vehiculo.NumeroPlaca;
+                return this.vehiculo?.NumeroPlaca ?? "";
 
             }
         }
@@ -50,21 +50,21 @@ namespace MyRentCar.Utilitarios.DTOs
         {
             get
             {
-                return this.vehiculo.Modelo.Descripcion;
+                return this.vehiculo?.Modelo?.Descripcion ?? "";
             }
         }
         public string Marca
         {
             get
             {
-                return this.vehiculo.Modelo.Marca.Descripcion;
+                return this.vehiculo?.Modelo?.Marca?.Descripcion ?? "";
             }
         }
         public string Combustible
         {
             get
             {
-                return this.vehiculo.TipoCombustible.Descripcion;
+                return this.vehiculo?.TipoCombustible?.Descripcion ?? "";
             }
         }
 

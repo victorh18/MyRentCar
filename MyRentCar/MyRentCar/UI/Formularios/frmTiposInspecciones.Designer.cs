@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvTiposInspecciones = new System.Windows.Forms.DataGridView();
+            this.tsTiposInspecciones = new System.Windows.Forms.ToolStrip();
+            this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tipoInspeccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tsTiposInspecciones = new System.Windows.Forms.ToolStrip();
-            this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTiposInspecciones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoInspeccionBindingSource)).BeginInit();
             this.tsTiposInspecciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoInspeccionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -54,9 +55,15 @@
             // 
             // dgvTiposInspecciones
             // 
-            this.dgvTiposInspecciones.AllowUserToAddRows = false;
-            this.dgvTiposInspecciones.AllowUserToDeleteRows = false;
             this.dgvTiposInspecciones.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTiposInspecciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTiposInspecciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTiposInspecciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -65,35 +72,10 @@
             this.dgvTiposInspecciones.DataSource = this.tipoInspeccionBindingSource;
             this.dgvTiposInspecciones.Location = new System.Drawing.Point(4, 84);
             this.dgvTiposInspecciones.Name = "dgvTiposInspecciones";
-            this.dgvTiposInspecciones.ReadOnly = true;
             this.dgvTiposInspecciones.Size = new System.Drawing.Size(784, 382);
             this.dgvTiposInspecciones.TabIndex = 1;
             this.dgvTiposInspecciones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTiposInspecciones_CellDoubleClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "NO. TIPO";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // descripcionDataGridViewTextBoxColumn
-            // 
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "DESCRIPCIÓN";
-            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            this.descripcionDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // estadoDataGridViewTextBoxColumn
-            // 
-            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "Estado";
-            this.estadoDataGridViewTextBoxColumn.HeaderText = "ESTADO";
-            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
-            this.estadoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estadoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // tipoInspeccionBindingSource
-            // 
-            this.tipoInspeccionBindingSource.DataSource = typeof(MyRentCar.Data.Modelos.TipoInspeccion);
+            this.dgvTiposInspecciones.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.DgvTiposInspecciones_UserDeletingRow);
             // 
             // tsTiposInspecciones
             // 
@@ -115,6 +97,32 @@
             this.tsbGuardar.Text = "Guardar";
             this.tsbGuardar.Click += new System.EventHandler(this.TsbGuardar_Click);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "NO. TIPO";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "DESCRIPCIÓN";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // estadoDataGridViewTextBoxColumn
+            // 
+            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "Estado";
+            this.estadoDataGridViewTextBoxColumn.HeaderText = "ESTADO";
+            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            this.estadoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estadoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // tipoInspeccionBindingSource
+            // 
+            this.tipoInspeccionBindingSource.DataSource = typeof(MyRentCar.Data.Modelos.TipoInspeccion);
+            // 
             // frmTiposInspecciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,13 +131,14 @@
             this.Controls.Add(this.tsTiposInspecciones);
             this.Controls.Add(this.dgvTiposInspecciones);
             this.Controls.Add(this.lblTitulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmTiposInspecciones";
-            this.Text = "Registro de Tipos de Inspecciones";
+            this.Text = "B";
             this.Load += new System.EventHandler(this.FrmTiposInspecciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTiposInspecciones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoInspeccionBindingSource)).EndInit();
             this.tsTiposInspecciones.ResumeLayout(false);
             this.tsTiposInspecciones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoInspeccionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,9 +150,9 @@
         private System.Windows.Forms.DataGridView dgvTiposInspecciones;
         private System.Windows.Forms.ToolStrip tsTiposInspecciones;
         private System.Windows.Forms.ToolStripButton tsbGuardar;
+        private System.Windows.Forms.BindingSource tipoInspeccionBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource tipoInspeccionBindingSource;
     }
 }

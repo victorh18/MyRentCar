@@ -43,9 +43,10 @@
             // lblTitulo
             // 
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(12, 31);
+            this.lblTitulo.Location = new System.Drawing.Point(7, 31);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(867, 53);
+            this.lblTitulo.Size = new System.Drawing.Size(584, 34);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "REGISTRO DE TIPOS DE DOCUMENTOS";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -57,7 +58,7 @@
             this.tsbGuardar});
             this.tsTiposDocumentos.Location = new System.Drawing.Point(0, 0);
             this.tsTiposDocumentos.Name = "tsTiposDocumentos";
-            this.tsTiposDocumentos.Size = new System.Drawing.Size(893, 31);
+            this.tsTiposDocumentos.Size = new System.Drawing.Size(602, 31);
             this.tsTiposDocumentos.TabIndex = 1;
             this.tsTiposDocumentos.Text = "toolStrip1";
             // 
@@ -78,10 +79,11 @@
             this.dgvTiposDocumentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.descripcionDataGridViewTextBoxColumn});
             this.dgvTiposDocumentos.DataSource = this.tipoDocumentoBindingSource;
-            this.dgvTiposDocumentos.Location = new System.Drawing.Point(18, 88);
+            this.dgvTiposDocumentos.Location = new System.Drawing.Point(11, 67);
+            this.dgvTiposDocumentos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvTiposDocumentos.Name = "dgvTiposDocumentos";
             this.dgvTiposDocumentos.RowTemplate.Height = 28;
-            this.dgvTiposDocumentos.Size = new System.Drawing.Size(861, 350);
+            this.dgvTiposDocumentos.Size = new System.Drawing.Size(580, 240);
             this.dgvTiposDocumentos.TabIndex = 2;
             this.dgvTiposDocumentos.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvTiposDocumentos_UserDeletingRow);
             // 
@@ -98,12 +100,14 @@
             // 
             // frmTiposDocumentos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(893, 450);
+            this.ClientSize = new System.Drawing.Size(602, 318);
             this.Controls.Add(this.dgvTiposDocumentos);
             this.Controls.Add(this.tsTiposDocumentos);
             this.Controls.Add(this.lblTitulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmTiposDocumentos";
             this.Text = "Registro de Tipos de Documentos";
             this.Load += new System.EventHandler(this.frmTiposDocumentos_Load);

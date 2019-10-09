@@ -48,8 +48,18 @@ namespace MyRentCar.UI.Formularios
                 }
 
                 MessageBox.Show("Los datos fueron guardados correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.tipoInspeccionBindingSource.DataSource = new BindingList<TipoInspeccion>(controller.TraerTiposInspecciones());
             }
 
+        }
+
+        private void DgvTiposInspecciones_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            TipoInspeccion tipoInspeccion = (tipoInspeccionBindingSource.Current as TipoInspeccion);
+            if (controller.ExisteTipoInspeccion(tipoInspeccion))
+            {
+                controller.Remover(tipoInspeccion);
+            }
         }
     }
 }

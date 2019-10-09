@@ -34,6 +34,11 @@ namespace MyRentCar.Logica.Controladores
             this.db.SaveChanges();
         }
 
+        public void Remover(TipoInspeccion tipoInspeccion)
+        {
+            db.TiposInspecciones.Remove(tipoInspeccion);
+        }
+
        
 
     }

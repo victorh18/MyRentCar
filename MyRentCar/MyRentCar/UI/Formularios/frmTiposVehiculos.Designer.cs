@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tsTiposVehiculos = new System.Windows.Forms.ToolStrip();
             this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvTiposVehiculos = new System.Windows.Forms.DataGridView();
+            this.tipoVehiculoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.tipoVehiculoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tsTiposVehiculos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTiposVehiculos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoVehiculoBindingSource)).BeginInit();
@@ -74,6 +76,14 @@
             // dgvTiposVehiculos
             // 
             this.dgvTiposVehiculos.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTiposVehiculos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTiposVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTiposVehiculos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.descripcionDataGridViewTextBoxColumn,
@@ -86,9 +96,15 @@
             this.dgvTiposVehiculos.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.DgvTiposVehiculos_RowsRemoved);
             this.dgvTiposVehiculos.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.DgvTiposVehiculos_UserDeletingRow);
             // 
+            // tipoVehiculoBindingSource
+            // 
+            this.tipoVehiculoBindingSource.DataSource = typeof(MyRentCar.Data.Modelos.TipoVehiculo);
+            // 
             // descripcionDataGridViewTextBoxColumn
             // 
             this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descripcionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.descripcionDataGridViewTextBoxColumn.HeaderText = "DESCRIPCIÓN";
             this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
             this.descripcionDataGridViewTextBoxColumn.Width = 500;
@@ -101,10 +117,6 @@
             this.estadoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.estadoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // tipoVehiculoBindingSource
-            // 
-            this.tipoVehiculoBindingSource.DataSource = typeof(MyRentCar.Data.Modelos.TipoVehiculo);
-            // 
             // frmTiposVehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -113,6 +125,7 @@
             this.Controls.Add(this.dgvTiposVehiculos);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.tsTiposVehiculos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmTiposVehiculos";
             this.Text = "frmTiposVehiculos";
             this.Load += new System.EventHandler(this.FrmTiposVehiculos_Load);
@@ -130,9 +143,9 @@
         private System.Windows.Forms.ToolStrip tsTiposVehiculos;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.DataGridView dgvTiposVehiculos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource tipoVehiculoBindingSource;
         private System.Windows.Forms.ToolStripButton tsbGuardar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewTextBoxColumn;
     }
 }

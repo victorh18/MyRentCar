@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tsEmpleados = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -127,17 +128,21 @@
             this.grbCliente.Controls.Add(this.lblTandaLaboral);
             this.grbCliente.Controls.Add(this.clblCedula);
             this.grbCliente.Controls.Add(this.lblNombre);
+            this.grbCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbCliente.ForeColor = System.Drawing.SystemColors.Highlight;
             this.grbCliente.Location = new System.Drawing.Point(13, 74);
             this.grbCliente.Margin = new System.Windows.Forms.Padding(2);
             this.grbCliente.Name = "grbCliente";
             this.grbCliente.Padding = new System.Windows.Forms.Padding(2);
-            this.grbCliente.Size = new System.Drawing.Size(892, 148);
+            this.grbCliente.Size = new System.Drawing.Size(892, 138);
             this.grbCliente.TabIndex = 2;
             this.grbCliente.TabStop = false;
             this.grbCliente.Text = "Cliente";
             // 
             // txtCedula
             // 
+            this.txtCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedula.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtCedula.Location = new System.Drawing.Point(296, 42);
             this.txtCedula.Mask = "000-0000000-0";
             this.txtCedula.Name = "txtCedula";
@@ -148,6 +153,7 @@
             // dtpFechaIngreso
             // 
             this.dtpFechaIngreso.CustomFormat = "dd/MM/yyyy";
+            this.dtpFechaIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaIngreso.Location = new System.Drawing.Point(296, 96);
             this.dtpFechaIngreso.Name = "dtpFechaIngreso";
@@ -156,14 +162,18 @@
             // 
             // nudPorcientoComision
             // 
-            this.nudPorcientoComision.Location = new System.Drawing.Point(26, 96);
+            this.nudPorcientoComision.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudPorcientoComision.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.nudPorcientoComision.Location = new System.Drawing.Point(16, 96);
             this.nudPorcientoComision.Name = "nudPorcientoComision";
-            this.nudPorcientoComision.Size = new System.Drawing.Size(226, 20);
+            this.nudPorcientoComision.Size = new System.Drawing.Size(240, 20);
             this.nudPorcientoComision.TabIndex = 9;
             // 
             // cbxTandaLaboral
             // 
             this.cbxTandaLaboral.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTandaLaboral.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTandaLaboral.ForeColor = System.Drawing.SystemColors.Desktop;
             this.cbxTandaLaboral.FormattingEnabled = true;
             this.cbxTandaLaboral.Items.AddRange(new object[] {
             "MATUTINA",
@@ -171,20 +181,24 @@
             "NOCTURNA"});
             this.cbxTandaLaboral.Location = new System.Drawing.Point(591, 41);
             this.cbxTandaLaboral.Name = "cbxTandaLaboral";
-            this.cbxTandaLaboral.Size = new System.Drawing.Size(238, 21);
+            this.cbxTandaLaboral.Size = new System.Drawing.Size(281, 21);
             this.cbxTandaLaboral.TabIndex = 8;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(26, 41);
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.txtNombre.Location = new System.Drawing.Point(16, 41);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(226, 20);
+            this.txtNombre.Size = new System.Drawing.Size(240, 20);
             this.txtNombre.TabIndex = 6;
             // 
             // chkEstado
             // 
             this.chkEstado.AutoSize = true;
-            this.chkEstado.Location = new System.Drawing.Point(686, 96);
+            this.chkEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkEstado.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.chkEstado.Location = new System.Drawing.Point(716, 96);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(56, 17);
             this.chkEstado.TabIndex = 5;
@@ -194,6 +208,8 @@
             // lblFechaIngreso
             // 
             this.lblFechaIngreso.AutoSize = true;
+            this.lblFechaIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaIngreso.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblFechaIngreso.Location = new System.Drawing.Point(296, 79);
             this.lblFechaIngreso.Name = "lblFechaIngreso";
             this.lblFechaIngreso.Size = new System.Drawing.Size(78, 13);
@@ -203,7 +219,9 @@
             // lblPorcientoComision
             // 
             this.lblPorcientoComision.AutoSize = true;
-            this.lblPorcientoComision.Location = new System.Drawing.Point(23, 79);
+            this.lblPorcientoComision.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPorcientoComision.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lblPorcientoComision.Location = new System.Drawing.Point(13, 79);
             this.lblPorcientoComision.Name = "lblPorcientoComision";
             this.lblPorcientoComision.Size = new System.Drawing.Size(100, 13);
             this.lblPorcientoComision.TabIndex = 3;
@@ -212,6 +230,8 @@
             // lblTandaLaboral
             // 
             this.lblTandaLaboral.AutoSize = true;
+            this.lblTandaLaboral.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTandaLaboral.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblTandaLaboral.Location = new System.Drawing.Point(588, 25);
             this.lblTandaLaboral.Name = "lblTandaLaboral";
             this.lblTandaLaboral.Size = new System.Drawing.Size(79, 13);
@@ -221,6 +241,8 @@
             // clblCedula
             // 
             this.clblCedula.AutoSize = true;
+            this.clblCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clblCedula.ForeColor = System.Drawing.SystemColors.Desktop;
             this.clblCedula.Location = new System.Drawing.Point(293, 25);
             this.clblCedula.Name = "clblCedula";
             this.clblCedula.Size = new System.Drawing.Size(43, 13);
@@ -230,7 +252,9 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(23, 25);
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lblNombre.Location = new System.Drawing.Point(13, 25);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(47, 13);
             this.lblNombre.TabIndex = 0;
@@ -243,6 +267,14 @@
             this.dgvEmpleados.AllowUserToResizeColumns = false;
             this.dgvEmpleados.AllowUserToResizeRows = false;
             this.dgvEmpleados.AutoGenerateColumns = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombreDataGridViewTextBoxColumn,
@@ -251,9 +283,9 @@
             this.fechaIngresoDataGridViewTextBoxColumn,
             this.estadoDataGridViewTextBoxColumn});
             this.dgvEmpleados.DataSource = this.empleadoBindingSource;
-            this.dgvEmpleados.Location = new System.Drawing.Point(13, 285);
+            this.dgvEmpleados.Location = new System.Drawing.Point(13, 261);
             this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.Size = new System.Drawing.Size(887, 152);
+            this.dgvEmpleados.Size = new System.Drawing.Size(887, 176);
             this.dgvEmpleados.TabIndex = 3;
             this.dgvEmpleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEmpleados_CellDoubleClick);
             // 
@@ -299,9 +331,9 @@
             // 
             // txtBusqueda
             // 
-            this.txtBusqueda.Location = new System.Drawing.Point(13, 259);
+            this.txtBusqueda.Location = new System.Drawing.Point(13, 235);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(851, 20);
+            this.txtBusqueda.Size = new System.Drawing.Size(887, 20);
             this.txtBusqueda.TabIndex = 4;
             // 
             // frmEmpleados
@@ -314,6 +346,7 @@
             this.Controls.Add(this.grbCliente);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tsEmpleados);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmEmpleados";
             this.Text = "Registro de Empleados";

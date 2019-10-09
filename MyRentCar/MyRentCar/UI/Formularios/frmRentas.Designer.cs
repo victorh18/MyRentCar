@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tlspRentas = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
@@ -57,15 +58,14 @@
             this.txtNumeroRenta = new System.Windows.Forms.TextBox();
             this.lblNumeroRenta = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.rentaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.numeroRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehiculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placaVehiculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empleadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rentaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.tlspRentas.SuspendLayout();
             this.grbDatosRenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadDias)).BeginInit();
@@ -120,7 +120,7 @@
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(13, 29);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(928, 53);
+            this.lblTitulo.Size = new System.Drawing.Size(1046, 53);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "REGISTRO DE RENTAS";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -148,6 +148,8 @@
             this.grbDatosRenta.Controls.Add(this.lblEmpleado);
             this.grbDatosRenta.Controls.Add(this.txtNumeroRenta);
             this.grbDatosRenta.Controls.Add(this.lblNumeroRenta);
+            this.grbDatosRenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbDatosRenta.ForeColor = System.Drawing.SystemColors.Highlight;
             this.grbDatosRenta.Location = new System.Drawing.Point(17, 86);
             this.grbDatosRenta.Name = "grbDatosRenta";
             this.grbDatosRenta.Size = new System.Drawing.Size(1042, 224);
@@ -157,6 +159,8 @@
             // 
             // nudCantidadDias
             // 
+            this.nudCantidadDias.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudCantidadDias.ForeColor = System.Drawing.SystemColors.Desktop;
             this.nudCantidadDias.Location = new System.Drawing.Point(631, 102);
             this.nudCantidadDias.Name = "nudCantidadDias";
             this.nudCantidadDias.Size = new System.Drawing.Size(203, 20);
@@ -164,6 +168,8 @@
             // 
             // nudMontoPorDia
             // 
+            this.nudMontoPorDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudMontoPorDia.ForeColor = System.Drawing.SystemColors.Desktop;
             this.nudMontoPorDia.Location = new System.Drawing.Point(423, 103);
             this.nudMontoPorDia.Name = "nudMontoPorDia";
             this.nudMontoPorDia.Size = new System.Drawing.Size(187, 20);
@@ -172,6 +178,7 @@
             // dtpFechaDevolucion
             // 
             this.dtpFechaDevolucion.CustomFormat = "dd/MM/yyyy";
+            this.dtpFechaDevolucion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaDevolucion.Location = new System.Drawing.Point(215, 103);
             this.dtpFechaDevolucion.Name = "dtpFechaDevolucion";
@@ -181,6 +188,7 @@
             // dtpFechaRenta
             // 
             this.dtpFechaRenta.CustomFormat = "dd/MM/yyyy";
+            this.dtpFechaRenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaRenta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaRenta.Location = new System.Drawing.Point(22, 103);
             this.dtpFechaRenta.Name = "dtpFechaRenta";
@@ -190,6 +198,8 @@
             // txtVehiculo
             // 
             this.txtVehiculo.BackColor = System.Drawing.SystemColors.Info;
+            this.txtVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVehiculo.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtVehiculo.Location = new System.Drawing.Point(631, 42);
             this.txtVehiculo.Name = "txtVehiculo";
             this.txtVehiculo.ReadOnly = true;
@@ -200,6 +210,8 @@
             // lblVehiculo
             // 
             this.lblVehiculo.AutoSize = true;
+            this.lblVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVehiculo.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblVehiculo.Location = new System.Drawing.Point(628, 25);
             this.lblVehiculo.Name = "lblVehiculo";
             this.lblVehiculo.Size = new System.Drawing.Size(53, 13);
@@ -209,6 +221,8 @@
             // chkEstado
             // 
             this.chkEstado.AutoSize = true;
+            this.chkEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkEstado.ForeColor = System.Drawing.SystemColors.Desktop;
             this.chkEstado.Location = new System.Drawing.Point(898, 105);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(56, 17);
@@ -219,6 +233,8 @@
             // txtCliente
             // 
             this.txtCliente.BackColor = System.Drawing.SystemColors.Info;
+            this.txtCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCliente.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtCliente.Location = new System.Drawing.Point(855, 42);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.ReadOnly = true;
@@ -230,6 +246,8 @@
             // txtPlacaVehiculo
             // 
             this.txtPlacaVehiculo.BackColor = System.Drawing.SystemColors.Info;
+            this.txtPlacaVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlacaVehiculo.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtPlacaVehiculo.Location = new System.Drawing.Point(423, 42);
             this.txtPlacaVehiculo.Name = "txtPlacaVehiculo";
             this.txtPlacaVehiculo.ReadOnly = true;
@@ -241,6 +259,8 @@
             // txtEmpleado
             // 
             this.txtEmpleado.BackColor = System.Drawing.SystemColors.Info;
+            this.txtEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmpleado.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtEmpleado.Location = new System.Drawing.Point(215, 42);
             this.txtEmpleado.Name = "txtEmpleado";
             this.txtEmpleado.ReadOnly = true;
@@ -250,6 +270,8 @@
             // 
             // txtComentario
             // 
+            this.txtComentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtComentario.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtComentario.Location = new System.Drawing.Point(19, 154);
             this.txtComentario.Multiline = true;
             this.txtComentario.Name = "txtComentario";
@@ -259,6 +281,8 @@
             // lblComentario
             // 
             this.lblComentario.AutoSize = true;
+            this.lblComentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblComentario.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblComentario.Location = new System.Drawing.Point(16, 138);
             this.lblComentario.Name = "lblComentario";
             this.lblComentario.Size = new System.Drawing.Size(63, 13);
@@ -268,6 +292,8 @@
             // lblCantidadDias
             // 
             this.lblCantidadDias.AutoSize = true;
+            this.lblCantidadDias.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidadDias.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblCantidadDias.Location = new System.Drawing.Point(628, 87);
             this.lblCantidadDias.Name = "lblCantidadDias";
             this.lblCantidadDias.Size = new System.Drawing.Size(93, 13);
@@ -277,6 +303,8 @@
             // lblMontoDia
             // 
             this.lblMontoDia.AutoSize = true;
+            this.lblMontoDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMontoDia.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblMontoDia.Location = new System.Drawing.Point(420, 86);
             this.lblMontoDia.Name = "lblMontoDia";
             this.lblMontoDia.Size = new System.Drawing.Size(79, 13);
@@ -286,6 +314,8 @@
             // lblFechaDevolucion
             // 
             this.lblFechaDevolucion.AutoSize = true;
+            this.lblFechaDevolucion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaDevolucion.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblFechaDevolucion.Location = new System.Drawing.Point(212, 87);
             this.lblFechaDevolucion.Name = "lblFechaDevolucion";
             this.lblFechaDevolucion.Size = new System.Drawing.Size(97, 13);
@@ -295,6 +325,8 @@
             // lblFechaRenta
             // 
             this.lblFechaRenta.AutoSize = true;
+            this.lblFechaRenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaRenta.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblFechaRenta.Location = new System.Drawing.Point(19, 87);
             this.lblFechaRenta.Name = "lblFechaRenta";
             this.lblFechaRenta.Size = new System.Drawing.Size(72, 13);
@@ -304,6 +336,8 @@
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
+            this.lblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCliente.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblCliente.Location = new System.Drawing.Point(852, 25);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(42, 13);
@@ -313,6 +347,8 @@
             // lblPlacaVehiculo
             // 
             this.lblPlacaVehiculo.AutoSize = true;
+            this.lblPlacaVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlacaVehiculo.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblPlacaVehiculo.Location = new System.Drawing.Point(420, 25);
             this.lblPlacaVehiculo.Name = "lblPlacaVehiculo";
             this.lblPlacaVehiculo.Size = new System.Drawing.Size(83, 13);
@@ -322,6 +358,8 @@
             // lblEmpleado
             // 
             this.lblEmpleado.AutoSize = true;
+            this.lblEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmpleado.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblEmpleado.Location = new System.Drawing.Point(212, 26);
             this.lblEmpleado.Name = "lblEmpleado";
             this.lblEmpleado.Size = new System.Drawing.Size(57, 13);
@@ -331,6 +369,8 @@
             // txtNumeroRenta
             // 
             this.txtNumeroRenta.BackColor = System.Drawing.SystemColors.Info;
+            this.txtNumeroRenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroRenta.ForeColor = System.Drawing.SystemColors.Desktop;
             this.txtNumeroRenta.Location = new System.Drawing.Point(22, 42);
             this.txtNumeroRenta.Name = "txtNumeroRenta";
             this.txtNumeroRenta.ReadOnly = true;
@@ -340,6 +380,8 @@
             // lblNumeroRenta
             // 
             this.lblNumeroRenta.AutoSize = true;
+            this.lblNumeroRenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumeroRenta.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblNumeroRenta.Location = new System.Drawing.Point(19, 26);
             this.lblNumeroRenta.Name = "lblNumeroRenta";
             this.lblNumeroRenta.Size = new System.Drawing.Size(56, 13);
@@ -349,6 +391,14 @@
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.numeroRentaDataGridViewTextBoxColumn,
@@ -356,13 +406,23 @@
             this.vehiculoDataGridViewTextBoxColumn,
             this.placaVehiculoDataGridViewTextBoxColumn,
             this.clienteDataGridViewTextBoxColumn,
-            this.empleadoDataGridViewTextBoxColumn,
-            this.estadoRentaDataGridViewTextBoxColumn});
+            this.empleadoDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.rentaDTOBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(17, 349);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1042, 224);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // rentaDTOBindingSource
+            // 
+            this.rentaDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.RentaDTO);
+            // 
+            // txtBusqueda
+            // 
+            this.txtBusqueda.Location = new System.Drawing.Point(17, 323);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(1036, 20);
+            this.txtBusqueda.TabIndex = 19;
             // 
             // numeroRentaDataGridViewTextBoxColumn
             // 
@@ -384,6 +444,7 @@
             this.vehiculoDataGridViewTextBoxColumn.HeaderText = "VEHÍCULO";
             this.vehiculoDataGridViewTextBoxColumn.Name = "vehiculoDataGridViewTextBoxColumn";
             this.vehiculoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vehiculoDataGridViewTextBoxColumn.Width = 200;
             // 
             // placaVehiculoDataGridViewTextBoxColumn
             // 
@@ -398,7 +459,7 @@
             this.clienteDataGridViewTextBoxColumn.HeaderText = "CLIENTE";
             this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
             this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.clienteDataGridViewTextBoxColumn.Width = 200;
+            this.clienteDataGridViewTextBoxColumn.Width = 250;
             // 
             // empleadoDataGridViewTextBoxColumn
             // 
@@ -406,25 +467,7 @@
             this.empleadoDataGridViewTextBoxColumn.HeaderText = "EMPLEADO";
             this.empleadoDataGridViewTextBoxColumn.Name = "empleadoDataGridViewTextBoxColumn";
             this.empleadoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.empleadoDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // estadoRentaDataGridViewTextBoxColumn
-            // 
-            this.estadoRentaDataGridViewTextBoxColumn.DataPropertyName = "EstadoRenta";
-            this.estadoRentaDataGridViewTextBoxColumn.HeaderText = "ESTADO";
-            this.estadoRentaDataGridViewTextBoxColumn.Name = "estadoRentaDataGridViewTextBoxColumn";
-            this.estadoRentaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // rentaDTOBindingSource
-            // 
-            this.rentaDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.RentaDTO);
-            // 
-            // txtBusqueda
-            // 
-            this.txtBusqueda.Location = new System.Drawing.Point(17, 323);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(879, 20);
-            this.txtBusqueda.TabIndex = 19;
+            this.empleadoDataGridViewTextBoxColumn.Width = 250;
             // 
             // frmRentas
             // 
@@ -436,6 +479,7 @@
             this.Controls.Add(this.grbDatosRenta);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.tlspRentas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmRentas";
             this.Text = "Registro de Rentas";
             this.tlspRentas.ResumeLayout(false);
@@ -478,17 +522,17 @@
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbGuardar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numeroRentaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaRentaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vehiculoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn placaVehiculoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn empleadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoRentaDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource rentaDTOBindingSource;
         private System.Windows.Forms.DateTimePicker dtpFechaRenta;
         private System.Windows.Forms.DateTimePicker dtpFechaDevolucion;
         private System.Windows.Forms.NumericUpDown nudCantidadDias;
         private System.Windows.Forms.NumericUpDown nudMontoPorDia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numeroRentaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaRentaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehiculoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn placaVehiculoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empleadoDataGridViewTextBoxColumn;
     }
 }
