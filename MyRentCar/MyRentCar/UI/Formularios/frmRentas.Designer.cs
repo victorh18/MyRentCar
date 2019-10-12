@@ -58,14 +58,14 @@
             this.txtNumeroRenta = new System.Windows.Forms.TextBox();
             this.lblNumeroRenta = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.rentaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.numeroRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehiculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placaVehiculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empleadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rentaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.tlspRentas.SuspendLayout();
             this.grbDatosRenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadDias)).BeginInit();
@@ -413,17 +413,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1042, 224);
             this.dataGridView1.TabIndex = 3;
             // 
-            // rentaDTOBindingSource
-            // 
-            this.rentaDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.RentaDTO);
-            // 
-            // txtBusqueda
-            // 
-            this.txtBusqueda.Location = new System.Drawing.Point(17, 323);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(1036, 20);
-            this.txtBusqueda.TabIndex = 19;
-            // 
             // numeroRentaDataGridViewTextBoxColumn
             // 
             this.numeroRentaDataGridViewTextBoxColumn.DataPropertyName = "NumeroRenta";
@@ -469,6 +458,17 @@
             this.empleadoDataGridViewTextBoxColumn.ReadOnly = true;
             this.empleadoDataGridViewTextBoxColumn.Width = 250;
             // 
+            // rentaDTOBindingSource
+            // 
+            this.rentaDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.RentaDTO);
+            // 
+            // txtBusqueda
+            // 
+            this.txtBusqueda.Location = new System.Drawing.Point(17, 323);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(1036, 20);
+            this.txtBusqueda.TabIndex = 19;
+            // 
             // frmRentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -482,6 +482,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmRentas";
             this.Text = "Registro de Rentas";
+            this.Load += new System.EventHandler(this.FrmRentas_Load);
             this.tlspRentas.ResumeLayout(false);
             this.tlspRentas.PerformLayout();
             this.grbDatosRenta.ResumeLayout(false);

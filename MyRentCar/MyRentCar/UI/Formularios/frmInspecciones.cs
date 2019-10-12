@@ -127,11 +127,15 @@ namespace MyRentCar.UI.Formularios
         {
             if (MessageBox.Show("¿Está seguro de que desea guardar esta inspección?", "GUARDADO", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                LlenarInspeccion(this.inspeccion);
-                this.controller.Guardar(this.inspeccion);
+                if (this.Validar())
+                {
+                    LlenarInspeccion(this.inspeccion);
+                    this.controller.Guardar(this.inspeccion);
 
-                MessageBox.Show("La inspección ha sido guardada exitosamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarConsultaInspecciones();
+                    MessageBox.Show("La inspección ha sido guardada exitosamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarConsultaInspecciones();
+                }
+                
             }
             
         }
@@ -243,6 +247,27 @@ namespace MyRentCar.UI.Formularios
         private void TxtNumeroRenta_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private bool Validar()
+        {
+            if (txtPlacaVehiculo.Text.Trim() == "" || txtVehiculo.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe seleccionar un vehículo válido", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (cbxTipoInspeccion.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar un tipo de inspección válido", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (txtEmpleado.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe seleccionar un empleado válido", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+            return true;
         }
     }
 }

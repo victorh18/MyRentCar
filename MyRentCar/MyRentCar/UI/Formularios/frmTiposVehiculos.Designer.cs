@@ -35,9 +35,9 @@
             this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvTiposVehiculos = new System.Windows.Forms.DataGridView();
-            this.tipoVehiculoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.tipoVehiculoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tsTiposVehiculos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTiposVehiculos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoVehiculoBindingSource)).BeginInit();
@@ -96,10 +96,6 @@
             this.dgvTiposVehiculos.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.DgvTiposVehiculos_RowsRemoved);
             this.dgvTiposVehiculos.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.DgvTiposVehiculos_UserDeletingRow);
             // 
-            // tipoVehiculoBindingSource
-            // 
-            this.tipoVehiculoBindingSource.DataSource = typeof(MyRentCar.Data.Modelos.TipoVehiculo);
-            // 
             // descripcionDataGridViewTextBoxColumn
             // 
             this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
@@ -117,6 +113,10 @@
             this.estadoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.estadoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // tipoVehiculoBindingSource
+            // 
+            this.tipoVehiculoBindingSource.DataSource = typeof(MyRentCar.Data.Modelos.TipoVehiculo);
+            // 
             // frmTiposVehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,7 +127,7 @@
             this.Controls.Add(this.tsTiposVehiculos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmTiposVehiculos";
-            this.Text = "frmTiposVehiculos";
+            this.Text = "Registro de Vehículos";
             this.Load += new System.EventHandler(this.FrmTiposVehiculos_Load);
             this.tsTiposVehiculos.ResumeLayout(false);
             this.tsTiposVehiculos.PerformLayout();

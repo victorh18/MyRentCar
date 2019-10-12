@@ -15,11 +15,13 @@ namespace MyRentCar.UI.Formularios
     public partial class frmBusquedaMarca : Form
     {
         public int IdMarca;
-        public MarcaController controller;
+        private MyRentCarContext db;
+        private List<Marca> marcas;
         public frmBusquedaMarca()
         {
             InitializeComponent();
-            controller = new MarcaController();
+            db = new MyRentCarContext();
+            this.marcas = this.db.Marcas.ToList();
         }
 
         private void LblTitulo_Click(object sender, EventArgs e)
@@ -27,16 +29,25 @@ namespace MyRentCar.UI.Formularios
 
         }
 
-        private void FrmBusquedaMarca_Load(object sender, EventArgs e)
-        {
-            marcaBindingSource.DataSource = controller.TraerMarcas();
-        }
-
-
         private void DgvMarcas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             this.IdMarca = (marcaBindingSource.Current as Marca).Id;
             this.Close();
+        }
+
+        private List<Marca> Filtrar(string busqueda)
+        {
+            return this.marcas.Where(m => m.Descripcion.Contains(busqueda)).ToList();
+        }
+
+        private void CargarMarcas(List<Marca> _marcas)
+        {
+            this.marcaBindingSource.DataSource = _marcas;
+        }
+
+        private void TxtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            this.CargarMarcas(this.Filtrar(txtBusqueda.Text));
         }
     }
 }

@@ -12,6 +12,7 @@ using MyRentCar.Logica.Controladores;
 using MyRentCar.Data.Modelos;
 using MyRentCar.Utilitarios.DTOs;
 using Microsoft.Reporting.WinForms;
+using System.Linq.Expressions;
 
 namespace MyRentCar.UI.Formularios.Reportes
 {
@@ -38,7 +39,8 @@ namespace MyRentCar.UI.Formularios.Reportes
         private void Button1_Click(object sender, EventArgs e)
         {
             List<RentaDTO> rentas = new List<RentaDTO>();
-            foreach (Renta r in controller.TraerRentas())
+            //foreach (Renta r in controller.TraerRentas())
+            foreach (Renta r in this.FiltrarRentas())
             {
                 rentas.Add(new RentaDTO(r));
             }
@@ -144,6 +146,39 @@ namespace MyRentCar.UI.Formularios.Reportes
         }
 
         private void LblHasta_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private List<Renta> FiltrarRentas()
+        {
+            List<Expression<Func<Renta, bool>>> condiciones = new List<Expression<Func<Renta, bool>>>();
+            if (this.cliente != null)
+            {
+                condiciones.Add(r => r.Cliente.Id == this.cliente.Id);
+            }
+
+            if (this.empleado != null)
+            {
+                condiciones.Add(r => r.Empleado.Id == this.empleado.Id);
+            }
+
+            if (this.vehiculo != null)
+            {
+                condiciones.Add(r => r.Vehiculo.Id == this.vehiculo.Id);
+                return controller.Filtrar(condiciones).ToList();
+            }
+
+            if (this.modelo != null)
+            {
+                condiciones.Add(r => r.Vehiculo.Modelo.Id == this.modelo.Id);
+                return controller.Filtrar(condiciones).ToList();
+            }
+
+            return controller.Filtrar(condiciones).ToList();
+        }
+
+        private void TxtVehiculo_TextChanged(object sender, EventArgs e)
         {
 
         }

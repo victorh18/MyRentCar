@@ -144,9 +144,13 @@ namespace MyRentCar.UI.Formularios
         {
             if (MessageBox.Show("¿Está seguro de que desea guardar la renta actual?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
-                LlenarRenta(this.renta);
-                Guardar(this.renta);
-                MessageBox.Show("Los datos de la renta se han guardado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (this.Validar())
+                {
+                    LlenarRenta(this.renta);
+                    Guardar(this.renta);
+                    MessageBox.Show("Los datos de la renta se han guardado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
             }
             
         }
@@ -181,5 +185,39 @@ namespace MyRentCar.UI.Formularios
         {
 
         }
+
+        private void FrmRentas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool Validar()
+        {
+            if (txtEmpleado.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe seleccionar un empleado válido.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (txtPlacaVehiculo.Text.Trim() == "" || txtVehiculo.Text == "")
+            {
+                MessageBox.Show("Debe seleccionar un vehículo válido.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (txtCliente.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe seleccionar un cliente válido.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (nudMontoPorDia.Value <= 0)
+            {
+                MessageBox.Show("Debe asignar un monto por día válido.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+            return true;
+
+        }
+
+        
     }
 }

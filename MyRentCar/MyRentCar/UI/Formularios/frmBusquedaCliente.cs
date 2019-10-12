@@ -15,18 +15,15 @@ namespace MyRentCar.UI.Formularios
 {
     public partial class frmBusquedaCliente : Form
     {
-        private ClienteController controller;
+        private MyRentCarContext db;
+        private List<Cliente> clientes;
         public int IdCliente;
         public frmBusquedaCliente()
         {
             InitializeComponent();
-            this.controller = new ClienteController();
-            List<ClienteDTO> clientesConsulta = new List<ClienteDTO>();
-            foreach (Cliente cliente in controller.TraerClientes())
-            {
-                clientesConsulta.Add(new ClienteDTO(cliente));
-            }
-            clienteDTOBindingSource.DataSource = clientesConsulta;
+            this.db = new MyRentCarContext();
+            this.clientes = db.Clientes.ToList();
+            
         }
 
         private void DgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -35,9 +32,24 @@ namespace MyRentCar.UI.Formularios
             this.Close();
         }
 
-        private void DgvClientes_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        private List<Cliente> Filtrar(string busqueda)
         {
+            return this.clientes.Where(c => (c.Nombre + c.NumeroDocumento).Contains(busqueda)).ToList();
+        }
 
+        private void CargarClientes(IEnumerable<Cliente> _clientes)
+        {
+            List<ClienteDTO> clientesConsulta = new List<ClienteDTO>();
+            foreach (Cliente cliente in _clientes)
+            {
+                clientesConsulta.Add(new ClienteDTO(cliente));
+            }
+            clienteDTOBindingSource.DataSource = clientesConsulta;
+        }
+
+        private void TxtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            this.CargarClientes(this.Filtrar(txtBusqueda.Text));
         }
     }
 }

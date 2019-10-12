@@ -85,7 +85,7 @@
             this.tsTiposInspecciones.Name = "tsTiposInspecciones";
             this.tsTiposInspecciones.Size = new System.Drawing.Size(800, 25);
             this.tsTiposInspecciones.TabIndex = 2;
-            this.tsTiposInspecciones.Text = "toolStrip1";
+            this.tsTiposInspecciones.Text = "tsTiposInspecciones";
             // 
             // tsbGuardar
             // 
@@ -133,7 +133,7 @@
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmTiposInspecciones";
-            this.Text = "B";
+            this.Text = "Registro de Tipos de Inspecciones";
             this.Load += new System.EventHandler(this.FrmTiposInspecciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTiposInspecciones)).EndInit();
             this.tsTiposInspecciones.ResumeLayout(false);

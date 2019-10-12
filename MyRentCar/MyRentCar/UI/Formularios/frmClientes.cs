@@ -113,13 +113,17 @@ namespace MyRentCar.UI.Formularios
         {
             if (MessageBox.Show("¿Estás seguro de que deseas guardar el cliente actual?", "GUARDAR", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                LlenarCliente(this.cliente);
-                if (ValidarCliente(this.cliente))
+                if (this.Validar())
                 {
-                    controller.Guardar(this.cliente);
+                    LlenarCliente(this.cliente);
+                    if (ValidarCliente(this.cliente))
+                    {
+                        controller.Guardar(this.cliente);
+                    }
+                    MessageBox.Show("Los datos del cliente han sido guardados correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarClientesConsulta();
                 }
-                MessageBox.Show("Los datos del cliente han sido guardados correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarClientesConsulta();
+                
             }
         }
 
@@ -160,6 +164,26 @@ namespace MyRentCar.UI.Formularios
                 HabilitarControles(false);
             }
             
+        }
+
+        public bool Validar()
+        {
+            if (txtNombre.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe digitar el nombre del cliente.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (txtNumeroDocumento.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe digitar el número de documento del cliente.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (cbxTipoDocumento.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar el tipo de documento del cliente.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            return true;
         }
     }
 }

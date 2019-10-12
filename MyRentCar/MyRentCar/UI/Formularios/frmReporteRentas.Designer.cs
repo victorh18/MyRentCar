@@ -239,6 +239,7 @@
             this.txtVehiculo.Name = "txtVehiculo";
             this.txtVehiculo.Size = new System.Drawing.Size(213, 20);
             this.txtVehiculo.TabIndex = 5;
+            this.txtVehiculo.TextChanged += new System.EventHandler(this.TxtVehiculo_TextChanged);
             this.txtVehiculo.DoubleClick += new System.EventHandler(this.TxtVehiculo_DoubleClick);
             // 
             // lblVehiculo

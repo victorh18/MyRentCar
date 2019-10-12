@@ -36,6 +36,7 @@
             this.nombreModeloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoModeloDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.modeloDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModelos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modeloDTOBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -71,9 +72,9 @@
             this.nombreModeloDataGridViewTextBoxColumn,
             this.estadoModeloDataGridViewCheckBoxColumn});
             this.dgvModelos.DataSource = this.modeloDTOBindingSource;
-            this.dgvModelos.Location = new System.Drawing.Point(4, 51);
+            this.dgvModelos.Location = new System.Drawing.Point(4, 85);
             this.dgvModelos.Name = "dgvModelos";
-            this.dgvModelos.Size = new System.Drawing.Size(885, 387);
+            this.dgvModelos.Size = new System.Drawing.Size(885, 353);
             this.dgvModelos.TabIndex = 1;
             this.dgvModelos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvModelos_CellDoubleClick);
             // 
@@ -104,11 +105,20 @@
             // 
             this.modeloDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.ModeloDTO);
             // 
+            // txtBusqueda
+            // 
+            this.txtBusqueda.Location = new System.Drawing.Point(4, 59);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(885, 20);
+            this.txtBusqueda.TabIndex = 2;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.TxtBusqueda_TextChanged);
+            // 
             // frmBusquedaModelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 450);
+            this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.dgvModelos);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -118,6 +128,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvModelos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.modeloDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -129,5 +140,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreModeloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn estadoModeloDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingSource modeloDTOBindingSource;
+        private System.Windows.Forms.TextBox txtBusqueda;
     }
 }

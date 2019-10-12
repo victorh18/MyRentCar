@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.tsTiposDocumentos = new System.Windows.Forms.ToolStrip();
             this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
@@ -75,12 +76,20 @@
             // dgvTiposDocumentos
             // 
             this.dgvTiposDocumentos.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTiposDocumentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTiposDocumentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTiposDocumentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.descripcionDataGridViewTextBoxColumn});
             this.dgvTiposDocumentos.DataSource = this.tipoDocumentoBindingSource;
             this.dgvTiposDocumentos.Location = new System.Drawing.Point(11, 67);
-            this.dgvTiposDocumentos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvTiposDocumentos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvTiposDocumentos.Name = "dgvTiposDocumentos";
             this.dgvTiposDocumentos.RowTemplate.Height = 28;
             this.dgvTiposDocumentos.Size = new System.Drawing.Size(580, 240);
@@ -107,7 +116,7 @@
             this.Controls.Add(this.tsTiposDocumentos);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmTiposDocumentos";
             this.Text = "Registro de Tipos de Documentos";
             this.Load += new System.EventHandler(this.frmTiposDocumentos_Load);

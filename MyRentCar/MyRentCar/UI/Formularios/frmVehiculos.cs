@@ -92,7 +92,7 @@ namespace MyRentCar.UI.Formularios
 
         private void FrmVehiculos_Load(object sender, EventArgs e)
         {
-
+            Filtrar();
         }
         
         private void Guardar(Vehiculo _vehiculo)
@@ -160,7 +160,8 @@ namespace MyRentCar.UI.Formularios
 
         private void CargarVehiculosConsultas()
         {
-            List<VehiculoDTO> vehiculosConsulta = new List<VehiculoDTO>();
+            //List<VehiculoDTO> vehiculosConsulta = new List<VehiculoDTO>();
+            BindingSource vehiculosConsulta = new BindingSource();
             foreach (Vehiculo v in controller.TraerVehiculos())
             {
                 vehiculosConsulta.Add(new VehiculoDTO(v));
@@ -207,6 +208,11 @@ namespace MyRentCar.UI.Formularios
         {
             MessageBox.Show(mensaje, "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             return;
+        }
+
+        private void Filtrar()
+        {
+            this.vehiculoDTOBindingSource.Filter = @"Marca = 'MAZDA'";
         }
     }
 }

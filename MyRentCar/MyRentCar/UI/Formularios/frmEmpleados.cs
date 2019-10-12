@@ -69,9 +69,17 @@ namespace MyRentCar.UI.Formularios
 
         private void Guardar(Empleado _empleado)
         {
-            controller.Guardar(_empleado);
-            MessageBox.Show($"El empleado {_empleado.Nombre} ha sido guardado correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            CargarEmpleadosConsulta();
+            if (MessageBox.Show("¿Está seguro de que desea guardar el registro actual?", "GUARDAR", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                if (this.Validar())
+                {
+                    controller.Guardar(_empleado);
+                    MessageBox.Show($"El empleado {_empleado.Nombre} ha sido guardado correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarEmpleadosConsulta();
+                }
+
+            }
+            
         }
 
         private void Eliminar(Empleado _empleado)
@@ -113,6 +121,27 @@ namespace MyRentCar.UI.Formularios
         {
             empleado = empleadoBindingSource.Current as Empleado;
             MostrarEmpleado(empleado);
+        }
+
+        private bool Validar()
+        {
+            if (txtNombre.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe digitar el nombre del empleado.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (txtCedula.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe digitar la cédula del empleado.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (cbxTandaLaboral.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar una tanda laboral.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+            return true;
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using MyRentCar.Data.Modelos;
@@ -52,6 +54,16 @@ namespace MyRentCar.Logica.Controladores
         public List<T> Traer<T>() where T : class
         {
             return db.Set<T>().ToList();
+        }
+
+        public List<Renta> Filtrar(List<Expression<Func<Renta, bool>>> filtros)
+        {
+            var rentas = db.Rentas.Where(r => 1 == 1);
+            foreach (var condicion in filtros)
+            {
+                rentas = rentas.Where(condicion);
+            }
+            return rentas.ToList();
         }
     }
 }
