@@ -16,19 +16,21 @@ namespace MyRentCar.UI.Formularios
     public partial class frmRentas : Form
     {
         private RentaController controller;
+        private List<Renta> rentas;
         private Renta renta;
         public frmRentas()
         {
             InitializeComponent();
             controller = new RentaController();
-            CargarConsultaRentas();
+            this.rentas = this.controller.TraerRentas();
+            CargarConsultaRentas(this.rentas);
             HabilitarCampos(false);
         }
 
-        private void CargarConsultaRentas()
+        private void CargarConsultaRentas(List<Renta> _rentas)
         {
             List<RentaDTO> rentasConsulta = new List<RentaDTO>();
-            foreach (Renta r in controller.TraerRentas())
+            foreach (Renta r in _rentas)
             {
                 rentasConsulta.Add(new RentaDTO(r));
             }
@@ -52,7 +54,7 @@ namespace MyRentCar.UI.Formularios
         private void LlenarRenta(Renta _renta)
         {
             _renta.FechaRenta = dtpFechaRenta.Value;
-            //_renta.FechaDevolucion = dtpFechaDevolucion.Value;
+            _renta.FechaDevolucion = dtpFechaDevolucion.Value;
             _renta.DiasRenta = (int) nudCantidadDias.Value;
             _renta.MontoDia = nudMontoPorDia.Value;
             _renta.Comentario = txtComentario.Text;
@@ -103,9 +105,21 @@ namespace MyRentCar.UI.Formularios
         {
             if (MessageBox.Show("¿Está seguro de que desea eliminar la renta actual?","ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
-                this.controller.Eliminar(renta);
-                LimpiarCampos();
-                HabilitarCampos(false);
+                if (_renta == null)
+                {
+                    MessageBox.Show("Debe seleccionar una renta antes de eliminar.", "ELIMINAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    this.controller.Eliminar(_renta);
+                    LimpiarCampos();
+                    HabilitarCampos(false);
+                    MessageBox.Show("La renta ha sido eliminada correctamente.", "ELIMINAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    this.renta = null;
+                    this.rentas = this.controller.TraerRentas();
+                    CargarConsultaRentas(this.rentas);
+                }
+                
             }
         }
 
@@ -114,7 +128,7 @@ namespace MyRentCar.UI.Formularios
             frmBusquedaCliente f = new frmBusquedaCliente();
             f.ShowDialog();
             this.renta.Cliente = controller.Buscar<Cliente>(f.IdCliente);
-            txtCliente.Text = this.renta.Cliente.Nombre;
+            txtCliente.Text = this.renta?.Cliente?.Nombre ?? "";
         }
 
         private void BuscarVehiculo()
@@ -149,6 +163,8 @@ namespace MyRentCar.UI.Formularios
                     LlenarRenta(this.renta);
                     Guardar(this.renta);
                     MessageBox.Show("Los datos de la renta se han guardado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.rentas = this.controller.TraerRentas();
+                    CargarConsultaRentas(this.rentas);
                 }
                 
             }
@@ -218,6 +234,26 @@ namespace MyRentCar.UI.Formularios
 
         }
 
-        
+        private List<Renta> Filtrar(string busqueda)
+        {
+            return this.rentas.Where(r => (r.Vehiculo?.Modelo?.Marca?.Descripcion ?? "" + r.Vehiculo?.Modelo?.Descripcion ?? "" + r.Vehiculo?.NumeroPlaca ?? "" + r.Cliente?.Nombre ?? "" + r.Cliente?.NumeroDocumento ?? "" + r.Empleado?.Nombre ?? "").Contains(busqueda)).ToList();
+        }
+
+        private void TxtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            this.CargarConsultaRentas(this.Filtrar(txtBusqueda.Text));
+        }
+
+        private void TsbEliminar_Click(object sender, EventArgs e)
+        {
+            this.Eliminar(this.renta);
+        }
+
+        private void DgvRentas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.renta = (this.rentaDTOBindingSource.Current as RentaDTO).Renta;
+            HabilitarCampos(true);
+            MostrarRenta(this.renta);
+        }
     }
 }

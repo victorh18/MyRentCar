@@ -16,14 +16,16 @@ namespace MyRentCar.UI.Formularios
     public partial class frmInspecciones : Form
     {
         private InspeccionController controller;
+        private List<Inspeccion> inspecciones;
         private Inspeccion inspeccion;
         public frmInspecciones()
         {
             InitializeComponent();
             this.controller = new InspeccionController();
+            this.inspecciones = this.controller.TraerInspecciones();
             LimpiarCampos();
             HabilitarControles(false);
-            CargarConsultaInspecciones();
+            CargarConsultaInspecciones(this.inspecciones);
             cbxTipoInspeccion.DataSource = this.controller.TraerTiposInspeccion();
             cbxTipoInspeccion.DisplayMember = "Descripcion";
             cbxTipoInspeccion.ValueMember = "Id";
@@ -82,7 +84,7 @@ namespace MyRentCar.UI.Formularios
             txtPlacaVehiculo.Text = _inspeccion?.Vehiculo?.NumeroPlaca ?? "";
             txtVehiculo.Text = _inspeccion?.Vehiculo?.NombreVehiculo ?? "";
             cbxTipoInspeccion.SelectedItem = _inspeccion?.TipoInspeccion;
-            txtCliente.Text = _inspeccion?.Cliente?.Nombre ?? "";
+            txtCliente.Text = _inspeccion?.Renta?.Cliente?.Nombre ?? "";
             txtEmpleado.Text = _inspeccion?.Empleado?.Nombre;
             dtpFechaInspeccion.Value = _inspeccion?.Fecha ?? DateTime.MinValue;
             chkEstado.Checked = _inspeccion?.Estado ?? false;
@@ -133,7 +135,8 @@ namespace MyRentCar.UI.Formularios
                     this.controller.Guardar(this.inspeccion);
 
                     MessageBox.Show("La inspección ha sido guardada exitosamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CargarConsultaInspecciones();
+                    this.inspecciones = this.controller.TraerInspecciones();
+                    CargarConsultaInspecciones(this.inspecciones);
                 }
                 
             }
@@ -144,14 +147,24 @@ namespace MyRentCar.UI.Formularios
         {
             if (MessageBox.Show("¿Está seguro de que desea eliminar la inspección actual?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                if (controller.ExisteInspeccion(this.inspeccion))
+                if (_inspeccion == null)
                 {
-                    controller.Eliminar(this.inspeccion);
+                    MessageBox.Show("Debe seleccionar una inspección antes de eliminar.", "ELIMINAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-                LimpiarCampos();
-                HabilitarControles(false);
-                MessageBox.Show("La inspección ha sido eliminado exitosamente.", "ELIMINAR", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarConsultaInspecciones();
+                else
+                {
+                    if (controller.ExisteInspeccion(_inspeccion))
+                    {
+                        controller.Eliminar(_inspeccion);
+                    }
+                    LimpiarCampos();
+                    HabilitarControles(false);
+                    MessageBox.Show("La inspección ha sido eliminado exitosamente.", "ELIMINAR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.inspecciones = this.controller.TraerInspecciones();
+                    this.inspeccion = null;
+                    CargarConsultaInspecciones(this.inspecciones);
+                }
+                
             }
 
         }
@@ -182,10 +195,10 @@ namespace MyRentCar.UI.Formularios
             txtCliente.Text = this.inspeccion?.Renta?.Cliente?.Nombre;
         }
 
-        private void CargarConsultaInspecciones()
+        private void CargarConsultaInspecciones(List<Inspeccion> _inspecciones)
         {
             List<InspeccionesDTO> inspeccionesConsulta = new List<InspeccionesDTO>();
-            foreach (Inspeccion inspeccion in this.controller.TraerInspecciones())
+            foreach (Inspeccion inspeccion in _inspecciones)
             {
                 inspeccionesConsulta.Add(new InspeccionesDTO(inspeccion));
             }
@@ -249,6 +262,11 @@ namespace MyRentCar.UI.Formularios
 
         }
 
+        private List<Inspeccion> Filtrar(string busqueda)
+        {
+            return this.inspecciones.Where(i => (i.Renta?.Cliente?.Nombre ?? "" + i.Empleado?.Nombre ?? "" + i.Vehiculo?.NombreVehiculo ?? "" + i.Vehiculo?.NumeroPlaca ?? "").Contains(busqueda)).ToList();
+        }
+
         private bool Validar()
         {
             if (txtPlacaVehiculo.Text.Trim() == "" || txtVehiculo.Text.Trim() == "")
@@ -268,6 +286,11 @@ namespace MyRentCar.UI.Formularios
             }
 
             return true;
+        }
+
+        private void TxtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            this.CargarConsultaInspecciones(this.Filtrar(txtBusqueda.Text));
         }
     }
 }

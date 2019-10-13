@@ -109,7 +109,7 @@ namespace MyRentCar.Data.Modelos
             modelBuilder.Entity<Renta>()
                 .HasMany(r => r.Inspecciones)
                 .WithOptional(i => i.Renta)
-                .HasForeignKey(r => r.IdRenta);
+                .HasForeignKey(i => i.IdRenta);
         }
     }
 }

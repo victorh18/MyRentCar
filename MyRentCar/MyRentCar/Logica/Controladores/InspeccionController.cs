@@ -16,7 +16,7 @@ namespace MyRentCar.Logica.Controladores
         }
         public List<Inspeccion> TraerInspecciones()
         {
-            return db.Inspecciones.ToList();
+            return db.Inspecciones.Include("Renta").Include("Vehiculo").ToList();
         }
 
         public bool ExisteInspeccion(Inspeccion inspeccion)

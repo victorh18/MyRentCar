@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMarcas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tsMarcas = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbGuardar = new System.Windows.Forms.ToolStripButton();
@@ -45,13 +44,13 @@
             this.lblNumeroMarca = new System.Windows.Forms.Label();
             this.grbModelos = new System.Windows.Forms.GroupBox();
             this.dgvModelos = new System.Windows.Forms.DataGridView();
-            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.TipoVehiculo = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TipoVehiculo = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tipoVehiculoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.modeloBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tsMarcas.SuspendLayout();
             this.grbMarca.SuspendLayout();
             this.grbModelos.SuspendLayout();
@@ -216,35 +215,11 @@
             this.estadoDataGridViewTextBoxColumn,
             this.TipoVehiculo});
             this.dgvModelos.DataSource = this.modeloBindingSource;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvModelos.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvModelos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvModelos.Location = new System.Drawing.Point(10, 20);
             this.dgvModelos.Name = "dgvModelos";
             this.dgvModelos.Size = new System.Drawing.Size(872, 250);
             this.dgvModelos.TabIndex = 0;
-            // 
-            // dataGridViewComboBoxColumn1
-            // 
-            this.dataGridViewComboBoxColumn1.DataPropertyName = "TipoVehiculo";
-            this.dataGridViewComboBoxColumn1.HeaderText = "TIPO VEHICULO";
-            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
-            // 
-            // TipoVehiculo
-            // 
-            this.TipoVehiculo.DataPropertyName = "IdTipoVehiculo";
-            this.TipoVehiculo.DataSource = this.tipoVehiculoBindingSource;
-            this.TipoVehiculo.DisplayMember = "Descripcion";
-            this.TipoVehiculo.HeaderText = "TIPO VEHICULO";
-            this.TipoVehiculo.Name = "TipoVehiculo";
-            this.TipoVehiculo.ValueMember = "Id";
-            this.TipoVehiculo.Width = 150;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -268,6 +243,16 @@
             this.estadoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.estadoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // TipoVehiculo
+            // 
+            this.TipoVehiculo.DataPropertyName = "IdTipoVehiculo";
+            this.TipoVehiculo.DataSource = this.tipoVehiculoBindingSource;
+            this.TipoVehiculo.DisplayMember = "Descripcion";
+            this.TipoVehiculo.HeaderText = "TIPO VEHICULO";
+            this.TipoVehiculo.Name = "TipoVehiculo";
+            this.TipoVehiculo.ValueMember = "Id";
+            this.TipoVehiculo.Width = 150;
+            // 
             // tipoVehiculoBindingSource
             // 
             this.tipoVehiculoBindingSource.DataSource = typeof(MyRentCar.Data.Modelos.TipoVehiculo);
@@ -275,6 +260,12 @@
             // modeloBindingSource
             // 
             this.modeloBindingSource.DataSource = typeof(MyRentCar.Data.Modelos.Modelo);
+            // 
+            // dataGridViewComboBoxColumn1
+            // 
+            this.dataGridViewComboBoxColumn1.DataPropertyName = "TipoVehiculo";
+            this.dataGridViewComboBoxColumn1.HeaderText = "TIPO VEHICULO";
+            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
             // 
             // frmMarcas
             // 
@@ -287,7 +278,7 @@
             this.Controls.Add(this.tsMarcas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMarcas";
-            this.Text = "frmMarcas";
+            this.Text = "REGISTRO DE MARCAS";
             this.Load += new System.EventHandler(this.FrmMarcas_Load);
             this.tsMarcas.ResumeLayout(false);
             this.tsMarcas.PerformLayout();

@@ -16,11 +16,14 @@ namespace MyRentCar.UI.Formularios
     {
         private EmpleadoController controller;
         private Empleado empleado;
+        private List<Empleado> empleados;
         public frmEmpleados()
         {
             InitializeComponent();
             controller = new EmpleadoController();
-            CargarEmpleadosConsulta();
+            this.empleados = this.controller.TraerEmpleados();
+            CargarEmpleadosConsulta(this.empleados);
+            HabilitarControles(false);
             
         }
 
@@ -32,7 +35,6 @@ namespace MyRentCar.UI.Formularios
         private void NuevoEmpleado()
         {
             empleado = new Empleado();
-            //MostrarEmpleado(empleado);
             LimpiarCampos();
             HabilitarControles(true);
         }
@@ -42,7 +44,7 @@ namespace MyRentCar.UI.Formularios
             txtNombre.Text = _empleado?.Nombre ?? "";
             txtCedula.Text = _empleado?.Cedula ?? "";
             nudPorcientoComision.Value = _empleado?.PorcientoComision ?? 0;
-            cbxTandaLaboral.SelectedText = _empleado?.TandaLaboral;
+            cbxTandaLaboral.SelectedItem = _empleado?.TandaLaboral;
             chkEstado.Checked = _empleado?.Estado ?? false;
             dtpFechaIngreso.Value = _empleado.FechaIngreso;
         }
@@ -70,13 +72,11 @@ namespace MyRentCar.UI.Formularios
         private void Guardar(Empleado _empleado)
         {
             if (MessageBox.Show("¿Está seguro de que desea guardar el registro actual?", "GUARDAR", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                if (this.Validar())
-                {
-                    controller.Guardar(_empleado);
-                    MessageBox.Show($"El empleado {_empleado.Nombre} ha sido guardado correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CargarEmpleadosConsulta();
-                }
+            { 
+                controller.Guardar(_empleado);
+                MessageBox.Show($"El empleado {_empleado.Nombre} ha sido guardado correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.empleados = controller.TraerEmpleados();
+                CargarEmpleadosConsulta(this.empleados);
 
             }
             
@@ -84,7 +84,18 @@ namespace MyRentCar.UI.Formularios
 
         private void Eliminar(Empleado _empleado)
         {
-            controller.Eliminar(_empleado);
+            if (this.empleado == null)
+            {
+                MessageBox.Show("Debe seleccionar un empleado antes de eliminar.", "ELIMINAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                controller.Eliminar(_empleado);
+                this.empleados = controller.TraerEmpleados();
+                this.CargarEmpleadosConsulta(this.empleados);
+                MessageBox.Show("El empleado ha sido eliminado satisfactoriamente.", "ELIMINAR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
 
         private void TsbNuevo_Click(object sender, EventArgs e)
@@ -102,25 +113,16 @@ namespace MyRentCar.UI.Formularios
             dtpFechaIngreso.Value = DateTime.Now;
         }
 
-        private void CargarEmpleadosConsulta()
+        private void CargarEmpleadosConsulta(List<Empleado> empleados)
         {
-            empleadoBindingSource.DataSource = controller.TraerEmpleados();
-        }
-
-        private void ToolStripButton2_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("¿Está seguro de que desea guardar al empleado actual?", "VERIFICAR", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                LlenarEmpleado(empleado);
-                Guardar(empleado);
-
-            }
+            empleadoBindingSource.DataSource = empleados;
         }
 
         private void DgvEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            empleado = empleadoBindingSource.Current as Empleado;
-            MostrarEmpleado(empleado);
+            this.empleado = empleadoBindingSource.Current as Empleado;
+            MostrarEmpleado(this.empleado);
+            HabilitarControles(true);
         }
 
         private bool Validar()
@@ -142,6 +144,43 @@ namespace MyRentCar.UI.Formularios
             }
 
             return true;
+        }
+
+        private void TsEmpleados_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TsbGuardar_Click(object sender, EventArgs e)
+        {
+            if (this.Validar())
+            {
+                LlenarEmpleado(empleado);
+                Guardar(empleado);
+            }
+        }
+
+        private void TsbEliminar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro de que desea eliminar al empleado actual?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                this.Eliminar(this.empleado);
+                LimpiarCampos();
+                HabilitarControles(false);
+                this.empleado = null;
+                
+            }
+            
+        }
+
+        private List<Empleado> Filtrar(string busqueda)
+        {
+            return this.empleados.Where(e => (e.Nombre + e.Cedula).Contains(busqueda)).ToList();
+        }
+
+        private void TxtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            this.CargarEmpleadosConsulta(this.Filtrar(txtBusqueda.Text));
         }
     }
 }

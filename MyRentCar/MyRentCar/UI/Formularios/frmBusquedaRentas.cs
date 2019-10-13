@@ -31,6 +31,12 @@ namespace MyRentCar.UI.Formularios
         private void DgvRentas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             this.IdRenta = (rentaDTOBindingSource.Current as RentaDTO).Renta.Id;
+            this.Close();
+        }
+
+        private void DgvRentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

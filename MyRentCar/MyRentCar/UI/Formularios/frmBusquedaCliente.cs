@@ -23,6 +23,7 @@ namespace MyRentCar.UI.Formularios
             InitializeComponent();
             this.db = new MyRentCarContext();
             this.clientes = db.Clientes.ToList();
+            this.CargarClientes(this.clientes);
             
         }
 
@@ -50,6 +51,12 @@ namespace MyRentCar.UI.Formularios
         private void TxtBusqueda_TextChanged(object sender, EventArgs e)
         {
             this.CargarClientes(this.Filtrar(txtBusqueda.Text));
+        }
+
+        private void DgvClientes_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            this.IdCliente = (this.clienteDTOBindingSource.Current as ClienteDTO).Cliente.Id;
+            this.Close();
         }
     }
 }

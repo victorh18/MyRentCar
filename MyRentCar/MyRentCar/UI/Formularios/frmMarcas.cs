@@ -137,6 +137,7 @@ namespace MyRentCar.UI.Formularios
                     controller.Eliminar(marca);
                 }
                 LimpiarCampos();
+                HabilitarControles(false);
                 MessageBox.Show("La marca ha sido eliminada correctamente.", "REGISTRO ELIMINADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             return;

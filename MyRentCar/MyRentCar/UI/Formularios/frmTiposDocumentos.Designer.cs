@@ -75,6 +75,7 @@
             // 
             // dgvTiposDocumentos
             // 
+            this.dgvTiposDocumentos.AllowUserToDeleteRows = false;
             this.dgvTiposDocumentos.AutoGenerateColumns = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;

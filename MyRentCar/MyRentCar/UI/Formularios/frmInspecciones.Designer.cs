@@ -75,7 +75,7 @@
             this.nombreClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreEmpleadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inspeccionesDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.tsInspeccion.SuspendLayout();
             this.grbDatosGenerales.SuspendLayout();
             this.grbDatosInspeccion.SuspendLayout();
@@ -594,19 +594,20 @@
             // 
             this.inspeccionesDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.InspeccionesDTO);
             // 
-            // textBox1
+            // txtBusqueda
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 400);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(929, 20);
-            this.textBox1.TabIndex = 8;
+            this.txtBusqueda.Location = new System.Drawing.Point(12, 400);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(929, 20);
+            this.txtBusqueda.TabIndex = 8;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.TxtBusqueda_TextChanged);
             // 
             // frmInspecciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(953, 585);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.dgvConsultaInspecciones);
             this.Controls.Add(this.grbDatosInspeccion);
             this.Controls.Add(this.grbDatosGenerales);
@@ -660,7 +661,7 @@
         private System.Windows.Forms.CheckBox chkGomaTraseraIzquierda;
         private System.Windows.Forms.CheckBox chkGomaFronteraIzquierda;
         private System.Windows.Forms.DataGridView dgvConsultaInspecciones;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.TextBox txtNumeroRenta;
         private System.Windows.Forms.Label lblNumeroRenta;
         private System.Windows.Forms.ToolStripButton tsbNuevo;

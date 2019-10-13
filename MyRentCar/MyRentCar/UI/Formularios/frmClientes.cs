@@ -16,12 +16,14 @@ namespace MyRentCar.UI.Formularios
     public partial class frmClientes : Form
     {
         private ClienteController controller;
+        private List<Cliente> clientes;
         private Cliente cliente;
         public frmClientes()
         {
             InitializeComponent();
             controller = new ClienteController();
-            CargarClientesConsulta();
+            this.clientes = this.controller.TraerClientes();
+            CargarClientesConsulta(this.clientes);
             HabilitarControles(false);
             cbxTipoDocumento.DataSource = controller.TraerTiposDocumentos();
             cbxTipoDocumento.DisplayMember = "Descripcion";
@@ -90,10 +92,10 @@ namespace MyRentCar.UI.Formularios
             
         }
 
-        private void CargarClientesConsulta()
+        private void CargarClientesConsulta(List<Cliente> _clientes)
         {
             List<ClienteDTO> clientesConsulta = new List<ClienteDTO>();
-            foreach (Cliente c in controller.TraerClientes())
+            foreach (Cliente c in _clientes)
             {
                 clientesConsulta.Add(new ClienteDTO(c));
             }
@@ -119,9 +121,11 @@ namespace MyRentCar.UI.Formularios
                     if (ValidarCliente(this.cliente))
                     {
                         controller.Guardar(this.cliente);
+                        MessageBox.Show("Los datos del cliente han sido guardados correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.clientes = this.controller.TraerClientes();
+                        CargarClientesConsulta(this.clientes);
                     }
-                    MessageBox.Show("Los datos del cliente han sido guardados correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CargarClientesConsulta();
+                    
                 }
                 
             }
@@ -158,10 +162,19 @@ namespace MyRentCar.UI.Formularios
         {
             if (MessageBox.Show($"¿Está seguro de que desea eliminar al cliente actual {cliente?.Nombre}?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
-                controller.Eliminar(cliente);
-                LimpiarControles();
-                CargarClientesConsulta();
-                HabilitarControles(false);
+                if (this.cliente != null)
+                {
+                    controller.Eliminar(cliente);
+                    LimpiarControles();
+                    this.cliente = null;
+                    this.clientes = this.controller.TraerClientes();
+                    CargarClientesConsulta(this.clientes);
+                    HabilitarControles(false);
+                } else
+                {
+                    MessageBox.Show("Debe seleccionar un cliente antes de eliminar.", "ELIMINAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                
             }
             
         }
@@ -184,6 +197,15 @@ namespace MyRentCar.UI.Formularios
                 return false;
             }
             return true;
+        }
+
+        private List<Cliente> Filtrar(string busqueda)
+        {
+            return this.clientes.Where(c => (c.Nombre + c.NumeroDocumento).Contains(busqueda)).ToList();
+        }
+        private void TxtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            this.CargarClientesConsulta(this.Filtrar(txtBusqueda.Text));
         }
     }
 }

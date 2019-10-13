@@ -60,15 +60,15 @@
             // mnuMantenimientos
             // 
             this.mnuMantenimientos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuMarcas,
             this.mnuTiposVehiculos,
             this.mnuCombustibles,
+            this.mnuTiposDocumentos,
+            this.tiposDeInspeccionesToolStripMenuItem,
+            this.mnuMarcas,
             this.mnuVehiculos,
             this.empleadosToolStripMenuItem,
-            this.mnuTiposDocumentos,
             this.mnuClientes,
             this.mnuRenta,
-            this.tiposDeInspeccionesToolStripMenuItem,
             this.inspeccionesToolStripMenuItem});
             this.mnuMantenimientos.Name = "mnuMantenimientos";
             this.mnuMantenimientos.Size = new System.Drawing.Size(106, 20);
@@ -155,7 +155,7 @@
             // rentasToolStripMenuItem
             // 
             this.rentasToolStripMenuItem.Name = "rentasToolStripMenuItem";
-            this.rentasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rentasToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.rentasToolStripMenuItem.Text = "Rentas";
             this.rentasToolStripMenuItem.Click += new System.EventHandler(this.RentasToolStripMenuItem_Click);
             // 

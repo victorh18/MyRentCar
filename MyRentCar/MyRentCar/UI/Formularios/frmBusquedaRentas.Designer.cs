@@ -31,14 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvRentas = new System.Windows.Forms.DataGridView();
-            this.rentaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.numeroRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehiculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placaVehiculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empleadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.rentaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentaDTOBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -65,19 +64,15 @@
             this.vehiculoDataGridViewTextBoxColumn,
             this.placaVehiculoDataGridViewTextBoxColumn,
             this.clienteDataGridViewTextBoxColumn,
-            this.empleadoDataGridViewTextBoxColumn,
-            this.estadoRentaDataGridViewTextBoxColumn});
+            this.empleadoDataGridViewTextBoxColumn});
             this.dgvRentas.DataSource = this.rentaDTOBindingSource;
             this.dgvRentas.Location = new System.Drawing.Point(13, 66);
             this.dgvRentas.Name = "dgvRentas";
             this.dgvRentas.ReadOnly = true;
             this.dgvRentas.Size = new System.Drawing.Size(956, 372);
             this.dgvRentas.TabIndex = 1;
+            this.dgvRentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvRentas_CellContentClick);
             this.dgvRentas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvRentas_CellDoubleClick);
-            // 
-            // rentaDTOBindingSource
-            // 
-            this.rentaDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.RentaDTO);
             // 
             // numeroRentaDataGridViewTextBoxColumn
             // 
@@ -124,14 +119,9 @@
             this.empleadoDataGridViewTextBoxColumn.ReadOnly = true;
             this.empleadoDataGridViewTextBoxColumn.Width = 200;
             // 
-            // estadoRentaDataGridViewTextBoxColumn
+            // rentaDTOBindingSource
             // 
-            this.estadoRentaDataGridViewTextBoxColumn.DataPropertyName = "EstadoRenta";
-            this.estadoRentaDataGridViewTextBoxColumn.HeaderText = "ESTADO";
-            this.estadoRentaDataGridViewTextBoxColumn.Name = "estadoRentaDataGridViewTextBoxColumn";
-            this.estadoRentaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.estadoRentaDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estadoRentaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.rentaDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.RentaDTO);
             // 
             // frmBusquedaRentas
             // 

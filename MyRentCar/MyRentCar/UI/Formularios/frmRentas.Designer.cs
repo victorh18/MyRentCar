@@ -57,7 +57,8 @@
             this.lblEmpleado = new System.Windows.Forms.Label();
             this.txtNumeroRenta = new System.Windows.Forms.TextBox();
             this.lblNumeroRenta = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvRentas = new System.Windows.Forms.DataGridView();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.numeroRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehiculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,12 +66,11 @@
             this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empleadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rentaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.tlspRentas.SuspendLayout();
             this.grbDatosRenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadDias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMontoPorDia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentaDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,6 +114,7 @@
             this.tsbEliminar.Name = "tsbEliminar";
             this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
             this.tsbEliminar.Text = "toolStripButton3";
+            this.tsbEliminar.Click += new System.EventHandler(this.TsbEliminar_Click);
             // 
             // lblTitulo
             // 
@@ -388,9 +389,9 @@
             this.lblNumeroRenta.TabIndex = 0;
             this.lblNumeroRenta.Text = "No. Renta";
             // 
-            // dataGridView1
+            // dgvRentas
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
+            this.dgvRentas.AutoGenerateColumns = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -398,20 +399,29 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvRentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvRentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.numeroRentaDataGridViewTextBoxColumn,
             this.fechaRentaDataGridViewTextBoxColumn,
             this.vehiculoDataGridViewTextBoxColumn,
             this.placaVehiculoDataGridViewTextBoxColumn,
             this.clienteDataGridViewTextBoxColumn,
             this.empleadoDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.rentaDTOBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 349);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1042, 224);
-            this.dataGridView1.TabIndex = 3;
+            this.dgvRentas.DataSource = this.rentaDTOBindingSource;
+            this.dgvRentas.Location = new System.Drawing.Point(17, 349);
+            this.dgvRentas.Name = "dgvRentas";
+            this.dgvRentas.Size = new System.Drawing.Size(1042, 224);
+            this.dgvRentas.TabIndex = 3;
+            this.dgvRentas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvRentas_CellDoubleClick);
+            // 
+            // txtBusqueda
+            // 
+            this.txtBusqueda.Location = new System.Drawing.Point(17, 323);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(1036, 20);
+            this.txtBusqueda.TabIndex = 19;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.TxtBusqueda_TextChanged);
             // 
             // numeroRentaDataGridViewTextBoxColumn
             // 
@@ -462,20 +472,13 @@
             // 
             this.rentaDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.RentaDTO);
             // 
-            // txtBusqueda
-            // 
-            this.txtBusqueda.Location = new System.Drawing.Point(17, 323);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(1036, 20);
-            this.txtBusqueda.TabIndex = 19;
-            // 
             // frmRentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 585);
             this.Controls.Add(this.txtBusqueda);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvRentas);
             this.Controls.Add(this.grbDatosRenta);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.tlspRentas);
@@ -489,7 +492,7 @@
             this.grbDatosRenta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadDias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMontoPorDia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRentas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentaDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -516,7 +519,7 @@
         private System.Windows.Forms.Label lblEmpleado;
         private System.Windows.Forms.TextBox txtNumeroRenta;
         private System.Windows.Forms.Label lblNumeroRenta;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvRentas;
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.TextBox txtVehiculo;
         private System.Windows.Forms.Label lblVehiculo;

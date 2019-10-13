@@ -22,6 +22,7 @@ namespace MyRentCar.UI.Formularios
             InitializeComponent();
             db = new MyRentCarContext();
             this.marcas = this.db.Marcas.ToList();
+            this.CargarMarcas(marcas);
         }
 
         private void LblTitulo_Click(object sender, EventArgs e)

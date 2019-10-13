@@ -17,6 +17,7 @@ namespace MyRentCar.UI.Formularios
     public partial class frmVehiculos : Form
     { 
         private VehiculosController controller;
+        private List<Vehiculo> vehiculos;
         private Vehiculo vehiculo;
         public frmVehiculos()
         {
@@ -29,7 +30,8 @@ namespace MyRentCar.UI.Formularios
             HabilitarControles(false);
             tsbGuardar.Enabled = false;
             tsbEliminar.Enabled = false;
-            CargarVehiculosConsultas();
+            this.vehiculos = controller.TraerVehiculos();
+            CargarVehiculosConsultas(this.vehiculos);
         }
         
         private void LlenarVehiculo(Vehiculo _vehiculo)
@@ -92,14 +94,14 @@ namespace MyRentCar.UI.Formularios
 
         private void FrmVehiculos_Load(object sender, EventArgs e)
         {
-            Filtrar();
         }
         
         private void Guardar(Vehiculo _vehiculo)
         {
             controller.Guardar(_vehiculo);
             MessageBox.Show("El vehículo ha sido guardado correctamente.", "GUARDADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            CargarVehiculosConsultas();
+            this.vehiculos = controller.TraerVehiculos();
+            CargarVehiculosConsultas(this.vehiculos);
 
             
         }
@@ -134,7 +136,9 @@ namespace MyRentCar.UI.Formularios
                 HabilitarControles(false);
                 tsbGuardar.Enabled = false;
                 tsbEliminar.Enabled = false;
-                CargarVehiculosConsultas();
+                this.vehiculo = null;
+                this.vehiculos = controller.TraerVehiculos();
+                CargarVehiculosConsultas(this.vehiculos);
                 return;
             }
         }
@@ -158,11 +162,10 @@ namespace MyRentCar.UI.Formularios
             BuscarModelo();
         }
 
-        private void CargarVehiculosConsultas()
+        private void CargarVehiculosConsultas(List<Vehiculo> _vehiculos)
         {
-            //List<VehiculoDTO> vehiculosConsulta = new List<VehiculoDTO>();
-            BindingSource vehiculosConsulta = new BindingSource();
-            foreach (Vehiculo v in controller.TraerVehiculos())
+            List<VehiculoDTO> vehiculosConsulta = new List<VehiculoDTO>();
+            foreach (Vehiculo v in _vehiculos)
             {
                 vehiculosConsulta.Add(new VehiculoDTO(v));
             }
@@ -210,9 +213,14 @@ namespace MyRentCar.UI.Formularios
             return;
         }
 
-        private void Filtrar()
+        private List<Vehiculo> Filtrar(string busqueda)
         {
-            this.vehiculoDTOBindingSource.Filter = @"Marca = 'MAZDA'";
+            return this.vehiculos.Where(v => (v.Modelo.Descripcion + v.Modelo.Marca.Descripcion + v.NumeroPlaca).Contains(busqueda)).ToList();
+        }
+
+        private void TxtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            this.CargarVehiculosConsultas(this.Filtrar(txtBusqueda.Text));
         }
     }
 }
