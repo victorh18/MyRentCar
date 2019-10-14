@@ -23,15 +23,21 @@ namespace MyRentCar.UI.Formularios.Reportes
         private Empleado empleado;
         private Vehiculo vehiculo;
         private Modelo modelo;
+        private TipoCombustible tipoCombustible;
+        private TipoVehiculo tipoVehiculo;
         public frmReporteRentas()
         {
             InitializeComponent();
             this.controller = new RentaController();
-            cbxCombustible.DataSource = controller.Traer<TipoCombustible>();
+            List<TipoCombustible> combustibles = controller.Traer<TipoCombustible>();
+            combustibles.Insert(0, new TipoCombustible());
+            cbxCombustible.DataSource = combustibles;
             cbxCombustible.DisplayMember = "Descripcion";
             cbxCombustible.ValueMember = "Id";
 
-            cbxTipoVehiculo.DataSource = controller.Traer<TipoVehiculo>();
+            List<TipoVehiculo> tiposVehiculos = controller.Traer<TipoVehiculo>();
+            tiposVehiculos.Insert(0, new TipoVehiculo());
+            cbxTipoVehiculo.DataSource = tiposVehiculos;
             cbxTipoVehiculo.DisplayMember = "Descripcion";
             cbxTipoVehiculo.ValueMember = "Id";
         }
@@ -133,11 +139,13 @@ namespace MyRentCar.UI.Formularios.Reportes
         private void CbxTipoVehiculo_SelectionChangeCommitted(object sender, EventArgs e)
         {
             LimpiarVehiculos();
+            this.tipoVehiculo = this.cbxTipoVehiculo.SelectedItem as TipoVehiculo;
         }
 
         private void CbxCombustible_SelectionChangeCommitted(object sender, EventArgs e)
         {
             LimpiarVehiculos();
+            this.tipoCombustible = this.cbxCombustible.SelectedItem as TipoCombustible;
         }
 
         private void LblFechaDesde_Click(object sender, EventArgs e)
@@ -163,6 +171,17 @@ namespace MyRentCar.UI.Formularios.Reportes
                 condiciones.Add(r => r.Empleado.Id == this.empleado.Id);
             }
 
+            if (this.tipoCombustible != null && this.cbxCombustible.SelectedText.Trim() != "")
+            {
+                condiciones.Add(r => r.Vehiculo.TipoCombustible.Id == this.tipoCombustible.Id);
+            }
+
+            if (this.tipoVehiculo != null)
+            {
+                condiciones.Add(r => r.Vehiculo.Modelo.TipoVehiculo.Id == this.tipoVehiculo.Id);
+            }
+
+
             if (this.vehiculo != null)
             {
                 condiciones.Add(r => r.Vehiculo.Id == this.vehiculo.Id);
@@ -174,13 +193,27 @@ namespace MyRentCar.UI.Formularios.Reportes
                 condiciones.Add(r => r.Vehiculo.Modelo.Id == this.modelo.Id);
                 return controller.Filtrar(condiciones).ToList();
             }
+            
 
             return controller.Filtrar(condiciones).ToList();
         }
 
         private void TxtVehiculo_TextChanged(object sender, EventArgs e)
         {
+            if (txtVehiculo.Text.Trim() == "")
+            {
+                this.modelo = null;
+                this.vehiculo = null;
+            }
+        }
 
+        private void TxtNumeroPlaca_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNumeroPlaca.Text.Trim() == "")
+            {
+                this.vehiculo = null;
+            }
+            
         }
     }
 }

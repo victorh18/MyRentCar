@@ -58,7 +58,6 @@
             this.txtNumeroRenta = new System.Windows.Forms.TextBox();
             this.lblNumeroRenta = new System.Windows.Forms.Label();
             this.dgvRentas = new System.Windows.Forms.DataGridView();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.numeroRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaRentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehiculoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +65,7 @@
             this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empleadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rentaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.tlspRentas.SuspendLayout();
             this.grbDatosRenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadDias)).BeginInit();
@@ -172,6 +172,11 @@
             this.nudMontoPorDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudMontoPorDia.ForeColor = System.Drawing.SystemColors.Desktop;
             this.nudMontoPorDia.Location = new System.Drawing.Point(423, 103);
+            this.nudMontoPorDia.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.nudMontoPorDia.Name = "nudMontoPorDia";
             this.nudMontoPorDia.Size = new System.Drawing.Size(187, 20);
             this.nudMontoPorDia.TabIndex = 23;
@@ -415,14 +420,6 @@
             this.dgvRentas.TabIndex = 3;
             this.dgvRentas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvRentas_CellDoubleClick);
             // 
-            // txtBusqueda
-            // 
-            this.txtBusqueda.Location = new System.Drawing.Point(17, 323);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(1036, 20);
-            this.txtBusqueda.TabIndex = 19;
-            this.txtBusqueda.TextChanged += new System.EventHandler(this.TxtBusqueda_TextChanged);
-            // 
             // numeroRentaDataGridViewTextBoxColumn
             // 
             this.numeroRentaDataGridViewTextBoxColumn.DataPropertyName = "NumeroRenta";
@@ -471,6 +468,14 @@
             // rentaDTOBindingSource
             // 
             this.rentaDTOBindingSource.DataSource = typeof(MyRentCar.Utilitarios.DTOs.RentaDTO);
+            // 
+            // txtBusqueda
+            // 
+            this.txtBusqueda.Location = new System.Drawing.Point(17, 323);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(1036, 20);
+            this.txtBusqueda.TabIndex = 19;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.TxtBusqueda_TextChanged);
             // 
             // frmRentas
             // 

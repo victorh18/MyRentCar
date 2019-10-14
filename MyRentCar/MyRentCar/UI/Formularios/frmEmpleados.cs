@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyRentCar.Logica.Controladores;
 using MyRentCar.Data.Modelos;
+using MyRentCar.Utilitarios.Validaciones;
 
 namespace MyRentCar.UI.Formularios
 {
@@ -140,6 +141,11 @@ namespace MyRentCar.UI.Formularios
             else if (cbxTandaLaboral.SelectedItem == null)
             {
                 MessageBox.Show("Debe seleccionar una tanda laboral.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (!ValidacionesDatos.ValidarCedula(txtCedula.Text))
+            {
+                MessageBox.Show("La cédula digitada no es válida. Favor verificar.", "VERIFICAR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
 

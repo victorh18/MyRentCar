@@ -18,10 +18,10 @@
               <Width>1.16646in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.47896in</Width>
+              <Width>2.14563in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.22896in</Width>
+              <Width>2.54146in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -640,7 +640,7 @@
         <Top>1.33208in</Top>
         <Left>0.22917in</Left>
         <Height>0.75in</Height>
-        <Width>10.04167in</Width>
+        <Width>10.02084in</Width>
         <Style>
           <Border>
             <Style>None</Style>

@@ -217,6 +217,7 @@
             this.txtNumeroPlaca.Name = "txtNumeroPlaca";
             this.txtNumeroPlaca.Size = new System.Drawing.Size(228, 20);
             this.txtNumeroPlaca.TabIndex = 7;
+            this.txtNumeroPlaca.TextChanged += new System.EventHandler(this.TxtNumeroPlaca_TextChanged);
             this.txtNumeroPlaca.DoubleClick += new System.EventHandler(this.TxtNumeroPlaca_DoubleClick);
             // 
             // lblNumeroPlaca
@@ -255,7 +256,6 @@
             // 
             // cbxCombustible
             // 
-            this.cbxCombustible.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCombustible.FormattingEnabled = true;
             this.cbxCombustible.Location = new System.Drawing.Point(290, 36);
             this.cbxCombustible.Name = "cbxCombustible";
@@ -276,7 +276,6 @@
             // 
             // cbxTipoVehiculo
             // 
-            this.cbxTipoVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTipoVehiculo.FormattingEnabled = true;
             this.cbxTipoVehiculo.Location = new System.Drawing.Point(16, 36);
             this.cbxTipoVehiculo.Name = "cbxTipoVehiculo";

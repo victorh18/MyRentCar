@@ -162,6 +162,11 @@
             this.nudLimiteCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudLimiteCredito.ForeColor = System.Drawing.SystemColors.Desktop;
             this.nudLimiteCredito.Location = new System.Drawing.Point(323, 83);
+            this.nudLimiteCredito.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.nudLimiteCredito.Name = "nudLimiteCredito";
             this.nudLimiteCredito.Size = new System.Drawing.Size(252, 20);
             this.nudLimiteCredito.TabIndex = 9;

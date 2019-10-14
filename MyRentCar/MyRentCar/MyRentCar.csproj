@@ -229,6 +229,7 @@
     <Compile Include="Utilitarios\DTOs\VehiculoDTO.cs" />
     <Compile Include="Utilitarios\DTOs\ClienteDTO.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesCombustibles.cs" />
+    <Compile Include="Utilitarios\Validaciones\ValidacionesDatos.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesInspecciones.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesMarca.cs" />
     <Compile Include="Utilitarios\Validaciones\ValidacionesModelos.cs" />
